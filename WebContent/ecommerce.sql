@@ -50,12 +50,12 @@ VALUES ('c@gmail.com', 'giovanni', 'bianchi');
   CREATE TABLE categoria (
   nome VARCHAR(45) NOT NULL,
   descrizione VARCHAR(90) NOT NULL,
-  img BLOB NOT NULL,
+  img mediumblob,
   PRIMARY KEY (nome)
   );
   
 INSERT INTO categoria (nome, descrizione, img) 
-VALUES ('cereali', 'cereali', load_file('C:\\Users\\Raffaele\\git\\Prodotti_Locali\\img\\cereali.png'));
+VALUES ('cereali', 'cereali', NULL);
   
   CREATE TABLE prodotto (
   codice VARCHAR(20) NOT NULL,
@@ -116,7 +116,7 @@ INSERT INTO ordine (dataOrdine, ind_sped, stato, num_prodotti, data_spedizione, 
 VALUES ('2019-01-15', 'via Verdi', 'Pagato', 12, '2019-01-30', 'c@gmail.com', 20.4);
   
   CREATE TABLE relativo (
-  quantità INT NOT NULL,
+  quantita  INT NOT NULL,
   ordine INT NOT NULL,
   prodotto varchar(20) NOT NULL,
   PRIMARY KEY(ordine, prodotto),
@@ -126,17 +126,17 @@ VALUES ('2019-01-15', 'via Verdi', 'Pagato', 12, '2019-01-30', 'c@gmail.com', 20
   ON DELETE CASCADE ON UPDATE CASCADE
   );
 
-INSERT INTO relativo (quantità, ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (10, 1, '00007');
 
-INSERT INTO relativo (quantità, ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (2, 2, '00006');
 
-INSERT INTO relativo (quantità, ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (1, 2, '00008');
 
-INSERT INTO relativo (quantità, ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (6, 2, '00005');
 
-INSERT INTO relativo (quantità, ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (3, 1, '00005');
