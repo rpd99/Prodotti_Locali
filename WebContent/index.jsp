@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert title hereAHAHAHA</title>
 </head>
 <body>
 	<div class="image"><img src="a.png" alt="no image"></div>
