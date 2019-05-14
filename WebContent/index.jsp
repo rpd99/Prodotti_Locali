@@ -11,6 +11,7 @@
 	<div class="text">Vi offriamo Prodotti sani, necessari e fondamentali per il benessere del nostro organismo</div>
 	<div id="categories">
 		Funziona????SIaaaaaaaaaa
+		adsdfsdfasdfa
 	</div>
 </body>
 </html>
