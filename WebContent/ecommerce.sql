@@ -55,11 +55,7 @@ VALUES ('c@gmail.com', 'giovanni', 'bianchi');
   );
   
 INSERT INTO categoria (nome, descrizione, img) 
-VALUES ('cereali', 'cereali', load_file('/cereali.png'));
-
-INSERT INTO categoria (nome, descrizione, img)  
-VALUES ('legumi', 'legumi', LOAD_FILE('/home/raffaele/Dropbox/CODING/TSW/PORT/Prodotti_Locali/img/legumi.png'));
-  
+VALUES ('cereali', 'cereali', load_file('C:\\Users\\Raffaele\\git\\Prodotti_Locali\\img\\cereali.png'));
   
   CREATE TABLE prodotto (
   codice VARCHAR(20) NOT NULL,
