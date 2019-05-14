@@ -10,7 +10,7 @@
 	<div class="image"><img src="a.png" alt="no image"></div>
 	<div class="text">Vi offriamo Prodotti sani, necessari e fondamentali per il benessere del nostro organismo</div>
 	<div id="categories">
-		categorie belle!
+		categorie belle!!!!!
 	</div>
 
 
