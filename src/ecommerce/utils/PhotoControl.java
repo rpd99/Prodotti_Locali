@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
+import ecommerce.model.DBConnectionPool;
 
 public class PhotoControl {
 	public synchronized static byte[] load(String id, String table) {
@@ -33,13 +34,17 @@ public class PhotoControl {
 				
 			} finally {
 				if (connection != null)
-					DBConnectionPool.releaseConnection(connection);
+					try {
+						DBConnectionPool.releaseConnection(connection);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
 			}
 		}
 		return bt;
 	}
 	
-public synchronized static byte[] upload(String id, String urlPhoto, String table) {
+public synchronized static void upload(String id, String urlPhoto, String table) throws SQLException {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
@@ -55,7 +60,7 @@ public synchronized static byte[] upload(String id, String urlPhoto, String tabl
 				
 				stmt.executeUpdate();
 				connection.commit();
-			} catch (IOException e) {
+			} catch (IOException | SQLException e ) {
 				/* ... */
 			}
 		} finally {
@@ -66,7 +71,11 @@ public synchronized static byte[] upload(String id, String urlPhoto, String tabl
 				/* ... */
 			} finally {
 				if (connection != null)
-					DBConnectionPool.releaseConnection(connection);
+					try {
+						DBConnectionPool.releaseConnection(connection);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
 			}
 		}
 	}

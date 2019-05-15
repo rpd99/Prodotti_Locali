@@ -1,8 +1,9 @@
 package ecommerce.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,11 @@ public class PutPicture extends HttpServlet {
 		String table = (String) request.getParameter("table");
 		String urlPhoto = (String) request.getParameter("urlPhoto");
 		if (id != null && table != null && urlPhoto != null) {
-			PhotoControl.upload(id, urlPhoto, table);
+			try {
+				PhotoControl.upload(id, urlPhoto, table);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
