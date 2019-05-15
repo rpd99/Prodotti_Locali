@@ -9,20 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ecommerce.utils.*;
 
-@WebServlet("/GetPicture")
-public class GetPicture extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+@WebServlet("/PutPicture")
+public class PutPicture extends HttpServlet {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = (String) request.getParameter("id");
 		String table = (String) request.getParameter("table");
-		if (id != null && table != null) {
-			byte[] bt = PhotoControl.load(id, table);
-			
-			ServletOutputStream out = response.getOutputStream();
-			if(bt != null ) {
-				out.write(bt);
-				response.setContentType("image /png");
-			}
-			out.close();
+		String urlPhoto = (String) request.getParameter("urlPhoto");
+		if (id != null && table != null && urlPhoto != null) {
+			PhotoControl.upload(id, urlPhoto, table);
 		}
 	}
 }
