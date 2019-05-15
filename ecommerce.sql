@@ -140,3 +140,20 @@ VALUES (6, 2, '00005');
 
 INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (3, 1, '00005');
+
+CREATE TABLE carrello (
+ cliente varchar(50) NOT NULL PRIMARY KEY,
+ FOREIGN KEY (cliente) REFERENCES cliente(utente)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE relativo_a(
+ carrello varchar(50) NOT NULL ,
+ prodotto varchar(50) NOT NULL ,
+ quantita int,
+     PRIMARY KEY(carrello,prodotto), 
+ FOREIGN KEY (carrello) REFERENCES carrello(cliente)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ FOREIGN KEY (prodotto) REFERENCES prodotto(codice)
+ ON DELETE CASCADE ON UPDATE CASCADE
+);
