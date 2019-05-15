@@ -23,12 +23,12 @@ public class DBConnectionPool {
 		Connection newConnection = null;
 		String ip = "localhost";
 		String port = "3306";
-		String db = "storage";
-		String username = "tsw";
-		String password = "adminadmin";
+		String db = "ecommerce";
+		String username = "root";
+		String password = "raffaele";
 
 		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ 
-					port+"/"+db+"?serverTimezone=UTC", 
+					port+"/"+db+"?serverTimezone=UTC&useSSL=false", 
 					username, password);
 
 		System.out.println("Create a new DB connection");

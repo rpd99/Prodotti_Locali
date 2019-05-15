@@ -44,31 +44,32 @@ public class PhotoControl {
 		return bt;
 	}
 	
-public synchronized static void upload(String id, String urlPhoto, String table) throws SQLException {
+public synchronized static void upload(String id, String urlPhoto, String table, String column) throws SQLException {
 		Connection connection = null;
 		PreparedStatement stmt = null;
 		
 		try {
 			connection = DBConnectionPool.getConnection();
-			stmt = connection.prepareStatement("UPDATE " + table + " SET img = ? WHERE id = ?");
+			stmt = connection.prepareStatement("UPDATE " + table + " SET img = ? WHERE ? = ?");
 			
 			File file = new File(urlPhoto);
 			try {
 				FileInputStream fis = new FileInputStream(file);
 				stmt.setBinaryStream(1, fis, fis.available());
-				stmt.setString(2, id);
+				stmt.setString(2, column);
+				stmt.setString(3, id);
 				
 				stmt.executeUpdate();
 				connection.commit();
 			} catch (IOException | SQLException e ) {
-				/* ... */
+				e.printStackTrace();
 			}
 		} finally {
 			try {
 				if (stmt != null)
 					stmt.close();
 			} catch (SQLException sqlException) {
-				/* ... */
+				sqlException.printStackTrace();
 			} finally {
 				if (connection != null)
 					try {
