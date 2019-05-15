@@ -17,7 +17,7 @@ public class PhotoControl {
 		
 		try {
 			connection = DBConnectionPool.getConnection();
-			String sql = "SELECT img FROM " + table + " WHERE id = " + id;
+			String sql = "SELECT img FROM " + table + " WHERE nome = '" + id + "'";
 			stmt = connection.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			
@@ -25,13 +25,13 @@ public class PhotoControl {
 				bt = rs.getBytes("img");
 			}
 		} catch (SQLException sqlException) {
-			
+			sqlException.printStackTrace();
 		} finally {
 			try {
 				if (stmt != null)
 					stmt.close();
 			} catch (SQLException sqlException) {
-				
+				sqlException.printStackTrace();
 			} finally {
 				if (connection != null)
 					try {
@@ -50,14 +50,13 @@ public synchronized static void upload(String id, String urlPhoto, String table,
 		
 		try {
 			connection = DBConnectionPool.getConnection();
-			stmt = connection.prepareStatement("UPDATE " + table + " SET img = ? WHERE ? = ?");
+			stmt = connection.prepareStatement("UPDATE " + table + " SET img = ? WHERE " + column + " = ?");
 			
 			File file = new File(urlPhoto);
 			try {
 				FileInputStream fis = new FileInputStream(file);
 				stmt.setBinaryStream(1, fis, fis.available());
-				stmt.setString(2, column);
-				stmt.setString(3, id);
+				stmt.setString(2, id);
 				
 				stmt.executeUpdate();
 				connection.commit();

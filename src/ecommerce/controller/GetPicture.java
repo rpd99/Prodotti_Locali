@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ecommerce.utils.*;
 
-@WebServlet("/GetPicture")
+//@WebServlet("/GetPicture")
 public class GetPicture extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = (String) request.getParameter("id");

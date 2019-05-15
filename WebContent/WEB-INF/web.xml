@@ -13,4 +13,13 @@
   	<servlet-name>PutPicture</servlet-name>
   	<url-pattern>/PutPicture</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>GetPicture</servlet-name>
+  	<servlet-class>ecommerce.controller.GetPicture</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>GetPicture</servlet-name>
+  	<url-pattern>/GetPicture</url-pattern>
+  </servlet-mapping>
 </web-app>

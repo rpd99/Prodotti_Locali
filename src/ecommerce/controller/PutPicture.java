@@ -16,9 +16,10 @@ public class PutPicture extends HttpServlet {
 		String id = (String) request.getParameter("id");
 		String table = (String) request.getParameter("table");
 		String urlPhoto = (String) request.getParameter("urlPhoto");
-		if (id != null && table != null && urlPhoto != null) {
+		String column = (String) request.getParameter("column");
+		if (id != null && table != null && urlPhoto != null && column != null) {
 			try {
-				PhotoControl.upload(id, urlPhoto, table);
+				PhotoControl.upload(id, urlPhoto, table, column);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
