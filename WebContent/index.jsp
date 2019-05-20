@@ -12,5 +12,11 @@
 	<div id="categories">
 		<img src="./GetPicture?table=categoria&id=cereali">
 	</div>
+	<div id="categories">
+		<img src="./GetPicture?table=categoria&id=cereali">
+	</div>
+	<div id="categories">
+		<img src="./GetPicture?table=categoria&id=cereali">
+	</div>
 </body>
 </html>
