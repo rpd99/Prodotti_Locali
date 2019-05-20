@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+* {
+	font-family: verdana;
+}
+
+body {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.categories {
+	display: inline-block; 
+	width: 30%;
+}
+
+
+/**********************************/
+@media screen and (max-width: 1025px) {
+	body {
+		margin: 0 auto;
+		width: 90%;
+	}
+		
+	.categories {
+		display: inline-block; 
+		width: 45%;
+	}
+}
+
+
+
+/***********************************/
+@media screen and (max-width: 680px) {
+	body {
+		margin: 0 auto;
+		width: 99%;
+	}
+		
+	.categories {
+		display: inline-block; 
+		width: 100%;
+	}
+}
