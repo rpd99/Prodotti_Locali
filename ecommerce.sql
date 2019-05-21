@@ -49,13 +49,24 @@ VALUES ('c@gmail.com', 'giovanni', 'bianchi');
 
   CREATE TABLE categoria (
   nome VARCHAR(45) NOT NULL,
-  descrizione VARCHAR(90) NOT NULL,
   img mediumblob,
   PRIMARY KEY (nome)
   );
   
-INSERT INTO categoria (nome, descrizione, img) 
-VALUES ('cereali', 'cereali', NULL);
+INSERT INTO categoria (nome, img) 
+VALUES ('vino', NULL);
+INSERT INTO categoria (nome, img)  
+VALUES ('olio', NULL);
+INSERT INTO categoria (nome, img) 
+VALUES ('torrone', NULL);
+INSERT INTO categoria (nome, img)  
+VALUES ('salumi', NULL);
+INSERT INTO categoria (nome, img) 
+VALUES ('pasta', NULL);
+INSERT INTO categoria (nome, img)  
+VALUES ('sottoli', NULL);
+INSERT INTO categoria (nome, img) 
+VALUES ('confetti', NULL);
   
   CREATE TABLE prodotto (
   codice VARCHAR(20) NOT NULL,
