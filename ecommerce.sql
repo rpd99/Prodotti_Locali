@@ -66,7 +66,7 @@ VALUES ('pasta', NULL);
 INSERT INTO categoria (nome, img)  
 VALUES ('sottoli', NULL);
 INSERT INTO categoria (nome, img) 
-VALUES ('confetti', NULL);
+VALUES ('miele', NULL);
   
   CREATE TABLE prodotto (
   codice VARCHAR(20) NOT NULL,
