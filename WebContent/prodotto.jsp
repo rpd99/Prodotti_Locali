@@ -25,6 +25,10 @@
 		<h2>Prodotto</h2>
 		<%=products.getCodice() %>
 		<%=products.getNome() %>
+		<%=products.getDescrizione() %>
+		<%=products.getPeso() %>
+		<%=products.getPezzi_disponibili() %>
+		<%=products.getPrezzo() %>
 	</div>
 	
 </body>

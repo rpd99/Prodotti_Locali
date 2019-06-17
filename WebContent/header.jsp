@@ -12,6 +12,7 @@
 
 <nav>
 	<ul id="main">
+		<li><a href="./index.jsp">Home</a></li>
 		<li class="dropdown">
 			<a href="categoria-prodotto.jsp?cat=tutte">Tutti i nostri prodotti</a>
 			<ul>
