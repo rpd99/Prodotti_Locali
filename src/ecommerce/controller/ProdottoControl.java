@@ -27,7 +27,10 @@ public class ProdottoControl extends HttpServlet {
 		
 		request.removeAttribute("products");
 		String cat = request.getParameter("cat");
-		request.setAttribute("products", modelProdotto.doRetrieveByCategoria(cat));
+		if(cat.contentEquals("tutte"))
+			request.setAttribute("products", modelProdotto.doRetrieveAll());
+		else
+			request.setAttribute("products", modelProdotto.doRetrieveByCategoria(cat));
 
 		RequestDispatcher dispatcher;
 		dispatcher = this.getServletContext().getRequestDispatcher("/categoria-prodotto.jsp");
