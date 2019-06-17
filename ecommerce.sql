@@ -227,5 +227,5 @@ CREATE TABLE relativo_a(
 CREATE TABLE images(
 	nome varchar(30) NOT NULL,
 	img mediumblob,
-	PRIMARY KEY(nome), 
+	PRIMARY KEY(nome)
 );
