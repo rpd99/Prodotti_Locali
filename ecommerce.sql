@@ -17,16 +17,16 @@ CREATE TABLE utente (
 );
 
 INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin) 
-VALUES ('a@gmail.com',mario,inglese, '3384255568', '83040', 'via piani', 22, 'italia', 'roma', 'aaa',0); 
+VALUES ('a@gmail.com', 'mario', 'inglese', '3384255568', '83040', 'via piani', 22, 'italia', 'roma', 'aaa',0); 
 
 INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin) 
-VALUES ('b@gmail.com',luca, rossi, '3287244801', '82010', 'via alo moro', 12, 'italia', 'milano', 'bbb',0); 
+VALUES ('b@gmail.com', 'luca', 'rossi', '3287244801', '82010', 'via alo moro', 12, 'italia', 'milano', 'bbb',0); 
 
 INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin)  
-VALUES ('c@gmail.com',giacomo,verdi, '3216239801', '83510', 'via rossi', 12, 'italia', 'napoli', 'ccc',0); 
+VALUES ('c@gmail.com', 'giacomo', 'verdi', '3216239801', '83510', 'via rossi', 12, 'italia', 'napoli', 'ccc',0); 
 
 INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin)  
-VALUES ('admin@gmail.com',marco,bruno, '3216239801', '83510', 'via rossi', 12, 'italia', 'napoli', 'ccc',1); 
+VALUES ('admin@gmail.com', 'marco', 'bruno', '3216239801', '83510', 'via rossi', 12, 'italia', 'napoli', 'ccc',1); 
 
 
 
@@ -184,7 +184,7 @@ VALUES ('2019-01-15', 'via Verdi', 'Pagato', 12, '2019-01-30', 'c@gmail.com', 20
   CREATE TABLE relativo (
   quantita  INT NOT NULL,
   ordine INT NOT NULL,
-  prodotto varchar(20) NOT NULL,
+  prodotto INT NOT NULL,
   PRIMARY KEY(ordine, prodotto),
   FOREIGN KEY (ordine) references ordine(codice)
   ON DELETE CASCADE ON UPDATE CASCADE,
@@ -193,19 +193,19 @@ VALUES ('2019-01-15', 'via Verdi', 'Pagato', 12, '2019-01-30', 'c@gmail.com', 20
   );
 
 INSERT INTO relativo (quantita , ordine, prodotto) 
-VALUES (10, 1, '00007');
+VALUES (10, 1,  7);
 
 INSERT INTO relativo (quantita , ordine, prodotto) 
-VALUES (2, 2, '00006');
+VALUES (2, 2, 6);
 
 INSERT INTO relativo (quantita , ordine, prodotto) 
-VALUES (1, 2, '00008');
+VALUES (1, 2, 8);
 
 INSERT INTO relativo (quantita , ordine, prodotto) 
-VALUES (6, 2, '00005');
+VALUES (6, 2, 5);
 
 INSERT INTO relativo (quantita , ordine, prodotto) 
-VALUES (3, 1, '00005');
+VALUES (3, 1, 5);
 
 CREATE TABLE carrello (
  cliente varchar(50) NOT NULL PRIMARY KEY,
@@ -215,7 +215,7 @@ CREATE TABLE carrello (
 
 CREATE TABLE relativo_a(
  carrello varchar(50) NOT NULL ,
- prodotto varchar(50) NOT NULL ,
+ prodotto int NOT NULL ,
  quantita int,
      PRIMARY KEY(carrello,prodotto), 
  FOREIGN KEY (carrello) REFERENCES carrello(cliente)
