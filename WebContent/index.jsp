@@ -2,14 +2,14 @@
     pageEncoding="ISO-8859-1" import="java.util.*, ecommerce.controller.*, ecommerce.model.*"%>
 
 <%
-	Collection<?> products = (Collection<?>)request.getAttribute("products");
+	Collection<?> categories = (Collection<?>)request.getAttribute("categories");
 
-	if(products == null){
+	if(categories == null){
 		response.sendRedirect("./CategoriaControl");
 		return;
 	}
 	
-%>   
+%> 
     
     
     
@@ -17,26 +17,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Prodotti locali</title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 </head>
 <body>
+	<jsp:include page="header.jsp"/>
+	
 	<div class="image"><img src="a.png" alt="no image"></div>
 	<div class="text">Vi offriamo Prodotti sani, necessari e fondamentali per il benessere del nostro organismo</div>
 	
-	
-	
-	
 	<h2>Categorie</h2>
 	<%
-		if(products != null && products.size() > 0) {
+		if(categories != null && categories.size() > 0) {
 			
-			Iterator<?> it = products.iterator();
+			Iterator<?> it = categories.iterator();
 			while(it.hasNext()){
 				Categoria bean = (Categoria)it.next();
 	%>
 		<div class="categories">
-		<a href=""><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>"></a>
+		<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>" width="350" height="100"></a>
 		</div>
 	<%}} %>
 	

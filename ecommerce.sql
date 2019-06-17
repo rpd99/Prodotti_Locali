@@ -68,23 +68,24 @@ INSERT INTO categoria (nome, descrizione, img)
 VALUES ('semi', 'semi', NULL);
 INSERT INTO categoria (nome, descrizione, img)  
 VALUES ('conserve', 'conserve', NULL);
-INSERT INTO categoria (nome, img) 
+INSERT INTO categoria (nome, descrizione, img) 
 VALUES ('miele', 'miele', NULL);
-INSERT INTO categoria (nome, img) 
+INSERT INTO categoria (nome, descrizione, img) 
 VALUES ('farine', 'farine', NULL);
   
   CREATE TABLE prodotto (
-  codice VARCHAR(20) NOT NULL,
+  codice INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(45) NOT NULL,
   descrizione VARCHAR(90) NOT NULL,
   prezzo FLOAT NOT NULL,
   peso FLOAT NULL,
   pezzi_disponibili INT NOT NULL,
   categoria VARCHAR(45) NOT NULL,
+  img mediumblob,
   PRIMARY KEY (codice),  
   FOREIGN KEY (categoria) references categoria(nome)
   ON DELETE CASCADE ON UPDATE CASCADE
-  );
+  ) AUTO_INCREMENT = 1;
   
   
 INSERT INTO prodotto (codice, nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
@@ -172,4 +173,10 @@ CREATE TABLE relativo_a(
  ON DELETE CASCADE ON UPDATE CASCADE,
  FOREIGN KEY (prodotto) REFERENCES prodotto(codice)
  ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE images(
+	nome varchar(30) NOT NULL,
+	img mediumblob,
+	PRIMARY KEY(nome), 
 );
