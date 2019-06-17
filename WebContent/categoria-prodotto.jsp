@@ -20,6 +20,19 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
+	
+	<div class="left">	
+		Categorie<br>
+	<%
+		if(categories != null && categories.size() > 0) {
+			
+			Iterator<?> it = categories.iterator();
+			while(it.hasNext()){
+				Categoria bean = (Categoria)it.next();
+	%>
+		<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><%=bean.getNome() %></a><br>
+	<%}} %>
+	</div>
 		
 	<div class="prodottoID">
 		<h2>Prodotto</h2>
