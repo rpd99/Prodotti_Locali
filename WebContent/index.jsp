@@ -36,9 +36,7 @@
 				Categoria bean = (Categoria)it.next();
 	%>
 		<div class="categories">
-		<%=bean.getNome() %>
-		<%=bean.getDescrizione() %>
-		<img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>">
+		<a href=""><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>"></a>
 		</div>
 	<%}} %>
 	
