@@ -54,19 +54,23 @@ VALUES ('c@gmail.com', 'giovanni', 'bianchi');
   );
   
 INSERT INTO categoria (nome, img) 
-VALUES ('vino', NULL);
+VALUES ('legumi', NULL);
 INSERT INTO categoria (nome, img)  
-VALUES ('olio', NULL);
+VALUES ('fruttaSecca', NULL);
 INSERT INTO categoria (nome, img) 
-VALUES ('torrone', NULL);
+VALUES ('cereali', NULL);
 INSERT INTO categoria (nome, img)  
-VALUES ('salumi', NULL);
+VALUES ('aromi', NULL);
 INSERT INTO categoria (nome, img) 
-VALUES ('pasta', NULL);
+VALUES ('frutta', NULL);
 INSERT INTO categoria (nome, img)  
-VALUES ('sottoli', NULL);
+VALUES ('semi', NULL);
+INSERT INTO categoria (nome, img) 
+VALUES ('conserve', NULL);
 INSERT INTO categoria (nome, img) 
 VALUES ('miele', NULL);
+INSERT INTO categoria (nome, img) 
+VALUES ('farine', NULL);
   
   CREATE TABLE prodotto (
   codice VARCHAR(20) NOT NULL,
