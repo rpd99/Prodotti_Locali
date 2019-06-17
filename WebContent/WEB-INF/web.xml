@@ -6,20 +6,19 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>PutPicture</servlet-name>
-  	<servlet-class>ecommerce.controller.PutPicture</servlet-class>
+    <servlet-name>PutPicture</servlet-name>
+    <servlet-class>ecommerce.controller.PutPicture</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>PutPicture</servlet-name>
-  	<url-pattern>/PutPicture</url-pattern>
+    <servlet-name>PutPicture</servlet-name>
+    <url-pattern>/PutPicture</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>GetPicture</servlet-name>
-  	<servlet-class>ecommerce.controller.GetPicture</servlet-class>
+    <servlet-name>GetPicture</servlet-name>
+    <servlet-class>ecommerce.controller.GetPicture</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>GetPicture</servlet-name>
-  	<url-pattern>/GetPicture</url-pattern>
+    <servlet-name>GetPicture</servlet-name>
+    <url-pattern>/GetPicture</url-pattern>
   </servlet-mapping>
 </web-app>
