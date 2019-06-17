@@ -49,28 +49,29 @@ VALUES ('c@gmail.com', 'giovanni', 'bianchi');
 
   CREATE TABLE categoria (
   nome VARCHAR(45) NOT NULL,
+  descrizione VARCHAR(100) NOT NULL,
   img mediumblob,
   PRIMARY KEY (nome)
   );
   
+INSERT INTO categoria (nome, descrizione, img) 
+VALUES ('legumi', 'legumi', NULL);
+INSERT INTO categoria (nome, descrizione, img)  
+VALUES ('fruttaSecca', 'fruttaSecca', NULL);
+INSERT INTO categoria (nome, descrizione, img)  
+VALUES ('cereali', 'cereali', NULL);
+INSERT INTO categoria (nome, descrizione, img)  
+VALUES ('aromi', 'aromi', NULL);
+INSERT INTO categoria (nome, descrizione, img) 
+VALUES ('frutta', 'frutta', NULL);
+INSERT INTO categoria (nome, descrizione, img)   
+VALUES ('semi', 'semi', NULL);
+INSERT INTO categoria (nome, descrizione, img)  
+VALUES ('conserve', 'conserve', NULL);
 INSERT INTO categoria (nome, img) 
-VALUES ('legumi', NULL);
-INSERT INTO categoria (nome, img)  
-VALUES ('fruttaSecca', NULL);
+VALUES ('miele', 'miele', NULL);
 INSERT INTO categoria (nome, img) 
-VALUES ('cereali', NULL);
-INSERT INTO categoria (nome, img)  
-VALUES ('aromi', NULL);
-INSERT INTO categoria (nome, img) 
-VALUES ('frutta', NULL);
-INSERT INTO categoria (nome, img)  
-VALUES ('semi', NULL);
-INSERT INTO categoria (nome, img) 
-VALUES ('conserve', NULL);
-INSERT INTO categoria (nome, img) 
-VALUES ('miele', NULL);
-INSERT INTO categoria (nome, img) 
-VALUES ('farine', NULL);
+VALUES ('farine', 'farine', NULL);
   
   CREATE TABLE prodotto (
   codice VARCHAR(20) NOT NULL,
