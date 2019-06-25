@@ -30,7 +30,7 @@
 		<li>Chi siamo?</li>
 		<li>Negozio</li>
 		<li>Contatti</li>
-		<li><a href="login.jsp">Login</a></li>
+		<li><a href="login.html">Login</a></li>
 	</ul>
 </nav>
 
