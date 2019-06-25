@@ -38,6 +38,6 @@
 		<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>" width="350" height="100"></a>
 		</div>
 	<%}} %>
-	
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>
