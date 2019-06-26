@@ -18,7 +18,7 @@
 					while(it.hasNext()){
 						Categoria bean = (Categoria)it.next();
 				%>
-				<a href=""><li><%=bean.getNome()%></li></a>
+				<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><li><%=bean.getNome()%></li></a>
 				<%}} %>
 			</ul>
           </div>

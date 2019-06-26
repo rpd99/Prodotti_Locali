@@ -24,18 +24,16 @@ public class LoginFilter extends HttpServlet {
 			if (username != null && password != null) {
 				u = utenteDAO.doRetrieveByEmailPassword(username, password);
 			}
-
-			if (u == null) {
-				try {
-					throw new Exception("Username e/o password non validi.");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			
 			request.getSession().setAttribute("utente", u);
-
-			response.sendRedirect("./index.jsp");
+			
+			if (u == null) {
+				response.sendRedirect("./loginError.html");
+			} else if (u.getIs_Admin()==1) {
+				response.sendRedirect("./gestioneSito");
+			} else {
+				response.sendRedirect("./index.jsp");
+			}
 	}
 	private static final long serialVersionUID = 1L;
 
