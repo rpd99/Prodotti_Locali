@@ -6,28 +6,21 @@ CREATE TABLE utente (
     email varchar(50) not null primary key, 
     nome VARCHAR(20) NOT NULL,
     cognome VARCHAR(20) NOT NULL,
-    telefono varchar(15) not null, 
-    cap char(5) not null, 
-    via varchar(30) not null, 
-    n_civico int not null, 
-    nazione varchar(25) not null,
-    citta varchar(50) not null,
     password_utente varchar(30) not null,
     isAdmin tinyint(1)
 );
 
-INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin) 
-VALUES ('a@gmail.com', 'mario', 'inglese', '3384255568', '83040', 'via piani', 22, 'italia', 'roma', 'aaa',0); 
+INSERT INTO utente (email, nome, cognome, password_utente,isAdmin) 
+VALUES ('a@gmail.com', 'mario', 'inglese', 'Marioinglese98', 0); 
 
-INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin) 
-VALUES ('b@gmail.com', 'luca', 'rossi', '3287244801', '82010', 'via alo moro', 12, 'italia', 'milano', 'bbb',0); 
+INSERT INTO utente (email,nome,cognome, password_utente,isAdmin) 
+VALUES ('b@gmail.com', 'luca', 'rossi', 'Lucarossi98', 0); 
 
-INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin)  
-VALUES ('c@gmail.com', 'giacomo', 'verdi', '3216239801', '83510', 'via rossi', 12, 'italia', 'napoli', 'ccc',0); 
+INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
+VALUES ('c@gmail.com', 'giacomo', 'verdi', 'Giacomoverdi98', 0); 
 
-INSERT INTO utente (email,nome,cognome, telefono, cap, via, n_civico, nazione, citta, password_utente,isAdmin)  
-VALUES ('admin@gmail.com', 'marco', 'bruno', '3216239801', '83510', 'via rossi', 12, 'italia', 'napoli', 'ccc',1); 
-
+INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
+VALUES ('admin@gmail.com', 'marco', 'bruno', 'Marcobruno98', 1); 
 
 
 
@@ -176,7 +169,7 @@ INSERT INTO ordine (dataOrdine, ind_sped, stato, num_prodotti, data_spedizione, 
 VALUES ('2019-01-15', 'via Verdi', 'Pagato', 12, '2019-01-30', 'c@gmail.com', 20.4);
   
   CREATE TABLE relativo (
-  quantitaÂ  INT NOT NULL,
+  quantita  INT NOT NULL,
   ordine INT NOT NULL,
   prodotto INT NOT NULL,
   PRIMARY KEY(ordine, prodotto),
@@ -186,19 +179,19 @@ VALUES ('2019-01-15', 'via Verdi', 'Pagato', 12, '2019-01-30', 'c@gmail.com', 20
   ON DELETE CASCADE ON UPDATE CASCADE
   );
 
-INSERT INTO relativo (quantitaÂ , ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (10, 1,  7);
 
-INSERT INTO relativo (quantitaÂ , ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (2, 2, 6);
 
-INSERT INTO relativo (quantitaÂ , ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (1, 2, 8);
 
-INSERT INTO relativo (quantitaÂ , ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (6, 2, 5);
 
-INSERT INTO relativo (quantitaÂ , ordine, prodotto) 
+INSERT INTO relativo (quantita , ordine, prodotto) 
 VALUES (3, 1, 5);
 
 CREATE TABLE carrello (
@@ -211,7 +204,7 @@ CREATE TABLE relativo_a(
  carrello varchar(50) NOT NULL ,
  prodotto int NOT NULL ,
  quantita int,
-     PRIMARY KEY(carrello,prodotto), 
+ PRIMARY KEY(carrello,prodotto), 
  FOREIGN KEY (carrello) REFERENCES carrello(cliente)
  ON DELETE CASCADE ON UPDATE CASCADE,
  FOREIGN KEY (prodotto) REFERENCES prodotto(codice)
