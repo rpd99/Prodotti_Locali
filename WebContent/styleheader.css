@@ -82,7 +82,7 @@ ul{
   text-decoration: none;
   display: block;
 }
-img{
+.logo img{
   width: 200px;
   height: 100px;;
 }
