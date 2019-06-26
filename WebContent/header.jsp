@@ -3,10 +3,7 @@
 
 <% Collection<?> categories = (Collection<?>)request.getAttribute("categories"); %>
 
-<a href=""><img src="facebook"></a>
-<a href=""><img src="facebook"></a>
 
-<hr>
 
 <div class="header">
     <div class="header-right">
