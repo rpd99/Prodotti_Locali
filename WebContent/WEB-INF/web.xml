@@ -21,6 +21,14 @@
     <servlet-name>GetPicture</servlet-name>
     <url-pattern>/GetPicture</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>LoginFilter</servlet-name>
+    <servlet-class>ecommerce.utils.LoginFilter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginFilter</servlet-name>
+    <url-pattern>/LoginFilter</url-pattern>
+  </servlet-mapping>
   
   <filter>
     <filter-name>AuthFilter</filter-name>

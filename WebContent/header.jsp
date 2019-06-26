@@ -10,6 +10,7 @@
         <div class="dropdown">
     			<a href="categoria-prodotto.jsp?cat=tutte">Tutti i nostri prodotti</a>
           <div class="dropdown-content">
+          	<ul>
             <%
 				if(categories != null && categories.size() > 0) {
 

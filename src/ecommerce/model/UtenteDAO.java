@@ -53,7 +53,7 @@ public class UtenteDAO {
 	
 	public Utente doRetrieveByEmailPassword(String email, String password) {
 		try (Connection con = DBConnectionPool.getConnection()) {
-			PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email=?, password_utente=?");
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email=? && password_utente=?");
 			ps.setString(1, email);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();

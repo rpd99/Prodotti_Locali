@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import ecommerce.model.Utente;
 import ecommerce.model.UtenteDAO;
 
-@WebServlet("/LoginFilter")
+//@WebServlet("/LoginFilter")
 public class LoginFilter extends HttpServlet {
 
 	private final UtenteDAO utenteDAO = new UtenteDAO();
@@ -35,7 +35,7 @@ public class LoginFilter extends HttpServlet {
 			}
 			request.getSession().setAttribute("utente", u);
 
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("./index.jsp");
 	}
 	private static final long serialVersionUID = 1L;
 
