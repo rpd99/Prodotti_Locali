@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ecommerce.model.Utente;
+
 public class AuthFilter implements Filter {
 
 	public void destroy() {
@@ -20,27 +22,14 @@ public class AuthFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest hrequest = (HttpServletRequest) request;
 		HttpServletResponse hresponse = (HttpServletResponse) response;
+		HttpSession session = hrequest.getSession(true);
 		
-		String loginURI = hrequest.getContextPath() + "/adminFilter";
-		boolean loginRequest = hrequest.getRequestURI().startsWith(loginURI);
-
-		if(loginRequest) {
-			System.out.println("Check role in the session");
-			//check the token from session
-			HttpSession session = hrequest.getSession(false);
-			boolean loggedIn = session != null && session.getAttribute("adminFilterRoles") != null;
-
-			if(!loggedIn) {
-				System.out.println("Redirect to login form");
-				hresponse.sendRedirect(hrequest.getContextPath()+ "/login.html");
-			} else {
-				// admin resource
-				chain.doFilter(request, response);
-			}
-		} else {
-			// accessible resource
+		Utente u = (Utente) session.getAttribute("beanUtente");
+		
+		if(u == null || (u.getIs_Admin()==1))
+			hresponse.sendRedirect(hrequest.getContextPath() + "/login.html");
+		else
 			chain.doFilter(request, response);
-		}
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

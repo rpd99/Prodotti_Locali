@@ -9,37 +9,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ecommerce.model.Utente;
+import ecommerce.model.UtenteDAO;
+
 @WebServlet("/LoginFilter")
 public class LoginFilter extends HttpServlet {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		{
+	private final UtenteDAO utenteDAO = new UtenteDAO();
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			String redirectedPage;
-			try {
-				checkLogin(username, password);
-				request.getSession().setAttribute("adminFilterRoles", true);
-				redirectedPage = "/index.jsp";
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(redirectedPage);
-				dispatcher.forward(request, response);
-			} catch (Exception e) {
-				request.getSession().removeAttribute("adminFilterRoles");
-				redirectedPage = "/login-form-filter.jsp";
-				response.sendRedirect(request.getContextPath() + redirectedPage);
+			Utente u=new Utente();
+			if (username != null && password != null) {
+				u = utenteDAO.doRetrieveByEmailPassword(username, password);
 			}
-			
-		}
-	}
 
-	private void checkLogin(String username, String password) throws Exception {
-		if ("root@ingl.com".equals(username) && "adminA123".equals(password)) {
-			//
-		} else
-			throw new Exception("Invalid login and password");
+			if (u == null) {
+				try {
+					throw new Exception("Username e/o password non validi.");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			request.getSession().setAttribute("utente", u);
+
+			response.sendRedirect("/index.jsp");
 	}
-	
 	private static final long serialVersionUID = 1L;
 
 	public LoginFilter() {

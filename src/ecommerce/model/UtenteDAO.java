@@ -50,6 +50,27 @@ public class UtenteDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public Utente doRetrieveByEmailPassword(String email, String password) {
+		try (Connection con = DBConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email=?, password_utente=?");
+			ps.setString(1, email);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			Utente c = null;
+			while (rs.next()) {
+				c = new Utente();
+				c.setEmail(rs.getString(1));
+				c.setNome(rs.getString(2));
+				c.setCognome(rs.getString(3));
+				c.setPassword_utente(rs.getString(4));
+				c.setIs_Admin(rs.getInt(5));
+			}
+			return c;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	public void doSave(Utente utente) {
 		try (Connection con = DBConnectionPool.getConnection()) {
