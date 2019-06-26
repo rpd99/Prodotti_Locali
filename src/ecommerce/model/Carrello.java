@@ -26,10 +26,18 @@ public class Carrello {
 		}
 	}
 	
-	public void rimuoviProdotto(Prodotto prod, int quant) {
+	public void rimuoviProdotto(Prodotto prod) {
 		for (int i=0; i<prodotti.size(); i++) {
 			if (prodotti.get(i).getProdotto() == prod.getCodice())
 				prodotti.remove(i);
 		}
+	}
+	
+	public int getSize() {
+		return prodotti.size();
+	}
+	
+	public ArrayList<ProdottoQuantita> getProdotti(){
+		return prodotti;
 	}
 }
