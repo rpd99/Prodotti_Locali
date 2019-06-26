@@ -71,7 +71,7 @@
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
-ul{
+.dropdown-content ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
