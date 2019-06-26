@@ -1,4 +1,4 @@
-@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
 body{
   margin:0;
   padding: 0;
@@ -9,7 +9,7 @@ body{
 #logo{
   text-align: center;
 }
-.login-box{
+#template{
   width: 400px;
   height: 400px;
   position: absolute;
@@ -29,7 +29,7 @@ body{
   padding: 15px;
   margin: 20px;
 }
-.textbox i{
+i{
     width: 26px;
     float: left;
     text-align: center;
@@ -57,7 +57,7 @@ body{
   cursor: pointer;
 
 }
-.login-box ::placeholder {
+#template ::placeholder {
   color: black;
   opacity: 1;
 }
@@ -75,44 +75,41 @@ body{
   font-size: 17px;
 
 }
-.registra a{
-  color: rgb(41,45,163);
-}
+
 #errorMessage{
   text-align: center;
 }
 
-.registrazione-box{
-  width: 463px;
-  height: 670px;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%,-35%);
-  color: black;
-  border-radius: 30px;
-  background-color: rgba(255, 249, 222, 0.2);
-}
 .textbox-registrazione{
   width: 100%;
   overflow: hidden;
   font-size: 20px;
   padding: 5px;
-  margin: 10px;
+  margin: 5px;
 }
-.textbox i{
-    width: 26px;
-    float: left;
-    text-align: center;
-}
+
 .textbox-registrazione input{
   border: none;
   outline: none;
   background: none;
   color:black;
-  font-size: 16px;
+  font-size: 17px;
   width: 80%;
   float:left;
   margin: 0 15px;
 
+}
+.textbox-registrazione :focus {
+  border: 1px solid;
+  border-radius: 10px;
+}
+a:link {
+  color: red;
+}
+.privacy{
+  padding: 15px;
+  margin: 10px;
+}
+#passwordMessage{
+  display: none;
 }

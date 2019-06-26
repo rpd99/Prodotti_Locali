@@ -8,51 +8,44 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/9ea2ff19bf.js"></script>
-    <script src="validateLogin.js"></script>
+    <script src="validateRegistration.js"></script>
     <title>Login</title>
   </head>
   <body>
 
-  <div class="registrazione-box">
+  <div id="template">
     <div id="logo">
         <img src="logo.png" alt="logo">
     </div>
     <div id="errorMessage"></div>
       <form action="registrazioneControl" method="post">
         <div class="textbox-registrazione">
-          <input type="text" placeholder="Nome" required>
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome Cognome" required>
+        </div>
+
+        <div class="textbox-registrazione">
+          <i class="fas fa-envelope"></i>
+          <input type="text" placeholder="name@example.com">
         </div>
         <div class="textbox-registrazione">
-          <input type="text" placeholder="Cognome" required>
+          <i class="fas fa-unlock" aria-hidden="true"></i>
+          <input type="password" required placeholder="Password" onfocus="myFunction()" onblur="myFunction2()">
         </div>
+
+        <div id="passwordMessage">
+          <div class="alert alert-info" role="alert">
+            <strong>Attenzione!</strong> La password deve esssere lunga minima 8 caratteri e deve contenere almeno un carattere maiuscolo, minuscolo e un numero.
+          </div>
+      </div>
         <div class="textbox-registrazione">
-          <input type="text" placeholder="email@address.com">
-        </div>
-        <div class="textbox-registrazione">
-          <input type="password" required placeholder="Password">
-        </div>
-        <div class="textbox-registrazione">
+          <i class="fas fa-unlock" aria-hidden="true"></i>
           <input type="password" required placeholder="Conferma Password">
         </div>
-        <div class="textbox-registrazione">
-          <input type="text" placeholder="333-3333333" required>
+        <div class="privacy">
+            <input type="checkbox" name="checkbox" value="check" id="privacy"> &nbsp;Ho letto l'<a href="">informativa privacy</a>
         </div>
-        <div class="textbox-registrazione">
-          <input type="text" placeholder="CAP" required>
-        </div>
-        <div class="textbox-registrazione">
-          <input type="text" placeholder="Indirizzo" required>
-        </div>
-        <div class="textbox-registrazione">
-          <input type="text" placeholder="Numero civico" required>
-        </div>
-        <div class="textbox-registrazione">
-          <input type="text" placeholder="Nazione" required>
-        </div>
-        <div class="textbox-registrazione">
-          <input type="text" placeholder="Città" required>
-        </div>
-  <input type="submit" value="Registrati" class="submit">
+        <input type="submit" value="Registrati" class="submit">
 </div>
 </form>
   </body>
