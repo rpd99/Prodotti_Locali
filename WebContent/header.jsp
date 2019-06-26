@@ -8,17 +8,14 @@
 
 <hr>
 
-<a href=""><img src="logo"></a>
-
-<nav>
-	<ul id="main">
-		<li><a href="./index.jsp">Home</a></li>
-		<li class="dropdown">
-			<a href="categoria-prodotto.jsp?cat=tutte">Tutti i nostri prodotti</a>
-			<ul>
-			<%
+<div class="header">
+    <div class="header-right">
+        <div class="dropdown">
+    			<a href="categoria-prodotto.jsp?cat=tutte">Tutti i nostri prodotti</a>
+          <div class="dropdown-content">
+            <%
 				if(categories != null && categories.size() > 0) {
-					
+
 					Iterator<?> it = categories.iterator();
 					while(it.hasNext()){
 						Categoria bean = (Categoria)it.next();
@@ -26,13 +23,21 @@
 				<a href=""><li><%=bean.getNome()%></li></a>
 				<%}} %>
 			</ul>
-		</li>
-		<li>Chi siamo?</li>
-		<li>Negozio</li>
-		<li>Contatti</li>
-		<li><a href="login.html">Login</a></li>
-	</ul>
-</nav>
+          </div>
+      </div>
+        <a href="#about">Chi siamo</a>
+    </div>
+
+    <div class="header-center">
+      <a href="#default" class="logo"><img src="logo.png" alt="logo"></a>
+    </div>
+
+    <div class="header-left">
+        <a href="#contact">Contatti</a>
+        <a href="#about">Il mio profilo</a>
+    </div>
+  </div>
+
 
 
 
