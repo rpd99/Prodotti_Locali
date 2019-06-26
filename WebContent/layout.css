@@ -6,12 +6,21 @@
 
 body {
 	margin: 0 auto;
-	width: 80%;
+	width: 75%;
+	background: #ddd;
+}
+
+.main {
+	background: white;
 }
 
 .categories {
 	display: inline-block; 
-	width: 30%;
+	width: 33%;
+}
+
+img {
+	width: 100%;
 }
 
 nav {

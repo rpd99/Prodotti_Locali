@@ -21,23 +21,26 @@
 <link rel="stylesheet" type="text/css" href="layout.css" />
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
 	
-	<div class="image"><img src="a.png" alt="no image"></div>
-	<div class="text">Vi offriamo Prodotti sani, necessari e fondamentali per il benessere del nostro organismo</div>
+	<div class="main">
+		<jsp:include page="header.jsp"/>
+		<div class="image"><img src="a.png" alt="no image"></div>
+		<div class="text">Vi offriamo Prodotti sani, necessari e fondamentali per il benessere del nostro organismo</div>
+		
+		<h2>Categorie</h2>
+		<%
+			if(categories != null && categories.size() > 0) {
+				
+				Iterator<?> it = categories.iterator();
+				while(it.hasNext()){
+					Categoria bean = (Categoria)it.next();
+		%>
+					<div class="categories">
+						<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>"></a>
+					</div>
+		<%}} %>
+		<jsp:include page="footer.jsp"/>
+	</div>
 	
-	<h2>Categorie</h2>
-	<%
-		if(categories != null && categories.size() > 0) {
-			
-			Iterator<?> it = categories.iterator();
-			while(it.hasNext()){
-				Categoria bean = (Categoria)it.next();
-	%>
-		<div class="categories">
-		<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>" width="350" height="100"></a>
-		</div>
-	<%}} %>
-	<jsp:include page="footer.jsp"/>
 </body>
 </html>
