@@ -50,7 +50,7 @@
   color: none;
 }
 .header-center a.active {
-  background-color: white;
+  background-color: none;
   color: none;
 }
 .dropdown {
