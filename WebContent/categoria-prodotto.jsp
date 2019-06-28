@@ -45,7 +45,7 @@
 				Prodotto bean = (Prodotto)it.next();
 	%>
 		<div class="prodotto">
-		<a href="prodotto.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&codice=<%=bean.getCodice() %>" width="350" height="100"></a>
+		<a href="prodotto.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>" width="350" height="100"></a>
 		</div>
 	<%}} %>
 	</div>
