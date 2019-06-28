@@ -1,6 +1,7 @@
 package ecommerce.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
 import ecommerce.model.ProdottoDAO;
 
@@ -21,6 +23,28 @@ public class ProdottoControlAdmin extends HttpServlet {
 	static ProdottoDAO modelProdotto = new ProdottoDAO();
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		
+		try {
+			if(action != null) {
+				if(action.equalsIgnoreCase("update")) {
+					String nome = request.getParameter("nome");
+					String descrizione = request.getParameter("descrizione");
+					
+					Categoria bean = new Categoria();
+					bean.setNome(nome);
+					bean.setDescrizione(descrizione);
+					
+					modelCategoria.doUpdate(bean);
+				} 
+			}
+		}  catch(NumberFormatException e) {
+			System.out.println("Error: " + e.getMessage());
+			request.setAttribute("error", e.getMessage());
+		}
+		
+		
+		
 		request.removeAttribute("categories");
 		request.setAttribute("categories", modelCategoria.doRetrieveAll());
 		

@@ -20,7 +20,25 @@
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
 </head>
 <body>
-		qua va il form per modificare il prodotto<br>
+		qua va il form per modificare la categoria<br>
+	
+	<% 
+		String nomeCat = request.getParameter("cat");
+		Categoria beanCat=null;
+		for(Categoria categoria: (ArrayList<Categoria>) categories){
+			if(categoria.getNome().equals(nomeCat))
+				beanCat = categoria;
+		}
+			
+	%>
+	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
+		<input type="hidden" name="action" value="update"> 
+		<input type="hidden" name="nome" value="<%=beanCat.getNome() %>"> 
+		Descrizione: <input type="text" name="descrizione" value="<%=beanCat.getDescrizione() %>">
+		<input type="submit">
+	</form>
+	Per modificarne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
+	
 	<div class="prodottoID">
 		<h2>Seleziona il prodotto da modificare</h2>
 	<%

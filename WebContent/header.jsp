@@ -32,7 +32,7 @@
 
     <div class="header-left">
         <a href="#contact">Contatti</a>
-        <a href="#about">Il mio profilo</a>
+        <a href="./login.html">Il mio profilo</a>
     </div>
   </div>
 
