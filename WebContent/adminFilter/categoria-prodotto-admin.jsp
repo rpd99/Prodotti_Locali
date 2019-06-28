@@ -31,6 +31,7 @@
 		}
 			
 	%>
+	<h1>modifica categoria</h1>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="update"> 
 		<input type="hidden" name="nome" value="<%=beanCat.getNome() %>"> 
@@ -38,6 +39,13 @@
 		<input type="submit">
 	</form>
 	Per modificarne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
+	
+	
+	<h1>inserisci prodotto di questa categoria: <%=nomeCat %></h1>
+	
+	
+	
+	
 	
 	<div class="prodottoID">
 		<h2>Seleziona il prodotto da modificare</h2>

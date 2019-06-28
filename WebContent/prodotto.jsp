@@ -3,9 +3,9 @@
 
 <% 
 	Collection<?> categories = (Collection<?>)request.getAttribute("categories");	
-	Prodotto products = (Prodotto)request.getAttribute("products");
+	Prodotto product = (Prodotto)request.getAttribute("products");
 	
-	if(products == null || categories == null){
+	if(product == null || categories == null){
 		response.sendRedirect("./ProdottoID?cod="+request.getParameter("cod"));
 		return;
 	}
@@ -24,12 +24,13 @@
 	
 	<div class="prodottiID">
 		<h2>Prodotto</h2>
-		<%=products.getCodice() %>
-		<%=products.getNome() %>
-		<%=products.getDescrizione() %>
-		<%=products.getPeso() %>
-		<%=products.getPezzi_disponibili() %>
-		<%=products.getPrezzo() %>
+		<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>" width="350" height="100">
+		<%=product.getCodice() %>
+		<%=product.getNome() %>
+		<%=product.getDescrizione() %>
+		<%=product.getPeso() %>
+		<%=product.getPezzi_disponibili() %>
+		<%=product.getPrezzo() %>
 	</div>
 	
 </body>

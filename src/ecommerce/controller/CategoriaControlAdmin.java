@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
 
 @WebServlet("/CategoriaControlAdmin")
@@ -19,6 +20,30 @@ public class CategoriaControlAdmin extends HttpServlet {
 	static CategoriaDAO modelCategoria = new CategoriaDAO();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		
+		try {
+			if(action != null) {
+				if(action.equalsIgnoreCase("insert")) {
+					String nome = request.getParameter("nome");
+					String descrizione = request.getParameter("descrizione");
+					
+					Categoria bean = new Categoria();
+					bean.setNome(nome);
+					bean.setDescrizione(descrizione);
+					
+					modelCategoria.doSave(bean);
+				} 
+			}
+		}  catch(NumberFormatException e) {
+			System.out.println("Error: " + e.getMessage());
+			request.setAttribute("error", e.getMessage());
+		}
+		
+		
+		
+		
+		
 		request.removeAttribute("categories");
 		request.setAttribute("categories", modelCategoria.doRetrieveAll());
 		

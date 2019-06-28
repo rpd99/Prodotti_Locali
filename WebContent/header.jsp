@@ -27,7 +27,7 @@
     </div>
 
     <div class="header-center">
-      <a href="#default" class="logo"><img src="logo.png" alt="logo"></a>
+      <a href="index.jsp" class="logo"><img src="logo.png" alt="logo"></a>
     </div>
 
     <div class="header-left">

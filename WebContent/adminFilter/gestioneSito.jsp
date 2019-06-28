@@ -27,6 +27,16 @@
 	
 	<div class="main">
 			benvenuto admin: <%= utente.getNome() %>, <%= utente.getCognome() %>
+			<h2>Compila i campi ed inserisci una nuova categoria</h2>
+			<form action="CategoriaControlAdmin" method="post">
+				<input type="hidden" name="action" value="insert"> 
+				Nome: <input type="text" name="nome" placeholder="nome"> 
+				Descrizione: <input type="text" name="descrizione" placeholder="breve descrizione categoria">
+				<input type="submit">
+			</form>
+			Per aggiungerne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
+			
+			
 			<h2>Scegli una categoria da modificare</h2>
 			<%
 				if(categories != null && categories.size() > 0) {
