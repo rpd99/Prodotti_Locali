@@ -42,7 +42,16 @@
 	
 	
 	<h1>inserisci prodotto di questa categoria: <%=nomeCat %></h1>
-	
+	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
+		<input type="hidden" name="action" value="insert"> 
+		Nome: <input type="text" name="nome">
+		Descrizione: <input type="text" name="descrizione">
+		Prezzo: <input type="text" name="prezzo">
+		Peso: <input type="text" name="peso">
+		Pezzi disponibili: <input type="text" name="pezzi">
+		<input type="submit">
+	</form>
+	Per inserire l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
 	
 	
 	
@@ -57,7 +66,7 @@
 				Prodotto bean = (Prodotto)it.next();
 	%>
 		<div class="prodotto">
-		<a href="prodotto.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>" width="350" height="100"></a>
+		<a href="./adminFilter/prodotto-admin.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>" width="350" height="100"></a>
 		</div>
 	<%}} %>
 	</div>
