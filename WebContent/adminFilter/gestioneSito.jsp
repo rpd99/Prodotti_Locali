@@ -32,9 +32,10 @@
 				<input type="hidden" name="action" value="insert"> 
 				Nome: <input type="text" name="nome" placeholder="nome"> 
 				Descrizione: <input type="text" name="descrizione" placeholder="breve descrizione categoria">
-				<input type="submit">
+				Foto: <input type="file" name="urlPhoto" accept="image/png">
+				<input type="submit" value="invia">
 			</form>
-			Per aggiungerne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
+			<!-- Per aggiungerne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br> -->
 			
 			
 			<h2>Scegli una categoria da modificare</h2>

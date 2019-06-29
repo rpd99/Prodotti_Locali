@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
+import ecommerce.utils.PhotoControl;
 
 @WebServlet("/CategoriaControlAdmin")
 public class CategoriaControlAdmin extends HttpServlet {
@@ -33,6 +34,15 @@ public class CategoriaControlAdmin extends HttpServlet {
 					bean.setDescrizione(descrizione);
 					
 					modelCategoria.doSave(bean);
+					
+					String urlPhoto = (String) request.getParameter("urlPhoto");
+					if (urlPhoto != null) {
+						try {
+							PhotoControl.upload(nome, urlPhoto, "categoria", "nome");
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
 				} 
 			}
 		}  catch(NumberFormatException e) {

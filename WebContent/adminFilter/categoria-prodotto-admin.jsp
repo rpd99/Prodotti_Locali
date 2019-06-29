@@ -41,7 +41,7 @@
 	Per modificarne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
 	
 	
-	<h1>inserisci prodotto di questa categoria: <%=nomeCat %></h1>
+	<h1>Inserisci prodotto di questa categoria: <%=nomeCat %></h1>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="insert"> 
 		Nome: <input type="text" name="nome">
@@ -49,9 +49,10 @@
 		Prezzo: <input type="text" name="prezzo">
 		Peso: <input type="text" name="peso">
 		Pezzi disponibili: <input type="text" name="pezzi">
+		Foto: <input type="file" name="urlPhoto" accept="image/png">
 		<input type="submit">
 	</form>
-	Per inserire l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
+	<!-- Per inserire l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br> -->
 	
 	
 	

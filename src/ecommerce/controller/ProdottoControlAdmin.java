@@ -14,6 +14,7 @@ import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
 import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
+import ecommerce.utils.PhotoControl;
 
 
 @WebServlet("/ProdottoControlAdmin")
@@ -53,6 +54,15 @@ public class ProdottoControlAdmin extends HttpServlet {
 					bean.setCategoria(request.getParameter("cat"));
 					
 					modelProdotto.doSave(bean);
+					
+					String urlPhoto = (String) request.getParameter("urlPhoto");
+					if (urlPhoto != null) {
+						try {
+							PhotoControl.upload(nome, urlPhoto, "prodotto", "nome");
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 		}  catch(NumberFormatException e) {
