@@ -38,6 +38,15 @@ public class ProdottoControlAdmin extends HttpServlet {
 					bean.setDescrizione(descrizione);
 					
 					modelCategoria.doUpdate(bean);
+					
+					String urlPhoto = (String) request.getParameter("urlPhoto");
+					if (urlPhoto != null) {
+						try {
+							PhotoControl.upload(nome, urlPhoto, "categoria", "nome");
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
 				} else if(action.equalsIgnoreCase("insert")) {
 					String nome = request.getParameter("nome");
 					String descrizione = request.getParameter("descrizione");

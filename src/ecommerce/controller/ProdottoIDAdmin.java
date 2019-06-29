@@ -1,6 +1,7 @@
 package ecommerce.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
 import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
+import ecommerce.utils.PhotoControl;
 
 @WebServlet("/ProdottoIDAdmin")
 public class ProdottoIDAdmin extends HttpServlet {
@@ -44,6 +46,15 @@ public class ProdottoIDAdmin extends HttpServlet {
 					bean.setCategoria(categoria);
 					
 					modelProdotto.doUpdate(bean);
+					
+					String urlPhoto = (String) request.getParameter("urlPhoto");
+					if (urlPhoto != null) {
+						try {
+							PhotoControl.upload(nome, urlPhoto, "prodotto", "nome");
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 		}  catch(NumberFormatException e) {

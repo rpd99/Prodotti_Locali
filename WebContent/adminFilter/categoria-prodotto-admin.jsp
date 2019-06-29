@@ -31,14 +31,15 @@
 		}
 			
 	%>
-	<h1>modifica categoria</h1>
+	<h1>modifica categoria</h1>(ai campi obbligatori mettiamo *)<br>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="update"> 
 		<input type="hidden" name="nome" value="<%=beanCat.getNome() %>"> 
 		Descrizione: <input type="text" name="descrizione" value="<%=beanCat.getDescrizione() %>">
+		Foto: <input type="file" name="urlPhoto" accept="image/png">
 		<input type="submit">
 	</form>
-	Per modificarne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
+	<!--  Per modificarne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br> -->
 	
 	
 	<h1>Inserisci prodotto di questa categoria: <%=nomeCat %></h1>

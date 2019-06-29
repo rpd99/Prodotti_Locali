@@ -22,21 +22,22 @@
 <body>
 	
 	<div class="prodottiID">
-		<h2>Prodotto</h2>
+		<h2>Prodotto: <%=product.getNome() %></h2>
 		<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>" width="350" height="100">
 		
 		
 		<form action="ProdottoIDAdmin?cod=<%=request.getParameter("cod") %>" method="post">
 			<input type="hidden" name="action" value="update"> 
 			<input type="hidden" name="categoria" value="<%=product.getCategoria() %>"> 
-			Nome: <input type="text" name="nome" value="<%=product.getNome() %>">
+			<input type="hidden" name="nome" value="<%=product.getNome() %>">
 			Descrizione: <input type="text" name="descrizione" value="<%=product.getDescrizione() %>">
 			Prezzo: <input type="text" name="prezzo" value="<%=product.getPrezzo() %>">
 			Peso: <input type="text" name="peso" value="<%=product.getPeso() %>">
 			Pezzi disponibili: <input type="text" name="pezzi" value="<%=product.getPezzi_disponibili() %>">
+			Foto: <input type="file" name="urlPhoto" accept="image/png">
 			<input type="submit">
 		</form>
-		Per modificare l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>
+		<!--  Per modificare l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>  -->
 	
 	</div>
 	
