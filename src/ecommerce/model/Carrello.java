@@ -6,6 +6,10 @@ public class Carrello {
 
 	private ArrayList<ProdottoQuantita> prodotti;
 	
+	public Carrello() {
+		this.prodotti = new ArrayList<ProdottoQuantita>();
+	}
+	
 	public void aggiungiProdotto(Prodotto prod, int quant) {
 		int flag=0;
 		for (ProdottoQuantita p : prodotti) {
@@ -19,6 +23,7 @@ public class Carrello {
 			prodotti.add(new ProdottoQuantita(prod.getCodice(), quant));
 	}
 	
+
 	public void aggiornaProdotto(Prodotto prod, int quant) {
 		for (ProdottoQuantita p : prodotti) {
 			if (p.isSameProduct(prod))

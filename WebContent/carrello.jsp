@@ -4,7 +4,7 @@
 <%
 	Collection<?> categories = (Collection<?>)request.getAttribute("categories");	
 	Collection<?> products = (Collection<?>)request.getAttribute("products");
-	Carrello cart = (Carrello)request.getAttribute("carrello");
+	Carrello cart = (Carrello)request.getAttribute("cart");
 	
 	if(cart == null || categories == null || products == null){
 		response.sendRedirect("./CarrelloControl");
@@ -12,8 +12,6 @@
 	}
 	
 %> 
-    
-    
     
 <!DOCTYPE html>
 <html>
@@ -34,7 +32,6 @@
 					<td>Quantita</td>
 					<td>#</td>
 				</tr>
-				<tr>
 					<%
 						if(cart.getSize() > 0){
 							for(ProdottoQuantita prod: (cart.getProdotti())){
@@ -46,14 +43,14 @@
 								<%=prodotto.getNome() %>
 							</td>
 							<td><%=prodotto.getPrezzo() %></td>
-							<td><input type="number" min=0 max=999 name="quantita" value=<%=prod.getQuantita() %>></td>
+			 				<td><input type="number" min=0 max=999 name="quantita" id="<%=prodotto.getCodice()%>" value=<%=prod.getQuantita()%>></td>
 							<td>
 								<a href="CarrelloControl?action=updateCart&id=<%=prod.getProdotto() %>">Aggiorna</a>
-								<!-- <button onclick="doSearch()">Search</button>
+								<button onclick="<%="doUpdate(" + prodotto.getCodice() + ")"%>">Aggiorna</button>
 <script>
- function doSearch() {
-  let word = document.querySelector('#inputWord').value;
-  window.location = "https://www.google.com.uy/search?q=" + word;
+ function doUpdate(codice) {
+  let word = document.querySelector('#codice').value;
+  window.location = "CarrelloControl?action=updateCart&id=" + codice + "&quantita=" + word;
  }
 </script> -->
 							</td>
@@ -64,11 +61,10 @@
 						} else {
 					%>
 						<tr>
-							<td colspan="2">No products avaible</td>
+							<td colspan="2">No products available</td>
 						</tr>
 						
 					<%	} %>
-				</tr>
 			</table>
 		<jsp:include page="footer.jsp"/>
 	</div>

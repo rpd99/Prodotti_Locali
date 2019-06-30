@@ -37,7 +37,7 @@
 					Categoria bean = (Categoria)it.next();
 		%>
 					<div class="categories">
-						<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>"></a>
+						<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>" alt="<%=bean.getNome() %>"></a>
 					</div>
 		<%}} %>
 		<jsp:include page="footer.jsp"/>

@@ -31,12 +31,13 @@ public class CarrelloControl extends HttpServlet {
 		}
 				
 		String action = request.getParameter("action");
-		int id = Integer.parseInt(request.getParameter("id"));
-		int quantita = Integer.parseInt(request.getParameter("quantita"));
-		Prodotto bean = model.doRetrieveByID(id);
+		
 		
 		try {
 			if(action != null) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				int quantita = Integer.parseInt(request.getParameter("quantita"));
+				Prodotto bean = model.doRetrieveByID(id);
 				if(action.equalsIgnoreCase("addCart")) {
 					if(bean != null) {
 						cart.aggiungiProdotto(bean, quantita);
@@ -65,7 +66,7 @@ public class CarrelloControl extends HttpServlet {
 		request.removeAttribute("products");
 		request.setAttribute("products", modelProdotto.doRetrieveAll());
 				
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/carrello.jsp");
 		dispatcher.forward(request, response);
 	}
 
