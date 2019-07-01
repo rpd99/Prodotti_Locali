@@ -20,6 +20,7 @@
 <title>Prodotti locali</title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
+<link rel="stylesheet" type="text/css" href="footer.css" />
 </head>
 <body>
 	

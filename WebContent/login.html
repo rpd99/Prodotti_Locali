@@ -13,22 +13,22 @@
   </head>
   <body>
   <div id="template">
-  <form class="box" action="LoginFilter" method="post" onSubmit="return validate();">
+  <form class="box" action="index.html" method="post" onSubmit="return validateLogin();">
     <div id="logo">
       <img src="logo.png" alt="logo">
-    </div>
-  <div id="errorMessage"></div>
-  <div class="textbox">
-    <i class="fas fa-user"></i>
-      <input type="text" name="username" placeholder="Username" id="username" >
-  </div>
-  <div class="textbox">
-    <i class="fas fa-unlock" aria-hidden="true"></i>
-    <input type="password" name="password" placeholder="Password" id="password">
-  </div>
+	</div>
+	
+	<div id="errorMessage"></div>
+	<div class="textbox">
+		<i class="fas fa-user"></i>
+		<input type="text" name="username" placeholder="Username" id="username" >
+	</div>
+	<div class="textbox">
+		<i class="fas fa-unlock" aria-hidden="true"></i>
+		<input type="password" name="password" placeholder="Password" id="password">
+	</div>
 
-    <input type="submit" name="login" value="Login" class="submit">
-
+	<input type="submit" name="login" value="Login" class="submit">
 
   </form>
   <br>
