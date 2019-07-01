@@ -163,7 +163,7 @@ VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'vino');
   
   
   CREATE TABLE relativo (
-  quantita  INT NOT NULL,
+  quantita INT NOT NULL,
   ordine INT NOT NULL,
   prodotto INT NOT NULL,
   PRIMARY KEY(ordine, prodotto),
