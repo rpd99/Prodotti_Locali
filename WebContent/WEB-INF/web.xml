@@ -38,4 +38,13 @@
     <filter-name>AuthFilter</filter-name>
     <url-pattern>/adminFilter/*</url-pattern>
  </filter-mapping>  
+ 
+   <filter>
+    <filter-name>AuthFilterUtente</filter-name>
+    <filter-class>ecommerce.utils.AuthFilterUtente</filter-class>
+ </filter>
+ <filter-mapping>
+    <filter-name>AuthFilterUtente</filter-name>
+    <url-pattern>/clienteFilter/*</url-pattern>
+ </filter-mapping> 
 </web-app>

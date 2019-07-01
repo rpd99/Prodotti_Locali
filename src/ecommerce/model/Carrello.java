@@ -20,7 +20,7 @@ public class Carrello {
 		}
 		
 		if (flag==0)
-			prodotti.add(new ProdottoQuantita(prod.getCodice(), quant));
+			prodotti.add(new ProdottoQuantita(prod, quant));
 	}
 	
 
@@ -33,9 +33,13 @@ public class Carrello {
 	
 	public void rimuoviProdotto(Prodotto prod) {
 		for (int i=0; i<prodotti.size(); i++) {
-			if (prodotti.get(i).getProdotto() == prod.getCodice())
+			if (prodotti.get(i).isSameProduct(prod))
 				prodotti.remove(i);
 		}
+	}
+	
+	public void svuotaCarrello() {
+		this.prodotti = new ArrayList<ProdottoQuantita>();
 	}
 	
 	public int getSize() {

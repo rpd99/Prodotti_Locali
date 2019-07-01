@@ -31,7 +31,16 @@
     </div>
 
     <div class="header-left">
-        <a href="./login.jsp">Il mio profilo</a>
+    	<% 
+    		String str=null;
+    		if(request.getSession().getAttribute("utente")==null){
+    			str="./login.jsp";
+    		}else{
+    			str="./clienteFilter/mio-profilo.jsp";
+    		}
+    		%>
+  
+        <a href=str>Il mio profilo</a>
         <a href="./carrello.jsp">Carrello</a>
     </div>
   </div>

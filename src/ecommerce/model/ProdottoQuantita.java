@@ -2,18 +2,18 @@ package ecommerce.model;
 
 public class ProdottoQuantita {
 
-	private int prodotto;
+	private Prodotto prodotto;
 	private int quantita;
 	
-	public ProdottoQuantita(int prodotto, int quantita) {
+	public ProdottoQuantita(Prodotto prodotto, int quantita) {
 		this.prodotto = prodotto;
 		this.quantita = quantita;
 	}
 
-	public int getProdotto() {
+	public Prodotto getProdotto() {
 		return prodotto;
 	}
-	public void setProdotto(int prodotto) {
+	public void setProdotto(Prodotto prodotto) {
 		this.prodotto = prodotto;
 	}
 	public int getQuantita() {
@@ -23,7 +23,7 @@ public class ProdottoQuantita {
 		this.quantita = quantita;
 	}
 	public boolean isSameProduct(Prodotto prod) {
-		if (prodotto == prod.getCodice())
+		if (prodotto.getCodice() == prod.getCodice())
 			return true;
 		else
 			return false;

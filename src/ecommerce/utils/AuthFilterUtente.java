@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import ecommerce.model.Utente;
 
-public class AuthFilter implements Filter {
+public class AuthFilterUtente implements Filter {
 
 	public void destroy() {
 	}
@@ -26,7 +26,7 @@ public class AuthFilter implements Filter {
 		
 		Utente u = (Utente) session.getAttribute("utente");
 		
-		if(u == null || (u.getIs_Admin()!=1))
+		if(u == null || (u.getIs_Admin()!=0))
 			hresponse.sendRedirect(hrequest.getContextPath() + "/login.jsp");
 		else
 			chain.doFilter(request, response);

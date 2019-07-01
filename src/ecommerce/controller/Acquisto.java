@@ -15,8 +15,8 @@ import ecommerce.model.CategoriaDAO;
 import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
 
-@WebServlet("/CarrelloControl")
-public class CarrelloControl extends HttpServlet {
+@WebServlet("/Acquisto")
+public class Acquisto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	ProdottoDAO model = new ProdottoDAO();
@@ -35,37 +35,21 @@ public class CarrelloControl extends HttpServlet {
 		
 		try {
 			if(action != null) {
-				if(action.equalsIgnoreCase("addCart")) {
+				if(action.equalsIgnoreCase("buy")) {
+					
 					int id = Integer.parseInt(request.getParameter("id"));
 					Prodotto bean = model.doRetrieveByID(id);
 					int quantita = Integer.parseInt(request.getParameter("quantita"));
 					if(bean != null) {
 						cart.aggiungiProdotto(bean, quantita);
 					}
-				} else if(action.equalsIgnoreCase("deleteCart")) {
-					int id = Integer.parseInt(request.getParameter("id"));
-					Prodotto bean = model.doRetrieveByID(id);
-					if(bean != null) {
-						cart.rimuoviProdotto(bean);
-					}
-				} else if(action.equalsIgnoreCase("updateCart")) {
-					int id = Integer.parseInt(request.getParameter("id"));
-					Prodotto bean = model.doRetrieveByID(id);
-					int quantita = Integer.parseInt(request.getParameter("quantita"));
-					if(bean != null) {
-						cart.aggiornaProdotto(bean, quantita);
-					}
-				} else if(action.equalsIgnoreCase("deleteAllCart")) {
-						cart.svuotaCarrello();
 				}
 			}
 		} catch(NumberFormatException e) {
 			System.out.println("Error: " + e.getMessage());
 			request.setAttribute("error", e.getMessage());
 		}
-		
-		request.getSession().setAttribute("carrello", cart);
-		request.setAttribute("cart", cart);
+
 		
 		request.removeAttribute("categories");
 		request.setAttribute("categories", modelCategoria.doRetrieveAll());
@@ -73,7 +57,7 @@ public class CarrelloControl extends HttpServlet {
 		request.removeAttribute("products");
 		request.setAttribute("products", modelProdotto.doRetrieveAll());
 				
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/carrello.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/clienteFilter/acquisto.jsp");
 		dispatcher.forward(request, response);
 	}
 

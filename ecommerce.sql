@@ -153,7 +153,6 @@ VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'vino');
   dataOrdine DATETIME NOT NULL,
   ind_sped VARCHAR(45) NOT NULL,
   stato VARCHAR(45) NOT NULL,
-  num_prodotti INT NOT NULL,
   data_spedizione DATETIME NOT NULL,
   cliente VARCHAR(50) NOT NULL,
   prezzo FLOAT NOT NULL,
@@ -162,11 +161,11 @@ VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'vino');
   ON DELETE CASCADE ON UPDATE CASCADE
   ) AUTO_INCREMENT = 1;
   
-INSERT INTO ordine (dataOrdine, ind_sped, stato, num_prodotti, data_spedizione, cliente, prezzo) 
-VALUES ('2019-01-20', 'via Rossi', 'Pagato', 12, '2019-01-22', 'a@gmail.com', 10.5);
+INSERT INTO ordine (dataOrdine, ind_sped, stato, data_spedizione, cliente, prezzo) 
+VALUES ('2019-01-20', 'via Rossi', 'Pagato', '2019-01-22', 'a@gmail.com', 10.5);
 
-INSERT INTO ordine (dataOrdine, ind_sped, stato, num_prodotti, data_spedizione, cliente, prezzo) 
-VALUES ('2019-01-15', 'via Verdi', 'Pagato', 12, '2019-01-30', 'c@gmail.com', 20.4);
+INSERT INTO ordine (dataOrdine, ind_sped, stato, data_spedizione, cliente, prezzo) 
+VALUES ('2019-01-15', 'via Verdi', 'Pagato', '2019-01-30', 'c@gmail.com', 20.4);
   
   CREATE TABLE relativo (
   quantita  INT NOT NULL,

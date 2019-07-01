@@ -35,7 +35,7 @@
 		<form action="CarrelloControl">
 			<input type="hidden" name="action" value="addCart">
 			<input type="hidden" name="id" value="<%=product.getCodice()%>">
-			<input type="number" name="quantita" value="1" min="1" max="10">
+			<input type="number" name="quantita" value="1" min="1" max="<%=product.getPezzi_disponibili() %>">
 			<input type="submit" value="aggiungi al carrello">
 		</form>
 	</div>

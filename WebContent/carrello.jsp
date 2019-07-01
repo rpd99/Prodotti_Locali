@@ -26,45 +26,50 @@
 	
 	<div class="main">
 		<jsp:include page="header.jsp"/>
-			<table>
-				<tr>
-					<td>Prodotto</td>
-					<td>Prezzo</td>
-					<td>Quantita</td>
-					<td>#</td>
-				</tr>
-					<%
-						if(cart.getSize() > 0){
-							for(ProdottoQuantita prod: (cart.getProdotti())){
-					%>
-						<tr>
-							<td><%for(Prodotto prodotto: ((ArrayList<Prodotto>)products)){
-								if(prodotto.getCodice() == prod.getProdotto()){
-								%>
-								<%=prodotto.getNome() %>
-							</td>
-							<td><%=prod.getQuantita() * prodotto.getPrezzo()%></td>
-			 				<td>
-			 					<form action="CarrelloControl" method="post">
-			 						<input type="number" min=0 max=10 name="quantita" value=<%=prod.getQuantita()%>>
-			 				
-									<input type="hidden" name="action" value="updateCart">
-									<input type="hidden" name="id" value="<%=prodotto.getCodice()%>">
-									<input type="submit" value="aggiorna">
-								</form>
-							</td>
-							<%}}%>
-						</tr>
-					<%
-							}
-						} else {
-					%>
-						<tr>
-							<td colspan="2">No products available</td>
-						</tr>
+			<h1>Il tuo carrello</h1>
+			<% if(cart.getSize() > 0){ %>
+				<table>
+					<tr>
+						<td>Prodotto</td>
+						<td>Prezzo</td>
+						<td>Quantita</td>
 						
-					<%	} %>
-			</table>
+					</tr>
+						<%
+							float tot=0;
+							for(ProdottoQuantita prod: (cart.getProdotti())){
+								tot += prod.getQuantita() * prod.getProdotto().getPrezzo();
+						%>
+							<tr>
+								<td>
+									<%=prod.getProdotto().getNome() %>
+								</td>
+								<td><%=prod.getQuantita() * prod.getProdotto().getPrezzo()%></td>
+				 				<td>
+				 					<form action="CarrelloControl" method="post">
+				 						<input type="number" min=0 max=<%=prod.getProdotto().getPezzi_disponibili() %> name="quantita" value=<%=prod.getQuantita()%>>
+				 				
+										<input type="hidden" name="action" value="updateCart">
+										<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
+										<input type="submit" value="aggiorna">
+									</form>
+									
+									<form action="CarrelloControl" method="post">
+										<input type="hidden" name="action" value="deleteCart">
+										<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
+										<input type="submit" value="elimina">
+									</form>
+								</td>
+								<%}%>
+							</tr>
+				</table>
+				<a href="CarrelloControl?action=deleteAllCart">Svuota carrello!</a>
+				<h6>Totale: <%=tot %></h6>
+				<a href="./clienteFilter/acquisto.jsp">Acquista</a>
+			<%} else {
+			%>
+				<span>Il carrello è vuoto</span>
+			<%	} %>
 		<jsp:include page="footer.jsp"/>
 	</div>
 	
