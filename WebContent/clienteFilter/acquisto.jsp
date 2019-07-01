@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDateTime"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, ecommerce.controller.*, ecommerce.model.*"%>
 
@@ -31,12 +32,10 @@
 			<h2>Compila i campi e procedi all'acquisto</h2>
 			<form action="Acquisto" method="post">
 				<input type="hidden" name="action" value="buy"> 
-				<input type="hidden" name="dataOrdine" value="<%= new Date()%>"> 
-				<input type="hidden" name="stato" value="1"> 
-				Nome: <input type="text" value="<%=utente.getNome() %>"><br>
-				Cognome: <input type="text" value="<%=utente.getCognome() %>"><br>
-				Numero di telefono: <input type="text" placeholder="333-3333333"><br>
-				Indirizzo spedizione: <input type="text" name="indirizzo" placeholder="via Verdi, 30, Roma 83541"><br>
+				Nome: <input type="text" value="<%=utente.getNome() %>" name="nome"><br>
+				Cognome: <input type="text" value="<%=utente.getCognome() %>" name="cognome"><br>
+				Numero di telefono: <input type="text" placeholder="333-3333333" name="numero"><br>
+				Indirizzo spedizione: <input type="text" name="indirizzo" placeholder="via Verdi, 30, Roma 83541" name="indirizzo"><br>
 				<input type="submit" value="Acquista">
 			</form>
 			

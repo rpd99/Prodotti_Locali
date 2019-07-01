@@ -40,7 +40,7 @@
     		}
     		%>
   
-        <a href=str>Il mio profilo</a>
+        <a href=<%= str%>>Il mio profilo</a>
         <a href="./carrello.jsp">Carrello</a>
     </div>
   </div>
