@@ -24,8 +24,8 @@
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
 </head>
 <body>
-	
 	<div class="main">
+			<jsp:include page="../header.jsp"/>
 			benvenuto admin: <%= utente.getNome() %>, <%= utente.getCognome() %>
 			<h2>Compila i campi ed inserisci una nuova categoria</h2>
 			<form action="CategoriaControlAdmin" method="post">
@@ -50,6 +50,7 @@
 							<a href="./adminFilter/categoria-prodotto-admin.jsp?cat=<%=bean.getNome() %>"><img src="./GetPicture?table=categoria&id=<%=bean.getNome() %>"></a>
 						</div>
 			<%}} %>
+			<jsp:include page="../footer.jsp"/>
 	</div>
 	
 </body>

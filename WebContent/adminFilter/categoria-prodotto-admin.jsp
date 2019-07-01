@@ -20,8 +20,8 @@
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
 </head>
 <body>
-		qua va il form per modificare la categoria<br>
 	
+	<jsp:include page="../header.jsp"/>
 	<% 
 		String nomeCat = request.getParameter("cat");
 		Categoria beanCat=null;
@@ -72,6 +72,8 @@
 		</div>
 	<%}} %>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 	
 </body>
 </html>

@@ -20,6 +20,7 @@
 <title>Carrello</title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
+<link rel="stylesheet" type="text/css" href="footer.css" />
 </head>
 <body>
 	
@@ -42,17 +43,15 @@
 								%>
 								<%=prodotto.getNome() %>
 							</td>
-							<td><%=prodotto.getPrezzo() %></td>
-			 				<td><input type="number" min=0 max=999 name="quantita" id="<%=prodotto.getCodice()%>" value=<%=prod.getQuantita()%>></td>
-							<td>
-								<a href="CarrelloControl?action=updateCart&id=<%=prod.getProdotto() %>">Aggiorna</a>
-								<button onclick="<%="doUpdate(" + prodotto.getCodice() + ")"%>">Aggiorna</button>
-<script>
- function doUpdate(codice) {
-  let word = document.querySelector('#codice').value;
-  window.location = "CarrelloControl?action=updateCart&id=" + codice + "&quantita=" + word;
- }
-</script> -->
+							<td><%=prod.getQuantita() * prodotto.getPrezzo()%></td>
+			 				<td>
+			 					<form action="CarrelloControl" method="post">
+			 						<input type="number" min=0 max=10 name="quantita" value=<%=prod.getQuantita()%>>
+			 				
+									<input type="hidden" name="action" value="updateCart">
+									<input type="hidden" name="id" value="<%=prodotto.getCodice()%>">
+									<input type="submit" value="aggiorna">
+								</form>
 							</td>
 							<%}}%>
 						</tr>

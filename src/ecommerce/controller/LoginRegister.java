@@ -31,16 +31,21 @@ public class LoginRegister extends HttpServlet {
 		utente.setEmail(email);
 		utente.setPassword_utente(password);
 		utente.setIs_Admin(0);
+		
+		if(utenteDAO.doRetrieveByID(email) != null) {
+			request.setAttribute("errorMessage", "Email già presente");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
+			requestDispatcher.forward(request, response);
+		}
+		
 		utenteDAO.doSave(utente);
 		
 		request.setAttribute("successMessage", "Registrazione effettuata con succcesso. Accedi per continuare");
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/login.html");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");
 		requestDispatcher.forward(request, response);
-		
-		
-		
-		doGet(request, response);
 	}
+	
+	
 
 }

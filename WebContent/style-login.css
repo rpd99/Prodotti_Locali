@@ -113,3 +113,13 @@ a:link {
 #passwordMessage{
   display: none;
 }
+
+.nomeCognome{
+	display: inline-block;
+}
+
+.nomeCognome input{
+	width: 40%;
+	float: left;
+	margin: 0 10px;
+}

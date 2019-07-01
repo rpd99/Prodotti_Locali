@@ -31,8 +31,8 @@
     </div>
 
     <div class="header-left">
-        <a href="#contact">Contatti</a>
-        <a href="./login.html">Il mio profilo</a>
+        <a href="./login.jsp">Il mio profilo</a>
+        <a href="./carrello.jsp">Carrello</a>
     </div>
   </div>
 

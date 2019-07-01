@@ -24,13 +24,20 @@
 	
 	<div class="prodottiID">
 		<h2>Prodotto</h2>
-		<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>" width="350" height="100">
+		<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>">
 		<%=product.getCodice() %>
 		<%=product.getNome() %>
 		<%=product.getDescrizione() %>
 		<%=product.getPeso() %>
 		<%=product.getPezzi_disponibili() %>
 		<%=product.getPrezzo() %>
+		
+		<form action="CarrelloControl">
+			<input type="hidden" name="action" value="addCart">
+			<input type="hidden" name="id" value="<%=product.getCodice()%>">
+			<input type="number" name="quantita" value="1" min="1" max="10">
+			<input type="submit" value="aggiungi al carrello">
+		</form>
 	</div>
 	
 </body>

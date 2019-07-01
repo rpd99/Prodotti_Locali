@@ -22,6 +22,7 @@
 <body>
 	
 	<div class="prodottiID">
+		<jsp:include page="../header.jsp"/>
 		<h2>Prodotto: <%=product.getNome() %></h2>
 		<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>" width="350" height="100">
 		
@@ -38,7 +39,7 @@
 			<input type="submit">
 		</form>
 		<!--  Per modificare l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>  -->
-	
+		<jsp:include page="../footer.jsp"/>
 	</div>
 	
 </body>
