@@ -6,7 +6,7 @@
 
 
 <div class="header">
-    <div class="header-right">
+    <div class="header-left">
         <div class="dropdown">
     			<a href="categoria-prodotto.jsp?cat=tutte">Tutti i nostri prodotti</a>
           <div class="dropdown-content">
@@ -30,7 +30,7 @@
       <a href="index.jsp" class="logo"><img src="logo.png" alt="logo"></a>
     </div>
 
-    <div class="header-left">
+    <div class="header-right">
     	<% 
     		String str=null;
     		if(request.getSession().getAttribute("utente")==null){

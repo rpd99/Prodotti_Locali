@@ -50,7 +50,7 @@
 		%>
 			<div class="prodotto">
 				<a href="prodotto.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>">
-				<h3><%=bean.getNome() %></h3></a>
+				<h3><%=bean.getNome() %>, <%=bean.getPrezzo() %>&euro;</h3></a>
 			</div>
 		<%}} %>
 		</div>

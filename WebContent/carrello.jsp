@@ -30,9 +30,10 @@
 			<% if(cart.getSize() > 0){ %>
 				<table>
 					<tr>
-						<td>Prodotto</td>
-						<td>Prezzo</td>
-						<td>Quantita</td>
+						<th>Prodotto</th>
+						<th>Prezzo</th>
+						<th>Quantita</th>
+						<th>Operazioni</th>
 						
 					</tr>
 						<%
@@ -41,34 +42,31 @@
 								tot += prod.getQuantita() * prod.getProdotto().getPrezzo();
 						%>
 							<tr>
-								<td>
-									<%=prod.getProdotto().getNome() %>
-								</td>
-								<td><%=prod.getQuantita() * prod.getProdotto().getPrezzo()%></td>
-				 				<td>
-				 					<form action="CarrelloControl" method="post">
-				 						<input type="number" min=0 max=<%=prod.getProdotto().getPezzi_disponibili() %> name="quantita" value=<%=prod.getQuantita()%>>
-				 				
-										<input type="hidden" name="action" value="updateCart">
-										<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
-										<input type="submit" value="aggiorna">
-									</form>
-									
-									<form action="CarrelloControl" method="post">
-										<input type="hidden" name="action" value="deleteCart">
-										<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
-										<input type="submit" value="elimina">
-									</form>
-								</td>
+								<td><%=prod.getProdotto().getNome() %></td>
+								<td><%=prod.getQuantita() * prod.getProdotto().getPrezzo()%>&euro;</td>
+			 					<form action="CarrelloControl" method="post">
+			 						<td><input type="number" min=0 max=<%=prod.getProdotto().getPezzi_disponibili() %> name="quantita" value=<%=prod.getQuantita()%>></td>
+									<input type="hidden" name="action" value="updateCart">
+									<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
+									<td><input type="submit" value="Aggiorna">
+								</form>
+								
+								<form action="CarrelloControl" method="post">
+									<input type="hidden" name="action" value="deleteCart">
+									<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
+									<input type="submit" value="Elimina"></td>
+								</form>
 								<%}%>
 							</tr>
 				</table>
-				<a href="CarrelloControl?action=deleteAllCart">Svuota carrello!</a>
-				<h6>Totale: <%=tot %></h6>
+				
+				<a href="CarrelloControl?action=deleteAllCart">Svuota carrello</a>
+				<h2>Totale: <%=tot %></h2>
 				<a href="./clienteFilter/acquisto.jsp">Acquista</a>
+				
 			<%} else {
 			%>
-				<span>Il carrello è vuoto</span>
+				<h3>Il carrello è vuoto</h3>
 			<%	} %>
 		<jsp:include page="footer.jsp"/>
 	</div>
