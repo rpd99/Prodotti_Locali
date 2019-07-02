@@ -23,7 +23,7 @@
 			</ul>
           </div>
       </div>
-        <a href="#about">Chi siamo</a>
+        <a href="./chiSiamo.jsp">Chi siamo</a>
     </div>
 
     <div class="header-center">
