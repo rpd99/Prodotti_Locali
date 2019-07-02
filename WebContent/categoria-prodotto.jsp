@@ -18,37 +18,44 @@
 <title>Categorie</title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
+<link rel="stylesheet" type="text/css" href="footer.css" />
 </head>
 <body>
+	<div class="main">
 	<jsp:include page="header.jsp"/>
 	
-	<div class="left">	
-		Categorie<br>
-	<%
-		if(categories != null && categories.size() > 0) {
-			
-			Iterator<?> it = categories.iterator();
-			while(it.hasNext()){
-				Categoria bean = (Categoria)it.next();
-	%>
-		<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><%=bean.getNome() %></a><br>
-	<%}} %>
-	</div>
-		
-	<div class="prodottoID">
-		<h2>Prodotto</h2>
-	<%
-		if(products != null && products.size() > 0) {
-			
-			Iterator<?> it = products.iterator();
-			while(it.hasNext()){
-				Prodotto bean = (Prodotto)it.next();
-	%>
-		<div class="prodotto">
-		<a href="prodotto.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>" width="350" height="100"></a>
+		<!--  
+		<div class="left">	
+			Categorie<br>
+		<%
+			if(categories != null && categories.size() > 0) {
+				
+				Iterator<?> it = categories.iterator();
+				while(it.hasNext()){
+					Categoria bean = (Categoria)it.next();
+		%>
+			<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><%=bean.getNome() %></a><br>
+		<%}} %>
 		</div>
-	<%}} %>
+		-->
+			
+		<div class="prodottoID">
+		<h2>Prodotti della categoria <b><%=request.getParameter("cat") %></b></h2>
+		<%
+			if(products != null && products.size() > 0) {
+				
+				Iterator<?> it = products.iterator();
+				while(it.hasNext()){
+					Prodotto bean = (Prodotto)it.next();
+		%>
+			<div class="prodotto">
+				<a href="prodotto.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>">
+				<h3><%=bean.getNome() %></h3></a>
+			</div>
+		<%}} %>
+		</div>
+		
+	<jsp:include page="footer.jsp"/>
 	</div>
-	
 </body>
 </html>
