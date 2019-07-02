@@ -31,25 +31,36 @@
 		}
 			
 	%>
-	<h1>modifica categoria</h1>(ai campi obbligatori mettiamo *)<br>
+	
+	<h1>Categoria: <%=nomeCat %></h1>
+	
+	<h1>cancella categoria</h1>
+	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
+		<input type="hidden" name="action" value="delete"> 
+		<input type="submit" value="elimina">
+	</form>
+	
+	<hr>
+	
+	<h1>modifica categoria</h1>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="update"> 
 		<input type="hidden" name="nome" value="<%=beanCat.getNome() %>"> 
-		Descrizione: <input type="text" name="descrizione" value="<%=beanCat.getDescrizione() %>">
+		Descrizione*: <input type="text" name="descrizione" value="<%=beanCat.getDescrizione() %>">
 		Foto: <input type="file" name="urlPhoto" accept="image/png">
 		<input type="submit">
 	</form>
-	<!--  Per modificarne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br> -->
-	
+
+	<hr>
 	
 	<h1>Inserisci prodotto di questa categoria: <%=nomeCat %></h1>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="insert"> 
-		Nome: <input type="text" name="nome">
-		Descrizione: <input type="text" name="descrizione">
-		Prezzo: <input type="text" name="prezzo">
-		Peso: <input type="text" name="peso">
-		Pezzi disponibili: <input type="text" name="pezzi">
+		Nome*: <input type="text" name="nome">
+		Descrizione*: <input type="text" name="descrizione">
+		Prezzo*: <input type="text" name="prezzo">
+		Peso*: <input type="text" name="peso">
+		Pezzi disponibili*: <input type="text" name="pezzi">
 		Foto: <input type="file" name="urlPhoto" accept="image/png">
 		<input type="submit">
 	</form>

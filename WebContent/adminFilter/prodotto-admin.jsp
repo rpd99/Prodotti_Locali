@@ -26,7 +26,15 @@
 		<h2>Prodotto: <%=product.getNome() %></h2>
 		<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>" width="350" height="100">
 		
+		<h1>Elimina</h1>
+		<form action="ProdottoIDAdmin?cod=<%=request.getParameter("cod") %>" method="post">
+			<input type="hidden" name="action" value="delete"> 
+			<input type="submit" value="elimina">
+		</form>
 		
+		<hr>
+		
+		<h1>Modifica</h1>
 		<form action="ProdottoIDAdmin?cod=<%=request.getParameter("cod") %>" method="post">
 			<input type="hidden" name="action" value="update"> 
 			<input type="hidden" name="categoria" value="<%=product.getCategoria() %>"> 
@@ -38,7 +46,6 @@
 			Foto: <input type="file" name="urlPhoto" accept="image/png">
 			<input type="submit">
 		</form>
-		<!--  Per modificare l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br>  -->
 		<jsp:include page="../footer.jsp"/>
 	</div>
 	

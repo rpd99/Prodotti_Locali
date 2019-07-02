@@ -25,6 +25,7 @@ public class ProdottoIDAdmin extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		int flag=0;
 		
 		try {
 			if(action != null) {
@@ -55,6 +56,10 @@ public class ProdottoIDAdmin extends HttpServlet {
 							e.printStackTrace();
 						}
 					}
+				} else if(action.equalsIgnoreCase("delete")) {
+					int cod = Integer.parseInt(request.getParameter("cod"));
+					modelProdotto.doDelete(cod);
+					flag=1;
 				}
 			}
 		}  catch(NumberFormatException e) {
@@ -74,8 +79,14 @@ public class ProdottoIDAdmin extends HttpServlet {
 		request.setAttribute("products", modelProdotto.doRetrieveByID(cod));
 
 		RequestDispatcher dispatcher;
-		dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/prodotto-admin.jsp");
-		dispatcher.forward(request, response);
+		
+		if(flag==0) {
+			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/prodotto-admin.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/gestioneSito.jsp");
+			dispatcher.forward(request, response);
+		}
 
 	}
 
