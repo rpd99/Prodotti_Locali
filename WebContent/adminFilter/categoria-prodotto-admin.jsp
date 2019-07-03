@@ -18,9 +18,10 @@
 <title>Categorie</title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
+<link rel="stylesheet" type="text/css" href="footer.css" />
 </head>
 <body>
-	
+	<div class="main">
 	<jsp:include page="../header.jsp"/>
 	<% 
 		String nomeCat = request.getParameter("cat");
@@ -32,59 +33,59 @@
 			
 	%>
 	
-	<h1>Categoria: <%=nomeCat %></h1>
+	<h1>Categoria: <b><%=nomeCat %></b></h1>
 	
-	<h1>cancella categoria</h1>
-	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
-		<input type="hidden" name="action" value="delete"> 
-		<input type="submit" value="elimina">
-	</form>
-	
-	<hr>
-	
-	<h1>modifica categoria</h1>
+	<h2>Modifica categoria:</h2>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="update"> 
 		<input type="hidden" name="nome" value="<%=beanCat.getNome() %>"> 
-		Descrizione*: <input type="text" name="descrizione" value="<%=beanCat.getDescrizione() %>">
+		Descrizione*: <textarea name="descrizione"><%=beanCat.getDescrizione() %></textarea>
 		Foto: <input type="file" name="urlPhoto" accept="image/png">
-		<input type="submit">
+		<input type="submit" value="Modifica">
 	</form>
 
 	<hr>
+
+	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
+		<input type="hidden" name="action" value="delete"> 
+		<input type="submit" value="Cancella categoria">
+	</form>
 	
-	<h1>Inserisci prodotto di questa categoria: <%=nomeCat %></h1>
+	<hr>
+	
+	<h2>Inserisci prodotto di questa categoria:</h2>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="insert"> 
 		Nome*: <input type="text" name="nome">
-		Descrizione*: <input type="text" name="descrizione">
+		Descrizione*: <textarea rows="4" cols="50" name="descrizione" placeholder="descrizione categoria"></textarea>
 		Prezzo*: <input type="text" name="prezzo">
 		Peso*: <input type="text" name="peso">
 		Pezzi disponibili*: <input type="text" name="pezzi">
 		Foto: <input type="file" name="urlPhoto" accept="image/png">
-		<input type="submit">
-	</form>
-	<!-- Per inserire l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br> -->
+		<input type="submit" value="Inserisci">
+	</form>	
 	
-	
-	
+	<hr>
 	
 	<div class="prodottoID">
-		<h2>Seleziona il prodotto da modificare</h2>
-	<%
+		<h2>Seleziona il prodotto da modificare:</h2>
+		<%
 		if(products != null && products.size() > 0) {
 			
 			Iterator<?> it = products.iterator();
 			while(it.hasNext()){
 				Prodotto bean = (Prodotto)it.next();
-	%>
+		%>
 		<div class="prodotto">
-		<a href="./adminFilter/prodotto-admin.jsp?cod=<%=bean.getCodice() %>"><img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>" width="350" height="100"></a>
+			<a href="./adminFilter/prodotto-admin.jsp?cod=<%=bean.getCodice() %>">
+				<img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>">
+				<h3><%=bean.getNome() %></h3>
+			</a>
 		</div>
 	<%}} %>
 	</div>
 	
 	<jsp:include page="../footer.jsp"/>
-	
+	</div>
 </body>
 </html>

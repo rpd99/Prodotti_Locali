@@ -18,34 +18,37 @@
 <title>Prodotto</title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
+<link rel="stylesheet" type="text/css" href="footer.css" />
 </head>
 <body>
 	
-	<div class="prodottiID">
+	<div class="main">
 		<jsp:include page="../header.jsp"/>
-		<h2>Prodotto: <%=product.getNome() %></h2>
-		<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>" width="350" height="100">
+		<h2>Prodotto: <b><%=product.getNome() %></b></h2>
+		<div class="prodottoIDAdmin">
+			<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>">
+		</div>
 		
-		<h1>Elimina</h1>
-		<form action="ProdottoIDAdmin?cod=<%=request.getParameter("cod") %>" method="post">
-			<input type="hidden" name="action" value="delete"> 
-			<input type="submit" value="elimina">
-		</form>
-		
-		<hr>
-		
-		<h1>Modifica</h1>
+		<h1>Modifica prodotto:</h1>
 		<form action="ProdottoIDAdmin?cod=<%=request.getParameter("cod") %>" method="post">
 			<input type="hidden" name="action" value="update"> 
 			<input type="hidden" name="categoria" value="<%=product.getCategoria() %>"> 
 			<input type="hidden" name="nome" value="<%=product.getNome() %>">
-			Descrizione: <input type="text" name="descrizione" value="<%=product.getDescrizione() %>">
+			Descrizione: <textarea name="descrizione"><%=product.getDescrizione() %></textarea>
 			Prezzo: <input type="text" name="prezzo" value="<%=product.getPrezzo() %>">
 			Peso: <input type="text" name="peso" value="<%=product.getPeso() %>">
 			Pezzi disponibili: <input type="text" name="pezzi" value="<%=product.getPezzi_disponibili() %>">
 			Foto: <input type="file" name="urlPhoto" accept="image/png">
-			<input type="submit">
+			<input type="submit" value="Modifica">
 		</form>
+		
+		<hr>
+		
+		<form action="ProdottoIDAdmin?cod=<%=request.getParameter("cod") %>" method="post">
+			<input type="hidden" name="action" value="delete"> 
+			<input type="submit" value="Cancella prodotto">
+		</form>
+		
 		<jsp:include page="../footer.jsp"/>
 	</div>
 	

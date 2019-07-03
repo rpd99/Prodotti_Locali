@@ -11,21 +11,12 @@ body {
 }
 
 .main {
-	background: white;
+	background: #F5F5DC;
 }
 
 .categories {
 	display: inline-block; 
 	width: 33%;
-}
-
-.text {
-	font-size: 36px;
-    color: #bf1624;
-    text-align: center;
-    font-family: Roboto Condensed;
-    font-weight: 700;
-    font-style: normal;
 }
 
 h1 {
@@ -87,12 +78,26 @@ img {
 }
 
 .prodottoDettaglio {
-	display: inline-block; 
-	width: 50%;
-	padding-bottom: 10px;
+	display: flex; 
+	width: 100%;
+  	height: auto;
 }
 
-input[type=text], input[type=text] {
+.prodottoDettaglioImg {
+	flex: 1;
+  	display: flex;
+}
+
+.prodottoDettaglioInfo {
+	flex: 2;
+  	display: block;
+}
+
+.prodottoIDAdmin img {
+	width: 30%;
+}
+
+input[type=text], textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

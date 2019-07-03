@@ -27,7 +27,7 @@
 	<div class="main">
 		<jsp:include page="header.jsp"/>
 		<div class="image"><img src="./GetPicture?table=images&id=benessere" alt="no image"></div>
-		<div class="text">Vi offriamo Prodotti sani, necessari e fondamentali per il benessere del nostro organismo</div>
+		<h1>Vi offriamo Prodotti sani, necessari e fondamentali per il benessere del nostro organismo</h1>
 		
 		<hr>
 		

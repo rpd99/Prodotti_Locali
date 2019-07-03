@@ -22,23 +22,24 @@
 <title>Prodotti locali</title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
+<link rel="stylesheet" type="text/css" href="footer.css" />
 </head>
 <body>
 	<div class="main">
 			<jsp:include page="../header.jsp"/>
-			benvenuto admin: <%= utente.getNome() %>, <%= utente.getCognome() %>
-			<h2>Compila i campi ed inserisci una nuova categoria</h2>
+			<h1>Benvenuto admin: <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h1>
+			<h2>Inserisci una nuova categoria:</h2>
 			<form action="CategoriaControlAdmin" method="post">
 				<input type="hidden" name="action" value="insert"> 
-				Nome: <input type="text" name="nome" placeholder="nome"> 
-				Descrizione: <input type="text" name="descrizione" placeholder="breve descrizione categoria">
+				Nome*: <input type="text" name="nome" placeholder="nome"> 
+				Descrizione*: <textarea rows="4" cols="50" name="descrizione" placeholder="descrizione categoria"></textarea>
 				Foto: <input type="file" name="urlPhoto" accept="image/png">
-				<input type="submit" value="invia">
+				<input type="submit" value="Aggiungi">
 			</form>
 			<!-- Per aggiungerne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br> -->
 			
 			
-			<h2>Scegli una categoria da modificare</h2>
+			<h2>Scegli una categoria da modificare:</h2>
 			<%
 				if(categories != null && categories.size() > 0) {
 					
