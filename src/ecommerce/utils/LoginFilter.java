@@ -28,7 +28,7 @@ public class LoginFilter extends HttpServlet {
 			request.getSession().setAttribute("utente", u);
 			
 			if (u == null) {
-				response.sendRedirect("./loginError.html");
+				response.sendRedirect("./loginError.jsp");
 			} else if (u.getIs_Admin()==1) {
 				response.sendRedirect("./adminFilter/gestioneSito.jsp");
 			} else {
