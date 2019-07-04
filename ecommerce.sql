@@ -11,7 +11,7 @@ CREATE TABLE utente (
 );
 
 INSERT INTO utente (email, nome, cognome, password_utente,isAdmin) 
-VALUES ('a@gmail.com', 'mario', 'inglese', 'Marioinglese98', 0); 
+VALUES ('a@gmail.com', 'mario', 'rossi', 'Mariorossi98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin) 
 VALUES ('b@gmail.com', 'luca', 'rossi', 'Lucarossi98', 0); 
@@ -20,7 +20,7 @@ INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
 VALUES ('c@gmail.com', 'giacomo', 'verdi', 'Giacomoverdi98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
-VALUES ('admin@gmail.com', 'marco', 'bruno', 'Marcobruno98', 1); 
+VALUES ('admin@gmail.com', 'marco', 'bruno', 'Marcorossi98', 1); 
 
 
 
@@ -64,35 +64,25 @@ VALUES ('vino', 'vino', NULL);
   
   
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ( 'zucchine sottolio', 'sei bicchieri', 1.99, 0.435, 3, 'miele');
+VALUES ( 'acacia', 'Dal colore dorato chiaro, trasparente, e dal sapore delicato; è un dolcificate ideale da aggiungere a tutti i tipi di bevande calde, anche nel caffè.', 17.99, 0.7, 3, 'miele');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ( 'set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'miele');
+VALUES ( 'millefiori', 'Il Miele di Millefiori ha un colore ambrato e il suo sapore è delicatamente aromatico, gradevole e pieno. È indicato in generale nelle situazioni di affaticamento, anemia, convalescenza, come sedativo per la tosse ed è anche utile per chi fa attività sportiva.', 8.5, 0.4, 8, 'miele');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'miele');
+VALUES ('tiglio', 'Il Miele di Tiglio ha un colore giallo chiaro, un sapore leggermente balsamico e un gusto dolce e delicato. È un consigliato antispasmodico, sedativo delle insonnie, diuretico e calmante della tosse.', 9.99, 0.4, 7, 'miele');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'miele');
-INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'miele');
-INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'miele');
+VALUES ('castagno', 'Gli alveari della apicoltura di questo tipo di miele sono collocati in aree boschive, o nelle vicinanze di aziende agricole ad agricoltura biologica, lontano da intense emissioni inquinanti, come città, strade, fabbriche, discariche.', 14, 0.4, 20, 'miele');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'olio');
-INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'olio');
-INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'olio');
-INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'olio');
+VALUES ('exstravergine', 'il nostro olio è di categoria fruttato leggero, si presenta con un colore giallo dorato con sfumature verdi. Ha un sentore di carciofo sotto il quale è avvertibile una mandorla dolce. Leggermente amaro e poco piccante, i sentori di verde percepiti all’olfatto si evidenziano durante l’assaggio.', 17.99, 1, 30, 'olio');
   
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'pasta');
+VALUES ('sfogliatelle', 'Sfogliatelle fatte a mano ripine di ricotta e spinaci', 11, 1, 10, 'pasta');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'pasta');
+VALUES ('fusilli', 'Fusilli fatti a mano secondo la antica ricetta avellinese', 8, 1, 32, 'pasta');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'pasta');
+VALUES ('ziti', 'Ziti fatti a mano secondo la antica ricetta avellinese', 8, 1, 12, 'pasta');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'pasta');
+VALUES ('pasta mista', 'Pasta mista fatta a mano con differenti tipi di farina adatta per pasta con legumi', 10, 1, 8, 'pasta');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
 VALUES ('capicollo', 'Parte anteriore del lombo salata a mano, in budello naturale. Stagionatura 4/6 mesi. Peso da 2.5 a 3.5 kg ca. Ingredienti: sale e pepe nero spezzato.', 24.99, 2.5, 10, 'salumi');
@@ -128,24 +118,28 @@ INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categ
 VALUES ('tartufo uncinato', 'Il Tartufo Uncinato fresco, detto anche Scorzone Invernale, si raccoglie dal 1 Ottobre al 31 Dicembre. La selezione in vendita è di provenienza italiana, ha profumo e sapore delicati e ben delineati, con note di nocciola, porcino e grana. Perfetto per molteplici usi in cucina, sia cotto che crudo. Le pezzature inviate sono miste.', 129.99, 1, 5, 'tartufo');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'torrone');
+VALUES ('mandorlato', 'Torrone friabile alla mandorla. Ancora oggi prodotto secondo l’antica ricetta che gli dona un gusto straordinario', 4.99, 0.14, 23, 'torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'torrone');
+VALUES ('golosino', 'Torrone tenero al cioccolato e nocciole. Creato nel 1950, oggi è uno dei torroni morbidi più apprezzati dalla clientela', 4.99, 0.14, 3, 'torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'torrone');
+VALUES ('montigo', 'Torrone tenero al rhum. Il miglior rhum giamaicano per rendere ancora più dolce il torrone morbido.', 4.99, 0.14, 30, 'torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'torrone');
+VALUES ('morbidello', 'Torrone tenero alle mandorle ricoperto di puro cioccolato fondente al 60% di cacao. Gusto delicato ed uno strato di cioccolato sono le sue caratteristiche principali', 4.99, 0.14, 8, 'torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'torrone');
+VALUES ('sorrento', 'Torrone tenero alle noci. Torrone di altissima qualità, ricco di noci e miele italiano', 4.99, 0.14, 3, 'torrone');
+INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
+VALUES ('torroncini attimi', 'Deliziosi bocconcini di torrone al pan di spagna dal sapore inconfondibile', 4.99, 0.25, 33, 'torrone');
+INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
+VALUES ('torroncini misti', 'Torroncini alla mandorla, pan di spagna e croccantino', 4.99, 0.5, 7, 'torrone');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'vino');
+VALUES ('chianti', 'Spesso nel Chianti le colline più vocate alla coltivazione del Sangiovese sono caratterizzate da suoli ricchi di sassi, denominati alberesi e galestro, da qui il nome ISASSI.', 14.99, 0.75, 4, 'vino');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'vino');
+VALUES ('falanghina', 'Giallo paglierino chiaro con riflessi verdognoli, al naso esprime un carattere fresco e fruttato, caratterizzato da spiccate note di agrumi, ananas e fiori bianchi. Al palato è piacevole e persistente, equilibrato da un piacevole retrogusto fruttato.', 19.99, 0.75, 10, 'vino');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'vino');
+VALUES ('fiano', 'Giallo paglierino con leggeri riflessi dorati. Offre moltissimi toni olfattivi, tra cui profumi di fiori bianchi, mela e pera, oltre all’inconfondibile sentore di nocciola tostata. All’assaggio conferma l’olfattiva, con la nocciola che domina nuovamente, accompagnando verso una chiusura fresca e minerale.', 22, 0.75, 7, 'vino');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('set bicchieri', 'sei bicchieri', 4.99, 0.435, 3, 'vino');
+VALUES ('aglianico', 'Rosso rubino scuro, al naso esprime note di grande eleganza che riportano subito la mente ai grandi Aglianico del Vulture. Sentori di frutta rossa si affiancano a note di tabacco e vaniglia prima di incedere in una affascinante mineralità vulcanica, addirittura impreziosita da un lontano ricordo agrumato. In bocca è secco, suadente, insospettabilmente fresco e di grande equilibrio. Un assaggio reattivo, vellutato, lunghissimo.', 14.99, 0.75, 3, 'vino');
 
 
   CREATE TABLE ordine (
