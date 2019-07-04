@@ -14,13 +14,13 @@ INSERT INTO utente (email, nome, cognome, password_utente,isAdmin)
 VALUES ('a@gmail.com', 'mario', 'rossi', 'Mariorossi98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin) 
-VALUES ('b@gmail.com', 'luca', 'rossi', 'Lucarossi98', 0); 
+VALUES ('b@gmail.com', 'luca', 'gialli', 'Lucagialli98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
 VALUES ('c@gmail.com', 'giacomo', 'verdi', 'Giacomoverdi98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
-VALUES ('admin@gmail.com', 'marco', 'bruno', 'Marcorossi98', 1); 
+VALUES ('admin@gmail.com', 'marco', 'rossi', 'Marcorossi98', 1); 
 
 
 
@@ -189,3 +189,7 @@ CREATE TABLE images(
 	img mediumblob,
 	PRIMARY KEY(nome)
 );
+
+INSERT INTO images (nome, img) 
+VALUES ('benessere', NULL);
+
