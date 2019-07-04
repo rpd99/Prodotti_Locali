@@ -45,7 +45,7 @@
 								<td><%=prod.getProdotto().getNome() %></td>
 								<td><%=prod.getQuantita() * prod.getProdotto().getPrezzo()%>&euro;</td>
 			 					<form action="CarrelloControl" method="post">
-			 						<td><input type="number" min=0 max=<%=prod.getProdotto().getPezzi_disponibili() %> name="quantita" value=<%=prod.getQuantita()%>></td>
+			 						<td><input type="number" min=1 max=<%=prod.getProdotto().getPezzi_disponibili() %> name="quantita" value=<%=prod.getQuantita()%>></td>
 									<input type="hidden" name="action" value="updateCart">
 									<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
 									<td><input type="submit" value="Aggiorna">

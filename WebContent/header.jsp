@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, ecommerce.controller.*, ecommerce.model.*"%>
 
-<% Collection<?> categories = (Collection<?>)request.getAttribute("categories"); %>
+<%
+	Collection<?> categories = (Collection<?>)request.getAttribute("categories"); 
+	Carrello cart = (Carrello)request.getSession().getAttribute("carrello");
+	int quantCarrello = 0;
+	if(cart != null){
+		quantCarrello = cart.getSize();
+	}
+	
+%>
 
 
 
@@ -41,11 +49,9 @@
     		%>
   
         <a href=<%= str%>>Il mio profilo</a>
-        <a href="./carrello.jsp">Carrello</a>
+        <a href="./carrello.jsp">Carrello<sup>(<%=quantCarrello %>)</sup></a>
     </div>
   </div>
-
-
 
 
 <br><br>
