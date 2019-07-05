@@ -28,7 +28,7 @@
 	<div class="main">
 			<jsp:include page="../header.jsp"/>
 			<h2>Benvenuto cliente: <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h2>
-			 
+			<a href="Logout">Logout</a>
 			<% if(ordini.size() > 0) {%>
 				<h4>I tuoi ordini sono:</h4>
 				<table>
@@ -53,6 +53,16 @@
 					</tr>
 				
 			<% } %>  </table>  <%}%>
+			
+			<h2>Modifica password</h2>
+			<form action="MioProfilo" method="post">
+				<input type="hidden" name="action" value="update">
+				Vecchia password: <input type="password" name="vecchiaPassword">
+				Nuova password: <input type="password" name="nuovaPassword1">
+				Conferma password: <input type="password" name="nuovaPassword2">
+				<input type="submit" value="Modifica">
+			</form>
+			
 			
 			<jsp:include page="../footer.jsp"/>
 	</div>

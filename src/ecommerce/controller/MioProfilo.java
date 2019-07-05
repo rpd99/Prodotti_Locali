@@ -17,6 +17,7 @@ import ecommerce.model.OrdineProdottoDAO;
 import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
 import ecommerce.model.Utente;
+import ecommerce.model.UtenteDAO;
 
 @WebServlet("/MioProfilo")
 public class MioProfilo extends HttpServlet {
@@ -25,9 +26,32 @@ public class MioProfilo extends HttpServlet {
 	static CategoriaDAO modelCategoria = new CategoriaDAO();
 	static OrdineProdottoDAO modelOrdineProdotto = new OrdineProdottoDAO();
 	static OrdineDAO modelOrdine = new OrdineDAO();
+	static UtenteDAO modelUtente = new UtenteDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utente cliente = (Utente) request.getSession().getAttribute("utente");
+		
+		String action = request.getParameter("action");
+		
+		try {
+			if(action != null) {
+				if(action.equalsIgnoreCase("update")) {
+					String vecchiaPassword = request.getParameter("vecchiaPassword");
+					String nuovaPassword1 = request.getParameter("nuovaPassword1");
+					String nuovaPassword2 = request.getParameter("nuovaPassword2");
+					
+					if(cliente.getPassword_utente().equals(vecchiaPassword)) {
+						if(nuovaPassword1.equals(nuovaPassword2)) {
+							cliente.setPassword_utente(nuovaPassword1);
+							modelUtente.doUpdate(cliente);
+						}
+					}
+				} 
+			}
+		} catch(NumberFormatException e) {
+			System.out.println("Error: " + e.getMessage());
+			request.setAttribute("error", e.getMessage());
+		}
 		
 		request.setAttribute("ordini",modelOrdine.doRetrieveByCliente(cliente.getEmail()));
 		

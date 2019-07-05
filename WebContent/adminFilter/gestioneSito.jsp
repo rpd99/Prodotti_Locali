@@ -28,6 +28,7 @@
 	<div class="main">
 			<jsp:include page="../header.jsp"/>
 			<h1>Benvenuto admin: <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h1>
+			<a href="Logout">Logout</a>
 			<h2>Inserisci una nuova categoria:</h2>
 			<form action="CategoriaControlAdmin" method="post">
 				<input type="hidden" name="action" value="insert"> 

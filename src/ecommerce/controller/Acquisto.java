@@ -81,6 +81,8 @@ public class Acquisto extends HttpServlet {
 						
 						modelProdotto.doUpdate(p);
 					}
+					
+					request.getSession().setAttribute("carrello", new Carrello());
 				}
 			}
 		} catch(NumberFormatException e) {
