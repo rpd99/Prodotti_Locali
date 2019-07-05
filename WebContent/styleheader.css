@@ -92,3 +92,12 @@
   display: block;
 }
 
+/***********************************/
+@media screen and (max-width: 680px) {
+	
+	.header-left, .header-center, .header-right {
+		width: 100%;
+		clear: both;
+	}
+
+}

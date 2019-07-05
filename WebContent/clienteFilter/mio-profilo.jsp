@@ -57,9 +57,9 @@
 			<h2>Modifica password</h2>
 			<form action="MioProfilo" method="post">
 				<input type="hidden" name="action" value="update">
-				Vecchia password: <input type="password" name="vecchiaPassword">
-				Nuova password: <input type="password" name="nuovaPassword1">
-				Conferma password: <input type="password" name="nuovaPassword2">
+				<h3>Vecchia password: <input type="password" name="vecchiaPassword"></h3>
+				<h3>Nuova password: <input type="password" name="nuovaPassword1"></h3>
+				<h3>Conferma password: <input type="password" name="nuovaPassword2"></h3>
 				<input type="submit" value="Modifica">
 			</form>
 			

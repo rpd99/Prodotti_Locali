@@ -6,7 +6,7 @@
         <div class="north-left">
           <div class="indirizzo">
             <i class="fa fa-map-marker"></i>
-  					<p> contrada lenze 24 Fisciano, Salerno</p>
+  					<p> Contrada Lenze 24 Fisciano, Salerno</p>
           </div>
           <div class="mail">
             <i class="fa fa-envelope"></i>
@@ -38,8 +38,8 @@
             <li><a href="#">Spedizione e consegna</a></li>
           </ul>
         </div>
-
       </div>
+      
       <div class="south">
         <div class="social">
           <p>Seguici su: </p>

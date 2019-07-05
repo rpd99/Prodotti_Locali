@@ -8,6 +8,7 @@ body {
 	margin: 0 auto;
 	width: 75%;
 	background: #E4E5E0;
+	min-height: 100%;
 }
 
 .main {
@@ -16,7 +17,7 @@ body {
 
 .categories {
 	display: inline-block; 
-	width: 33%;
+	width: 32%;
 }
 
 h1 {
@@ -108,7 +109,7 @@ input[type=text], textarea {
 }
 
 input[type=submit] {
-  width: 40%;
+  width: auto;
   background-color: #af7817;
   color: white;
   padding: 14px 20px;
@@ -157,5 +158,26 @@ table th {
 	.categories {
 		display: inline-block; 
 		width: 100%;
+	}
+	
+	.prodotto {
+		width: 100%;	
+	}
+	
+	.prodottoDettaglio {
+	display: flex; 
+	width: 100%;
+  	height: auto;
+  	flex-direction: column;
+	}
+
+	.prodottoDettaglioImg {
+		flex: 1;
+	  	display: flex;
+	}
+	
+	.prodottoDettaglioInfo {
+		flex: 2;
+	  	display: block;
 	}
 }

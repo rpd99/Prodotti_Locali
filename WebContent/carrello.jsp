@@ -54,7 +54,7 @@
 								<form action="CarrelloControl" method="post">
 									<input type="hidden" name="action" value="deleteCart">
 									<input type="hidden" name="id" value="<%=prod.getProdotto().getCodice()%>">
-									<input type="submit" value="Elimina"></td>
+									<input type="submit" value=" Elimina "></td>
 								</form>
 								<%}%>
 							</tr>
