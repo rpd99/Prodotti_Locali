@@ -87,6 +87,45 @@ public class OrdineProdottoDAO {
 		}
 	}
 	
+	
+	public List<OrdineProdotto> doRetrieveByOrdine(int cod) {
+		try (Connection con = DBConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM relativo, ordine, prodotto WHERE relativo.ordine=ordine.codice AND relativo.prodotto=prodotto.codice AND ordine.codice=?");
+			ps.setInt(1, cod);
+			ArrayList<OrdineProdotto> ordProd = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Prodotto p = new Prodotto();
+				p.setCodice(rs.getInt("codice"));
+				p.setNome(rs.getString("nome"));
+				p.setDescrizione(rs.getString("descrizione"));
+				p.setPrezzo(rs.getDouble("prodotto.prezzo"));
+				p.setPeso(rs.getDouble("peso"));
+				p.setPezzi_disponibili(rs.getInt("pezzi_disponibili"));
+				p.setCategoria(rs.getString("categoria"));
+				
+				Ordine o = new Ordine();
+				o.setCliente(rs.getString("cliente"));
+				o.setCodice(Integer.parseInt(rs.getString("codice")));
+				o.setData_spedizione(LocalDate.parse(rs.getString("data_spedizione")));
+				o.setDataOrdine(LocalDate.parse(rs.getString("dataOrdine")));
+				o.setInd_sped(rs.getString("ind_sped"));
+				o.setPrezzo(Float.parseFloat(rs.getString("ordine.prezzo")));
+				o.setStato(rs.getString("stato"));
+							
+				OrdineProdotto c = new OrdineProdotto();
+				c.setOrdine(o);
+				c.setProdotto(p);
+				c.setQuantita(rs.getInt("quantita"));
+				
+				ordProd.add(c);
+			}
+			return ordProd;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public void doSave(OrdineProdotto op) {
 		try (Connection con = DBConnectionPool.getConnection()) {
 			System.out.println("prova"+op.getQuantita());

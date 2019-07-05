@@ -78,6 +78,30 @@ public class ProdottoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public List<Prodotto> doRetrieveByNomeLike(String str) {
+		try (Connection con = DBConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("SELECT codice, nome, descrizione, prezzo, peso, pezzi_disponibili,categoria FROM prodotto WHERE nome LIKE ?");
+			ps.setString(1, str + '%');
+			ArrayList<Prodotto> prodotti = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Prodotto c = new Prodotto();
+				c.setCodice(rs.getInt(1));
+				c.setNome(rs.getString(2));
+				c.setDescrizione(rs.getString(3));
+				c.setPrezzo(rs.getDouble(4));
+				c.setPeso(rs.getDouble(5));
+				c.setPezzi_disponibili(rs.getInt(6));
+				c.setCategoria(rs.getString(7));
+				
+				prodotti.add(c);
+			}
+			return prodotti;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	public void doSave(Prodotto prodotto) {
 		try (Connection con = DBConnectionPool.getConnection()) {

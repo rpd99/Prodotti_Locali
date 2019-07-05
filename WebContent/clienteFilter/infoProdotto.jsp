@@ -3,11 +3,11 @@
 
 <%
 	Collection<?> categories = (Collection<?>)request.getAttribute("categories");
-	Collection<?> ordini = (Collection<?>)request.getAttribute("ordini");
+	Collection<?> ordini = (Collection<?>)request.getAttribute("ordiniProdotti");
 	Utente utente = (Utente) request.getSession().getAttribute("utente");
 
-	if(categories == null){
-		response.sendRedirect("../MioProfilo");
+	if(categories == null || ordini == null){
+		response.sendRedirect("../InfoOrdineProdotto?cod="+request.getParameter("cod"));
 		return;
 	}
 	
@@ -30,26 +30,22 @@
 			<h2>Benvenuto cliente: <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h2>
 			 
 			<% if(ordini.size() > 0) {%>
-				<h4>I tuoi ordini sono:</h4>
+				<h4>I prodotti dell'ordine selezionato:</h4>
 				<table>
 					<tr>
-						<th>Data spedizione</th> 
-						<th>Data ordine </th>
-						<th>Prezzo</th> 
-						<th>Indirizzo</th>
-						<th></th> 
+						<th>Nome</th> 
+						<th>Prezzo</th>
+						<th>Quantita'</th>
 					</tr>
 				
 			<%	Iterator<?> it = ordini.iterator();
 				while(it.hasNext()){
-					Ordine bean = (Ordine)it.next();
+					OrdineProdotto bean = (OrdineProdotto)it.next();
 			%>
 					<tr>
-						<td><%=bean.getData_spedizione() %></td>
-						<td><%=bean.getDataOrdine() %></td>
-						<td><%=bean.getPrezzo() %>&euro;</td>
-						<td><%=bean.getInd_sped() %></td>
-						<td><a href="./clienteFilter/infoProdotto.jsp?cod=<%=bean.getCodice() %>">Dettagli</a></td>
+						<td><%=bean.getProdotto().getNome() %></td>
+						<td><%=bean.getProdotto().getPrezzo() * bean.getQuantita()%>&euro;</td>
+						<td><%=bean.getQuantita() %></td>
 					</tr>
 				
 			<% } %>  </table>  <%}%>

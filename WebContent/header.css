@@ -1,7 +1,7 @@
 .header{
   width: 100%;
   height: auto;
-  background-color: antiquewhite;
+  background-color: #faebd7;
   display: flex;
 }
 .header .logo{

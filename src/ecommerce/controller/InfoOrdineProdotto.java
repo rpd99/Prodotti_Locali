@@ -18,8 +18,8 @@ import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
 import ecommerce.model.Utente;
 
-@WebServlet("/MioProfilo")
-public class MioProfilo extends HttpServlet {
+@WebServlet("/InfoOrdineProdotto")
+public class InfoOrdineProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	static CategoriaDAO modelCategoria = new CategoriaDAO();
@@ -27,14 +27,15 @@ public class MioProfilo extends HttpServlet {
 	static OrdineDAO modelOrdine = new OrdineDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utente cliente = (Utente) request.getSession().getAttribute("utente");
+		Utente cliente = (Utente) request.getSession().getAttribute("utente");	
+		int cod = Integer.parseInt(request.getParameter("cod"));
 		
-		request.setAttribute("ordini",modelOrdine.doRetrieveByCliente(cliente.getEmail()));
+		request.setAttribute("ordiniProdotti",modelOrdineProdotto.doRetrieveByOrdine(cod));
 		
 		request.removeAttribute("categories");
 		request.setAttribute("categories", modelCategoria.doRetrieveAll());
 				
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/clienteFilter/mio-profilo.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/clienteFilter/infoProdotto.jsp");
 		dispatcher.forward(request, response);
 	}
 

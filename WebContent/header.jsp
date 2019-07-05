@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, ecommerce.controller.*, ecommerce.model.*"%>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="ricerca.js"></script>
+
 <%
 	Collection<?> categories = (Collection<?>)request.getAttribute("categories"); 
 	Carrello cart = (Carrello)request.getSession().getAttribute("carrello");
@@ -10,7 +13,6 @@
 	}
 	
 %>
-
 
 
 <div class="header">
@@ -50,6 +52,11 @@
   
         <a href=<%= str%>>Il mio profilo</a>
         <a href="./carrello.jsp">Carrello<sup>(<%=quantCarrello %>)</sup></a>
+        <div>        	
+       		<input type="text" name="search" id="search" placeholder="cerca..." onkeyup="ricerca()">
+       		<div id="result">
+       		</div>
+        </div>
     </div>
   </div>
 
