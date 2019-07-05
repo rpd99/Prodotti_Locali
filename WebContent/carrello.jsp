@@ -26,6 +26,7 @@
 	
 	<div class="main">
 		<jsp:include page="header.jsp"/>
+		<div class="content">
 			<h1>Il tuo carrello</h1>
 			<% if(cart.getSize() > 0){ %>
 				<table>
@@ -63,11 +64,12 @@
 				<a href="CarrelloControl?action=deleteAllCart">Svuota carrello</a>
 				<h2>Totale: <%=tot %></h2>
 				<a href="./clienteFilter/acquisto.jsp">Acquista</a>
-				
+			
 			<%} else {
 			%>
 				<h3>Il carrello è vuoto</h3>
 			<%	} %>
+			</div>
 		<jsp:include page="footer.jsp"/>
 	</div>
 	
