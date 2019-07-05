@@ -87,3 +87,8 @@
   width: 200px;
   height: 100px;;
 }
+.dropdown-content p{
+  padding: 12px 16px;
+  display: block;
+}
+

@@ -52,9 +52,9 @@
   
         <a href=<%= str%>>Il mio profilo</a>
         <a href="./carrello.jsp">Carrello<sup>(<%=quantCarrello %>)</sup></a>
-        <div>        	
+        <div class="dropdown">        	
        		<input type="text" name="search" id="search" placeholder="cerca..." onkeyup="ricerca()">
-       		<div id="result">
+       		<div id="result" class="dropdown-content">
        		</div>
         </div>
     </div>
