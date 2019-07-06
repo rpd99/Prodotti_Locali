@@ -101,7 +101,7 @@ img {
 	width: 30%;
 }
 
-input[type=text], textarea {
+input[type=text], input[type=password], textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

@@ -18,9 +18,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Prodotti locali</title>
-<link rel="stylesheet" type="text/css" href="layout.css" />
-<link rel="stylesheet" type="text/css" href="styleheader.css" />
-<link rel="stylesheet" type="text/css" href="footer.css" />
+<link rel="stylesheet" type="text/css" href="layout.css?ts=<?=time()?>&quot" />
+<link rel="stylesheet" type="text/css" href="styleheader.css?ts=<?=time()?>&quot" />
+<link rel="stylesheet" type="text/css" href="footer.css?ts=<?=time()?>&quot" />
 </head>
 <body>
 	
