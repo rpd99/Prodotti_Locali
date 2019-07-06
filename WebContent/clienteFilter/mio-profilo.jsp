@@ -54,7 +54,7 @@
 				
 			<% } %>  </table>  <%}%>
 			
-			<h2>Modifica password</h2>
+			<h2>Modifica password:</h2>
 			<form action="MioProfilo" method="post">
 				<input type="hidden" name="action" value="update">
 				Vecchia password: <input type="password" name="vecchiaPassword">
