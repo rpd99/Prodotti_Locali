@@ -71,7 +71,7 @@ INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categ
 VALUES ('castagno', 'Gli alveari della apicoltura di questo tipo di miele sono collocati in aree boschive, o nelle vicinanze di aziende agricole ad agricoltura biologica, lontano da intense emissioni inquinanti, come città, strade, fabbriche, discariche.', 14, 0.4, 20, 'miele');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('exstravergine', 'il nostro olio è di categoria fruttato leggero, si presenta con un colore giallo dorato con sfumature verdi. Ha un sentore di carciofo sotto il quale è avvertibile una mandorla dolce. Leggermente amaro e poco piccante, i sentori di verde percepiti all’olfatto si evidenziano durante l’assaggio.', 17.99, 1, 30, 'olio');
+VALUES ('extravergine', 'il nostro olio è di categoria fruttato leggero, si presenta con un colore giallo dorato con sfumature verdi. Ha un sentore di carciofo sotto il quale è avvertibile una mandorla dolce. Leggermente amaro e poco piccante, i sentori di verde percepiti all’olfatto si evidenziano durante l’assaggio.', 17.99, 1, 30, 'olio');
   
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
 VALUES ('sfogliatelle', 'Sfogliatelle fatte a mano ripine di ricotta e spinaci', 11, 1, 10, 'pasta');
