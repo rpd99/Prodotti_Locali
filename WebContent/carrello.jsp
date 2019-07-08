@@ -62,7 +62,7 @@
 				</table>
 				
 				<a href="CarrelloControl?action=deleteAllCart">Svuota carrello</a>
-				<h2>Totale: <%=tot %>&euro;</h2>
+				<h2>Totale: <%=(float)(Math.ceil(tot*Math.pow(10,2))/Math.pow(10,2)) %>&euro;</h2>
 				<a href="./clienteFilter/acquisto.jsp">Acquista</a>
 			
 			<%} else {
