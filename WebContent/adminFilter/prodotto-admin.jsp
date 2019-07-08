@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Prodotto</title>
+<title>Prodotto </title>
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
 <link rel="stylesheet" type="text/css" href="footer.css" />
