@@ -1,4 +1,4 @@
-package ecommerce.utils;
+package ecommerce.controller;
 
 import java.io.IOException;
 
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import ecommerce.model.Utente;
 import ecommerce.model.UtenteDAO;
 
-//@WebServlet("/LoginFilter")
-public class LoginFilter extends HttpServlet {
+//@WebServlet("/Login")
+public class Login extends HttpServlet {
 
 	private final UtenteDAO utenteDAO = new UtenteDAO();
 	
@@ -37,7 +37,7 @@ public class LoginFilter extends HttpServlet {
 	}
 	private static final long serialVersionUID = 1L;
 
-	public LoginFilter() {
+	public Login() {
 		super();
 	}	
 

@@ -17,23 +17,27 @@
     <div id="logo">
         <img src="logo.png" alt="logo">
     </div>
-    <div id="errorMessage"></div>
+    <div id="errorMessage">
+    <% if(request.getAttribute("formError")!=null){
+    	%><h1 color="red"><%=request.getAttribute("formError")%></h1>
+    <%} %>
+    </div>
       <form  method="post" onSubmit="return validateRegistrazione()" action="LoginRegister" >
         <div class="textbox-registrazione">
           <div class="nomeCognome">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Nome" name="nome" required>
-            <input type="text" placeholder="Cognome" name="cognome" required>
+            <input type="text" placeholder="Nome" name="nome" value="<%if(request.getParameter("nome")!=null){%><%=request.getParameter("nome")%><%} %>" required>
+            <input type="text" placeholder="Cognome" name="cognome" value="<%if(request.getParameter("cognome")!=null){%><%=request.getParameter("cognome")%><%} %>" required>
           </div>
         </div>
 
         <div class="textbox-registrazione">
           <i class="fas fa-envelope"></i>
-          <input type="text" placeholder="name@example.com" id="username" name="email">
+          <input type="text" placeholder="name@example.com" id="username" name="email" value="<%if(request.getParameter("email")!=null){%><%=request.getParameter("email")%><%} %>">
         </div>
         <div class="textbox-registrazione">
           <i class="fas fa-unlock" aria-hidden="true"></i>
-          <input type="password" required placeholder="Password" onfocus="functionFocus()" onblur="functionBlur()" id="password">
+          <input type="password" required placeholder="Password" onfocus="functionFocus()" onblur="functionBlur()" id="password" name="password">
         </div>
 
         <div id="passwordMessage">
@@ -43,7 +47,7 @@
       </div>
         <div class="textbox-registrazione">
           <i class="fas fa-unlock" aria-hidden="true"></i>
-          <input type="password" required placeholder="Conferma Password" id="password2" name="password">
+          <input type="password" required placeholder="Conferma Password" id="password2" name="password2">
         </div>
         <div class="privacy">
             <input type="checkbox" name="checkbox" value="check" id="privacy1"> &nbsp;Ho letto l'<a href="">informativa privacy</a>

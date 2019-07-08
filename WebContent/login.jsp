@@ -13,7 +13,7 @@
   </head>
   <body>
   <div id="template">
-  <form class="box" action="LoginFilter" method="post" onSubmit="return validateLogin();">
+  <form class="box" action="Login" method="post" onSubmit="return validateLogin();">
     <div id="logo">
       <img src="logo.png" alt="logo">
 	</div>

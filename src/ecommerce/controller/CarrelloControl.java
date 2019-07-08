@@ -39,7 +39,7 @@ public class CarrelloControl extends HttpServlet {
 					int id = Integer.parseInt(request.getParameter("id"));
 					Prodotto bean = model.doRetrieveByID(id);
 					int quantita = Integer.parseInt(request.getParameter("quantita"));
-					if(bean != null) {
+					if(bean != null && quantita>0 && quantita<=bean.getPezzi_disponibili()) {
 						cart.aggiungiProdotto(bean, quantita);
 					}
 				} else if(action.equalsIgnoreCase("deleteCart")) {
@@ -52,7 +52,7 @@ public class CarrelloControl extends HttpServlet {
 					int id = Integer.parseInt(request.getParameter("id"));
 					Prodotto bean = model.doRetrieveByID(id);
 					int quantita = Integer.parseInt(request.getParameter("quantita"));
-					if(bean != null) {
+					if(bean != null && quantita>0 && quantita<=bean.getPezzi_disponibili()) {
 						cart.aggiornaProdotto(bean, quantita);
 					}
 				} else if(action.equalsIgnoreCase("deleteAllCart")) {

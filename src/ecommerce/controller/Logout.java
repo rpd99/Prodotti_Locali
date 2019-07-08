@@ -1,4 +1,4 @@
-package ecommerce.utils;
+package ecommerce.controller;
 
 import java.io.IOException;
 

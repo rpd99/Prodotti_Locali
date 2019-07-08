@@ -15,6 +15,7 @@ import ecommerce.model.CategoriaDAO;
 import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
 import ecommerce.utils.PhotoControl;
+import ecommerce.utils.Validator;
 
 
 @WebServlet("/ProdottoControlAdmin")
@@ -27,6 +28,7 @@ public class ProdottoControlAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		int flag=0;
+		RequestDispatcher dispatcher = null;
 		
 		try {
 			if(action != null) {
@@ -51,6 +53,21 @@ public class ProdottoControlAdmin extends HttpServlet {
 				} else if(action.equalsIgnoreCase("insert")) {
 					String nome = request.getParameter("nome");
 					String descrizione = request.getParameter("descrizione");
+					
+					
+					if(!Validator.isValidFloat(request.getParameter("prezzo"))) {
+						request.setAttribute("formError","errore prezzo");
+						flag=2;
+					}
+					if(!Validator.isValidFloat(request.getParameter("peso"))) {
+						request.setAttribute("formError","errore peso");
+						flag=2;
+					}
+					if(!Validator.isValidInt(request.getParameter("pezzi"))) {
+						request.setAttribute("formError","errore pezzi");
+						flag=2;
+					}
+					
 					float prezzo = Float.parseFloat(request.getParameter("prezzo"));
 					float peso = Float.parseFloat(request.getParameter("peso"));
 					int pezzi = Integer.parseInt(request.getParameter("pezzi"));
@@ -96,14 +113,15 @@ public class ProdottoControlAdmin extends HttpServlet {
 			request.setAttribute("products", modelProdotto.doRetrieveAll());
 		else
 			request.setAttribute("products", modelProdotto.doRetrieveByCategoria(cat));
-
-		RequestDispatcher dispatcher;
 		
 		if(flag==0) {
-			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/categoria-prodotto-admin.jsp");
+			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/categoria-prodotto-admin.jsp?cat="+request.getParameter("cat"));
+			dispatcher.forward(request, response);
+		} else if(flag==1){
+			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/gestioneSito.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/gestioneSito.jsp");
+			dispatcher = request.getRequestDispatcher("/adminFilter/categoria-prodotto-admin.jsp?cat="+request.getParameter("cat"));
 			dispatcher.forward(request, response);
 		}
 	}

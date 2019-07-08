@@ -33,9 +33,15 @@
 			
 	%>
 	
+	<div id="errorMessage">
+    <% if(request.getAttribute("formError")!=null){
+    	%><h1 color="red"><%=request.getAttribute("formError")%></h1>
+    <%} %>
+    </div>
+	
 	<h1>Categoria: <b><%=nomeCat %></b></h1>
 	
-	<h2>Modifica categoria:</h2>
+	<h2>Modifica categoria</h2>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="update"> 
 		<input type="hidden" name="nome" value="<%=beanCat.getNome() %>"> 
@@ -56,11 +62,11 @@
 	<h2>Inserisci prodotto di questa categoria:</h2>
 	<form action="ProdottoControlAdmin?cat=<%=nomeCat%>" method="post">
 		<input type="hidden" name="action" value="insert"> 
-		Nome*: <input type="text" name="nome">
-		Descrizione*: <textarea rows="4" cols="50" name="descrizione" placeholder="descrizione categoria"></textarea>
-		Prezzo*: <input type="text" name="prezzo">
-		Peso*: <input type="text" name="peso">
-		Pezzi disponibili*: <input type="text" name="pezzi">
+		Nome*: <input type="text" name="nome" value="<%if(request.getParameter("nome")!=null){%><%=request.getParameter("nome")%><%} %>" required>
+		Descrizione*: <textarea rows="4" cols="50" name="descrizione" placeholder="descrizione categoria" required><%if(request.getParameter("descrizione")!=null){%><%=request.getParameter("descrizione")%><%} %></textarea>
+		Prezzo*: <input type="text" name="prezzo" value="<%if(request.getParameter("prezzo")!=null){%><%=request.getParameter("prezzo")%><%} %>" required>
+		Peso*: <input type="text" name="peso" value="<%if(request.getParameter("peso")!=null){%><%=request.getParameter("peso")%><%} %>" required>
+		Pezzi disponibili*: <input type="text" name="pezzi" value="<%if(request.getParameter("pezzi")!=null){%><%=request.getParameter("pezzi")%><%} %>" required>
 		Foto: <input type="file" name="urlPhoto" accept="image/png">
 		<input type="submit" value="Inserisci">
 	</form>	

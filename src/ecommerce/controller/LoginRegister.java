@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ecommerce.model.Utente;
 import ecommerce.model.UtenteDAO;
+import ecommerce.utils.Validator;
 
 
 
@@ -24,6 +25,34 @@ public class LoginRegister extends HttpServlet {
 		String cognome = request.getParameter("cognome");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		String password2 = request.getParameter("password2");		
+		
+		RequestDispatcher requestDispatcher = null;
+		if(!Validator.isValidString(nome)) {
+			request.setAttribute("formError","errore nome");
+			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
+			requestDispatcher.forward(request, response);
+		}
+		if(!Validator.isValidString(cognome)) {
+			request.setAttribute("formError","errore cognome");
+			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
+			requestDispatcher.forward(request, response);
+		}
+		if(!Validator.isValidEmail(email)) {
+			request.setAttribute("formError","errore email");
+			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
+			requestDispatcher.forward(request, response);
+		}
+		if(!Validator.isValidPassword(password) || !(password.equals(password2))) {
+			request.setAttribute("formError","errore password");
+			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
+			requestDispatcher.forward(request, response);
+		}
+		if(request.getAttribute("checkbox")==null){
+			request.setAttribute("formError","accettare normativa password");
+			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
+			requestDispatcher.forward(request, response);
+		}
 		
 		Utente utente = new Utente();
 		utente.setNome(nome);
@@ -33,8 +62,8 @@ public class LoginRegister extends HttpServlet {
 		utente.setIs_Admin(0);
 		
 		if(utenteDAO.doRetrieveByID(email) != null) {
-			request.setAttribute("errorMessage", "Email già presente");
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
+			request.setAttribute("formError", "Email già presente");
+			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
 		}
 		
@@ -42,7 +71,7 @@ public class LoginRegister extends HttpServlet {
 		
 		request.setAttribute("successMessage", "Registrazione effettuata con succcesso. Accedi per continuare");
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");
+		requestDispatcher = request.getRequestDispatcher("/login.jsp");
 		requestDispatcher.forward(request, response);
 	}
 	

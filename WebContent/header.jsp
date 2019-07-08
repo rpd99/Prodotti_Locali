@@ -33,7 +33,7 @@
 			</ul>
           </div>
       </div>
-        <a href="./chiSiamo.jsp">Chi siamo</a>
+        <a href="./chiSiamo.jsp">Contatti</a>
     </div>
 
     <div class="header-center">
@@ -43,8 +43,11 @@
     <div class="header-right">
     	<% 
     		String str=null;
-    		if(request.getSession().getAttribute("utente")==null){
+    		Utente u = (Utente) request.getSession().getAttribute("utente");
+    		if(u==null){
     			str="./login.jsp";
+    		} else if(u.getIs_Admin()==1){
+    			str="./adminFilter/gestioneSito.jsp";
     		}else{
     			str="./clienteFilter/mio-profilo.jsp";
     		}

@@ -15,6 +15,7 @@ import ecommerce.model.CategoriaDAO;
 import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
 import ecommerce.utils.PhotoControl;
+import ecommerce.utils.Validator;
 
 @WebServlet("/ProdottoIDAdmin")
 public class ProdottoIDAdmin extends HttpServlet {
@@ -32,6 +33,20 @@ public class ProdottoIDAdmin extends HttpServlet {
 				if(action.equalsIgnoreCase("update")) {
 					String nome = request.getParameter("nome");
 					String descrizione = request.getParameter("descrizione");
+					
+					if(!Validator.isValidFloat(request.getParameter("prezzo"))) {
+						request.setAttribute("formError","errore prezzo");
+						flag=2;
+					}
+					if(!Validator.isValidFloat(request.getParameter("peso"))) {
+						request.setAttribute("formError","errore peso");
+						flag=2;
+					}
+					if(!Validator.isValidInt(request.getParameter("pezzi"))) {
+						request.setAttribute("formError","errore pezzi");
+						flag=2;
+					}
+					
 					float prezzo = Float.parseFloat(request.getParameter("prezzo"));
 					float peso = Float.parseFloat(request.getParameter("peso"));
 					int pezzi = Integer.parseInt(request.getParameter("pezzi"));
@@ -68,8 +83,6 @@ public class ProdottoIDAdmin extends HttpServlet {
 		}
 		
 		
-		
-		
 		request.removeAttribute("categories");
 		request.setAttribute("categories", modelCategoria.doRetrieveAll());
 		
@@ -83,8 +96,11 @@ public class ProdottoIDAdmin extends HttpServlet {
 		if(flag==0) {
 			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/prodotto-admin.jsp");
 			dispatcher.forward(request, response);
-		} else {
+		} else if (flag==1){
 			dispatcher = this.getServletContext().getRequestDispatcher("/adminFilter/gestioneSito.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			dispatcher = request.getRequestDispatcher("/adminFilter/prodotto-admin.jsp");
 			dispatcher.forward(request, response);
 		}
 

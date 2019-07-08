@@ -22,12 +22,12 @@
     <url-pattern>/GetPicture</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>LoginFilter</servlet-name>
-    <servlet-class>ecommerce.utils.LoginFilter</servlet-class>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>ecommerce.controller.Login</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>LoginFilter</servlet-name>
-    <url-pattern>/LoginFilter</url-pattern>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
   </servlet-mapping>
   
   <filter>

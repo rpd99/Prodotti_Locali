@@ -24,12 +24,18 @@
 	
 	<div class="main">
 		<jsp:include page="../header.jsp"/>
+		<div id="errorMessage">
+    	<% if(request.getAttribute("formError")!=null){
+    		%><h1 style="color: red"><%=request.getAttribute("formError")%></h1>
+    	<%} %>
+    	</div>
+    	
 		<h2>Prodotto: <b><%=product.getNome() %></b></h2>
 		<div class="prodottoIDAdmin">
 			<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>">
 		</div>
-		
-		<h1>Modifica prodotto:</h1>
+				
+		<h1>Modifica prodotto</h1>
 		<form action="ProdottoIDAdmin?cod=<%=request.getParameter("cod") %>" method="post">
 			<input type="hidden" name="action" value="update"> 
 			<input type="hidden" name="categoria" value="<%=product.getCategoria() %>"> 
