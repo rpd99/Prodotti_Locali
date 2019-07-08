@@ -62,7 +62,7 @@
 				</table>
 				
 				<a href="CarrelloControl?action=deleteAllCart">Svuota carrello</a>
-				<h2>Totale: <%=tot %></h2>
+				<h2>Totale: <%=tot %>&euro;</h2>
 				<a href="./clienteFilter/acquisto.jsp">Acquista</a>
 			
 			<%} else {

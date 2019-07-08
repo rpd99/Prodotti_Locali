@@ -108,10 +108,27 @@ a:hover {
 }
 
 /***********************************/
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 980px) {
+
+	.north {
+		flex-direction: column;
+	}
+	
+	.north-left, .north-right {
+		display: none;
+	}
+
+}
+
+/***********************************/
+@media screen and (max-width: 700px) {
 	
 	.north {
 		flex-direction: column;
+	}
+	
+	.north-left{
+		display: block;
 	}
 	
 	.north-right, .north-center {

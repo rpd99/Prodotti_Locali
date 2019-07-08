@@ -68,26 +68,28 @@ public class ProdottoControlAdmin extends HttpServlet {
 						flag=2;
 					}
 					
-					float prezzo = Float.parseFloat(request.getParameter("prezzo"));
-					float peso = Float.parseFloat(request.getParameter("peso"));
-					int pezzi = Integer.parseInt(request.getParameter("pezzi"));
-					
-					Prodotto bean = new Prodotto();
-					bean.setNome(nome);
-					bean.setDescrizione(descrizione);
-					bean.setPrezzo(prezzo);
-					bean.setPeso(peso);
-					bean.setPezzi_disponibili(pezzi);
-					bean.setCategoria(request.getParameter("cat"));
-					
-					modelProdotto.doSave(bean);
-					
-					String urlPhoto = (String) request.getParameter("urlPhoto");
-					if (urlPhoto != null) {
-						try {
-							PhotoControl.upload(nome, urlPhoto, "prodotto", "nome");
-						} catch (SQLException e) {
-							e.printStackTrace();
+					if(flag!=2) {
+						float prezzo = Float.parseFloat(request.getParameter("prezzo"));
+						float peso = Float.parseFloat(request.getParameter("peso"));
+						int pezzi = Integer.parseInt(request.getParameter("pezzi"));
+						
+						Prodotto bean = new Prodotto();
+						bean.setNome(nome);
+						bean.setDescrizione(descrizione);
+						bean.setPrezzo(prezzo);
+						bean.setPeso(peso);
+						bean.setPezzi_disponibili(pezzi);
+						bean.setCategoria(request.getParameter("cat"));
+						
+						modelProdotto.doSave(bean);
+						
+						String urlPhoto = (String) request.getParameter("urlPhoto");
+						if (urlPhoto != null) {
+							try {
+								PhotoControl.upload(nome, urlPhoto, "prodotto", "nome");
+							} catch (SQLException e) {
+								e.printStackTrace();
+							}
 						}
 					}
 				} else if(action.equalsIgnoreCase("delete")) {

@@ -18,6 +18,7 @@ import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
 import ecommerce.model.Utente;
 import ecommerce.model.UtenteDAO;
+import ecommerce.utils.Validator;
 
 @WebServlet("/MioProfilo")
 public class MioProfilo extends HttpServlet {
@@ -30,6 +31,7 @@ public class MioProfilo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utente cliente = (Utente) request.getSession().getAttribute("utente");
+		int flag=0;
 		
 		String action = request.getParameter("action");
 		
@@ -42,10 +44,19 @@ public class MioProfilo extends HttpServlet {
 					
 					if(cliente.getPassword_utente().equals(vecchiaPassword)) {
 						if(nuovaPassword1.equals(nuovaPassword2)) {
-							cliente.setPassword_utente(nuovaPassword1);
-							modelUtente.doUpdate(cliente);
+							if(Validator.isValidPassword(nuovaPassword1)) {
+								cliente.setPassword_utente(nuovaPassword1);
+								modelUtente.doUpdate(cliente);
+							} else { 
+								request.setAttribute("formError","errore formato password");
+							}
+						} else {
+							request.setAttribute("formError","errore password diverse");		
 						}
+					} else {
+						request.setAttribute("formError","errore password vecchia");
 					}
+					
 				} 
 			}
 		} catch(NumberFormatException e) {

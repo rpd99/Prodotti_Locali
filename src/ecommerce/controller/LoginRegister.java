@@ -48,7 +48,7 @@ public class LoginRegister extends HttpServlet {
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
 		}
-		if(request.getAttribute("checkbox")==null){
+		if(request.getParameter("checkbox")==null){
 			request.setAttribute("formError","accettare normativa password");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);

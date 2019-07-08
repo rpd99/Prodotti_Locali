@@ -23,6 +23,7 @@ import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
 import ecommerce.model.ProdottoQuantita;
 import ecommerce.model.Utente;
+import ecommerce.utils.Validator;
 
 @WebServlet("/Acquisto")
 public class Acquisto extends HttpServlet {
@@ -37,6 +38,7 @@ public class Acquisto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utente cliente = (Utente) request.getSession().getAttribute("utente");
 		Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
+		int flag=0;
 		if(cart == null) {
 			cart = new Carrello();
 			request.getSession().setAttribute("carrello", cart);
@@ -54,35 +56,64 @@ public class Acquisto extends HttpServlet {
 					String cognome = request.getParameter("cognome");
 					String indirizzo = request.getParameter("indirizzo");
 					String numero = request.getParameter("numero");
-					float prezzo=0;
+					
+					if(!Validator.isValidString(nome)) {
+						request.setAttribute("formError","errore nome");
+						flag=1;						
+					}
+					if(!Validator.isValidString(cognome)) {
+						request.setAttribute("formError","errore cognome");
+						flag=1;
+					}
+					if(!Validator.isValidTelephone(numero)) {
+						request.setAttribute("formError","errore numero di telefono");
+						flag=1;
+					}
+					if(cart.getSize()==0) {
+						request.setAttribute("formError","non e' stato possibile effettuare l'acquisto");
+						flag=1;
+					}
 					for(ProdottoQuantita prod: (cart.getProdotti())){
-						prezzo += prod.getQuantita() * prod.getProdotto().getPrezzo();
+						Prodotto p = (Prodotto)modelProdotto.doRetrieveByID(prod.getProdotto().getCodice());
+						if(p.getPezzi_disponibili()<prod.getQuantita()) {
+							request.setAttribute("formError","non e' stato possibile effettuare l'acquisto");
+							flag=1;
+							cart.aggiornaProdotto(prod.getProdotto(), p.getPezzi_disponibili());
+						}
 					}
 					
-					Ordine ordine = new Ordine(0, dataOrdine, indirizzo, stato, dataOrdine, prezzo, cliente.getEmail());
-					modelOrdine.doSave(ordine);
-					
-					ArrayList<Ordine> ordini = (ArrayList<Ordine>) modelOrdine.doRetrieveAll();
-					ordine = ordini.get(ordini.size()-1);
-					
-					for(ProdottoQuantita prodq: cart.getProdotti()) {
-						System.out.println(prodq.getProdotto().getNome() + prodq.getQuantita());
-						OrdineProdotto op = new OrdineProdotto(ordine, prodq.getProdotto(), prodq.getQuantita());						
-						modelOrdineProdotto.doSave(op);
+					if(flag!=1) {
+						float prezzo=0;
+						for(ProdottoQuantita prod: (cart.getProdotti())){
+							prezzo += prod.getQuantita() * prod.getProdotto().getPrezzo();
+						}
 						
-						Prodotto p = new Prodotto();
-						p.setCodice(prodq.getProdotto().getCodice());
-						p.setCategoria(prodq.getProdotto().getCategoria());
-						p.setDescrizione(prodq.getProdotto().getDescrizione());
-						p.setNome(prodq.getProdotto().getNome());
-						p.setPeso(prodq.getProdotto().getPeso());
-						p.setPezzi_disponibili(prodq.getProdotto().getPezzi_disponibili()-prodq.getQuantita());
-						p.setPrezzo(prodq.getProdotto().getPrezzo());
+						Ordine ordine = new Ordine(0, dataOrdine, indirizzo, stato, dataOrdine, prezzo, cliente.getEmail());
+						modelOrdine.doSave(ordine);
 						
-						modelProdotto.doUpdate(p);
+						ArrayList<Ordine> ordini = (ArrayList<Ordine>) modelOrdine.doRetrieveAll();
+						ordine = ordini.get(ordini.size()-1);
+						
+						for(ProdottoQuantita prodq: cart.getProdotti()) {
+							System.out.println(prodq.getProdotto().getNome() + prodq.getQuantita());
+							OrdineProdotto op = new OrdineProdotto(ordine, prodq.getProdotto(), prodq.getQuantita());						
+							modelOrdineProdotto.doSave(op);
+							
+							Prodotto p = new Prodotto();
+							p.setCodice(prodq.getProdotto().getCodice());
+							p.setCategoria(prodq.getProdotto().getCategoria());
+							p.setDescrizione(prodq.getProdotto().getDescrizione());
+							p.setNome(prodq.getProdotto().getNome());
+							p.setPeso(prodq.getProdotto().getPeso());
+							p.setPezzi_disponibili(prodq.getProdotto().getPezzi_disponibili()-prodq.getQuantita());
+							p.setPrezzo(prodq.getProdotto().getPrezzo());
+							
+							modelProdotto.doUpdate(p);
+						}
+						
+						request.getSession().setAttribute("carrello", new Carrello());
+						request.setAttribute("formSuccess","acquisto effettuato con successo");
 					}
-					
-					request.getSession().setAttribute("carrello", new Carrello());
 				}
 			}
 		} catch(NumberFormatException e) {

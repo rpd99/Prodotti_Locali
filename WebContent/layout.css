@@ -122,6 +122,11 @@ input[type=submit] {
   cursor: pointer;
 }
 
+input[type=submit][disabled], input[type=submit][disabled]:hover {
+  background-color: #ddd;
+  color: graytext;
+}
+
 input[type=submit]:hover {
   background-color: #845b11;
 }
@@ -149,10 +154,27 @@ table th {
   color: white;
 }
 
+/***********************************/
+@media screen and (max-width: 980px) {
+	body {
+		margin: 0 auto;
+		width: 95%;
+	}
+	
+	.categories {
+		display: inline-block; 
+		width: 48%;
+	}
+	
+	.prodotto {
+		width: 48%;	
+	}
+}
+
 
 
 /***********************************/
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 700px) {
 	body {
 		margin: 0 auto;
 		width: 99%;
@@ -160,16 +182,16 @@ table th {
 		
 	.categories {
 		display: inline-block; 
-		width: 100%;
+		width: 99%;
 	}
 	
 	.prodotto {
-		width: 100%;	
+		width: 98%;	
 	}
 	
 	.prodottoDettaglio {
 	display: flex; 
-	width: 100%;
+	width: 98%;
   	height: auto;
   	flex-direction: column;
 	}
