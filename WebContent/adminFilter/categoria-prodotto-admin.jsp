@@ -76,8 +76,8 @@
 	
 	<hr>
 	
-	<div class="prodottoID">
-		<h2>Seleziona il prodotto da modificare</h2>
+	<h2>Seleziona il prodotto da modificare</h2>
+	<div class="prodottoID">		
 		<%
 		if(products != null && products.size() > 0) {
 			
