@@ -3,6 +3,7 @@
   width: 100%;
   overflow: hidden;
 }
+
 .footer  ul li{
   list-style-type: none;
 }
@@ -10,9 +11,11 @@
 .footer  a{
   color: black;
 }
+
 p{
   display: inline-block;
 }
+
 a:hover {
   color: hotpink;
 }
@@ -20,15 +23,13 @@ a:hover {
 /*NORTH*/
 .north {
   width: 100%;
-  height: 140px;
   display: flex;
   font-size: 15px;
   background-color: #faebd7;
 }
 
-
 .north-right {
-  flex: 1;
+  width: 30%;
   padding-top: 15px;
 }
 .north-right ul{
@@ -42,37 +43,39 @@ a:hover {
 
 .north-left {
   border-right: 1px solid black;
-  flex: 1;
+  width: 30%;
   padding-left: 30px;
   padding-top: 25px;
-
-
+  overflow: hidden;
 }
 
 .north-center {
   border-right: 1px solid black;
-  flex: 2;
+  width: 40%;
 }
+
 .north-center h3{
   font-size: 25px;
   text-align: center;
 }
+
 .north-center p {
   display: block;
   text-align: center;
 }
+
 .north-center ul{
   width: 300px;
   margin: 0 auto;
 }
+
 .north-center ul li{
   display: inline-block;
   font-size: 30px;
   padding-left: 5px;
 }
 
-
-/* SOUTH  */
+/* SOUTH */
 .south {
   color: white;
   border: 1px solid black;
@@ -80,27 +83,29 @@ a:hover {
   background-color: black;
   display: flex;
   font-size: 15px;
-
-
 }
+
 .south i{
   background-color:  #33383b;
 	color: #ffffff;
 }
+
 .social {
   display: flex;
   width: auto;
   flex: auto;
   padding-left: 25px;
 }
+
 .informazioni {
   flex: auto;
   padding-right: 5px;
 }
+
 .informazioni p{
   float: right;
-
 }
+
 .south ul li{
   display: inline-block;
   padding-left: 5px;
@@ -108,30 +113,49 @@ a:hover {
 
 /***********************************/
 @media screen and (max-width: 980px) {
-
 	.north {
 		flex-direction: column;
 	}
 	
-	.north-left, .north-right {
-		display: none;
+	.north-center {
+		order: 1;
+		border-right: none;
+		width: 100%;
+		border-bottom: 1px solid black;
 	}
 
+	.north-left {
+		order: 2;
+		border-right: none;
+		text-align: center;
+		width: 100%;
+		border-bottom: 1px solid black;
+		padding: 0px;
+	}
+	
+	.mail, .telefono {
+		display: inline-block;
+	}
+	
+	.north-right{
+		order: 3;
+		width: 100%
+	}
+	
+	.north-right ul{
+		width: 100%;
+	}
+	
+	.north-right ul li{
+		display: inline-block;
+  		padding: 7px;
+  		margin-left: 0px;
+	}
 }
 
 /***********************************/
 @media screen and (max-width: 700px) {
 	
-	.north {
-		flex-direction: column;
-	}
 	
-	.north-left{
-		display: block;
-	}
-	
-	.north-right, .north-center {
-		visibility: hidden;
-	}
 
 }
