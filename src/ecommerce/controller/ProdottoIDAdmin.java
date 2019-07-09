@@ -107,7 +107,6 @@ public class ProdottoIDAdmin extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("/adminFilter/prodotto-admin.jsp");
 			dispatcher.forward(request, response);
 		}
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
