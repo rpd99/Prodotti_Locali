@@ -35,15 +35,15 @@ public class ProdottoIDAdmin extends HttpServlet {
 					String descrizione = request.getParameter("descrizione");
 					
 					if(!Validator.isValidFloat(request.getParameter("prezzo"))) {
-						request.setAttribute("formError","errore prezzo");
+						request.setAttribute("formError","Errore prezzo");
 						flag=2;
 					}
 					if(!Validator.isValidFloat(request.getParameter("peso"))) {
-						request.setAttribute("formError","errore peso");
+						request.setAttribute("formError","Errore peso");
 						flag=2;
 					}
 					if(!Validator.isValidInt(request.getParameter("pezzi"))) {
-						request.setAttribute("formError","errore pezzi");
+						request.setAttribute("formError","Errore pezzi");
 						flag=2;
 					}
 					
@@ -72,6 +72,8 @@ public class ProdottoIDAdmin extends HttpServlet {
 								e.printStackTrace();
 							}
 						}
+						
+						request.setAttribute("formSuccess","Prodotto modificato con successo");
 					}
 				} else if(action.equalsIgnoreCase("delete")) {
 					int cod = Integer.parseInt(request.getParameter("cod"));

@@ -32,7 +32,7 @@
 			</div>
 			
 			<div class="prodottoDettaglioInfo">
-				<h2>Informazioni sul prodotto: </h2>
+				<h2>Informazioni sul prodotto </h2>
 				<ul>
 					<h4><li><i>Descrizione: </i><%=product.getDescrizione() %></h4></li>
 					<h4><li><i>Peso: </i><%=product.getPeso() %>Kg.</li></h4>

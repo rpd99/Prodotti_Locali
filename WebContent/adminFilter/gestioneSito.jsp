@@ -27,20 +27,20 @@
 <body>
 	<div class="main">
 			<jsp:include page="../header.jsp"/>
-			<h1>Benvenuto admin: <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h1>
+			<h1>Benvenuto admin <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h1>
 			<a href="Logout">Logout</a>
-			<h2>Inserisci una nuova categoria:</h2>
+			<h2>Inserisci una nuova categoria</h2>
 			<form action="CategoriaControlAdmin" method="post">
 				<input type="hidden" name="action" value="insert"> 
-				Nome*: <input type="text" name="nome" placeholder="nome"> 
-				Descrizione*: <textarea rows="4" cols="50" name="descrizione" placeholder="descrizione categoria"></textarea>
-				Foto: <input type="file" name="urlPhoto" accept="image/png">
+				Nome* <input type="text" name="nome" placeholder="nome"> 
+				Descrizione* <textarea rows="4" cols="50" name="descrizione" placeholder="descrizione categoria"></textarea>
+				Foto <input type="file" name="urlPhoto" accept="image/png">
 				<input type="submit" value="Aggiungi">
 			</form>
 			<!-- Per aggiungerne l'immagine clicca <a href="adminFilter/photo-upload.html">qui</a><br> -->
 			
 			
-			<h2>Scegli una categoria da modificare:</h2>
+			<h2>Scegli una categoria da modificare</h2>
 			<%
 				if(categories != null && categories.size() > 0) {
 					

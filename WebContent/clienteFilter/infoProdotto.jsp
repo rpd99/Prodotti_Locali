@@ -27,10 +27,10 @@
 <body>
 	<div class="main">
 			<jsp:include page="../header.jsp"/>
-			<h2>Benvenuto cliente: <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h2>
+			<h2>Benvenuto cliente <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h2>
 			 
 			<% if(ordini.size() > 0) {%>
-				<h4>I prodotti dell'ordine selezionato:</h4>
+				<h4>I prodotti dell'ordine selezionato</h4>
 				<table>
 					<tr>
 						<th>Nome</th> 

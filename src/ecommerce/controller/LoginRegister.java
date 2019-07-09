@@ -29,27 +29,27 @@ public class LoginRegister extends HttpServlet {
 		
 		RequestDispatcher requestDispatcher = null;
 		if(!Validator.isValidString(nome)) {
-			request.setAttribute("formError","errore nome");
+			request.setAttribute("formError","Errore nome");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
 		}
 		if(!Validator.isValidString(cognome)) {
-			request.setAttribute("formError","errore cognome");
+			request.setAttribute("formError","Errore cognome");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
 		}
 		if(!Validator.isValidEmail(email)) {
-			request.setAttribute("formError","errore email");
+			request.setAttribute("formError","Errore email");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
 		}
 		if(!Validator.isValidPassword(password) || !(password.equals(password2))) {
-			request.setAttribute("formError","errore password");
+			request.setAttribute("formError","Errore password");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
 		}
 		if(request.getParameter("checkbox")==null){
-			request.setAttribute("formError","accettare normativa password");
+			request.setAttribute("formError","Accettare normativa password");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
 		}

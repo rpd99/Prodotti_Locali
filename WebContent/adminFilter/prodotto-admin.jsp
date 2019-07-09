@@ -28,9 +28,12 @@
     	<% if(request.getAttribute("formError")!=null){
     		%><h1 style="color: red"><%=request.getAttribute("formError")%></h1>
     	<%} %>
+    	<% if(request.getAttribute("formSuccess")!=null){%>
+		    <h1 style="color: green"><%=request.getAttribute("formSuccess")%></h1>
+		<%} %>
     	</div>
     	
-		<h2>Prodotto: <b><%=product.getNome() %></b></h2>
+		<h2>Prodotto <b><%=product.getNome() %></b></h2>
 		<div class="prodottoIDAdmin">
 			<img src="./GetPicture?table=prodotto&id=<%=product.getNome() %>">
 		</div>
@@ -40,11 +43,11 @@
 			<input type="hidden" name="action" value="update"> 
 			<input type="hidden" name="categoria" value="<%=product.getCategoria() %>"> 
 			<input type="hidden" name="nome" value="<%=product.getNome() %>">
-			Descrizione: <textarea name="descrizione"><%=product.getDescrizione() %></textarea>
-			Prezzo: <input type="text" name="prezzo" value="<%=product.getPrezzo() %>">
-			Peso: <input type="text" name="peso" value="<%=product.getPeso() %>">
-			Pezzi disponibili: <input type="text" name="pezzi" value="<%=product.getPezzi_disponibili() %>">
-			Foto: <input type="file" name="urlPhoto" accept="image/png">
+			Descrizione* <textarea name="descrizione"><%=product.getDescrizione() %></textarea>
+			Prezzo* <input type="text" name="prezzo" value="<%=product.getPrezzo() %>">
+			Peso* <input type="text" name="peso" value="<%=product.getPeso() %>">
+			Pezzi disponibili* <input type="text" name="pezzi" value="<%=product.getPezzi_disponibili() %>">
+			Foto <input type="file" name="urlPhoto" accept="image/png">
 			<input type="submit" value="Modifica">
 		</form>
 		

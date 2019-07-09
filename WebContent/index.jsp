@@ -45,7 +45,7 @@ $(document).ready(function(){
 		
 		<hr>
 		
-		<h2>Scegli una delle nostre categorie: </h2>
+		<h2>Scegli una delle nostre categorie </h2>
 		<%
 			if(categories != null && categories.size() > 0) {
 				

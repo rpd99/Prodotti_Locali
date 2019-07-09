@@ -58,25 +58,25 @@ public class Acquisto extends HttpServlet {
 					String numero = request.getParameter("numero");
 					
 					if(!Validator.isValidString(nome)) {
-						request.setAttribute("formError","errore nome");
+						request.setAttribute("formError","Errore nome");
 						flag=1;						
 					}
 					if(!Validator.isValidString(cognome)) {
-						request.setAttribute("formError","errore cognome");
+						request.setAttribute("formError","Errore cognome");
 						flag=1;
 					}
 					if(!Validator.isValidTelephone(numero)) {
-						request.setAttribute("formError","errore numero di telefono");
+						request.setAttribute("formError","Errore numero di telefono");
 						flag=1;
 					}
 					if(cart.getSize()==0) {
-						request.setAttribute("formError","non e' stato possibile effettuare l'acquisto");
+						request.setAttribute("formError","Non e' stato possibile effettuare l'acquisto");
 						flag=1;
 					}
 					for(ProdottoQuantita prod: (cart.getProdotti())){
 						Prodotto p = (Prodotto)modelProdotto.doRetrieveByID(prod.getProdotto().getCodice());
 						if(p.getPezzi_disponibili()<prod.getQuantita()) {
-							request.setAttribute("formError","non e' stato possibile effettuare l'acquisto");
+							request.setAttribute("formError","Non e' stato possibile effettuare l'acquisto");
 							flag=1;
 							cart.aggiornaProdotto(prod.getProdotto(), p.getPezzi_disponibili());
 						}
@@ -112,7 +112,7 @@ public class Acquisto extends HttpServlet {
 						}
 						
 						request.getSession().setAttribute("carrello", new Carrello());
-						request.setAttribute("formSuccess","acquisto effettuato con successo");
+						request.setAttribute("formSuccess","Acquisto effettuato con successo");
 					}
 				}
 			}
