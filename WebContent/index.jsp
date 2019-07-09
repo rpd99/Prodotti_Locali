@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, ecommerce.controller.*, ecommerce.model.*"%>
 
+
 <%
 	Collection<?> categories = (Collection<?>)request.getAttribute("categories");
 
@@ -21,12 +22,25 @@
 <link rel="stylesheet" type="text/css" href="layout.css?ts=<?=time()?>&quot" />
 <link rel="stylesheet" type="text/css" href="styleheader.css?ts=<?=time()?>&quot" />
 <link rel="stylesheet" type="text/css" href="footer.css?ts=<?=time()?>&quot" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $(".image").hover(function(){
+    $(".image").animate({opacity:"1"}, "slow");
+    }, function(){
+    $(".image").animate({opacity:"0.9"}, "slow");
+  });
+});
+</script>
 </head>
 <body>
 	
 	<div class="main">
 		<jsp:include page="header.jsp"/>
-		<div class="image"><img src="./GetPicture?table=images&id=benessere" alt="no image"></div>
+		<div class="image">
+			<img src="./GetPicture?table=images&id=benessere" alt="no image">
+		</div>
 		<h1>Vi offriamo prodotti sani, necessari e fondamentali per il benessere del nostro organismo</h1>
 		
 		<hr>
