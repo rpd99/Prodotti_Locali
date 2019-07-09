@@ -76,14 +76,16 @@ img {
 .prodottoID {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 }
 
 .prodotto {
 	display: inline-block; 
-	width: 32%;
+	width: 33.3%;
 	border-style: ridge;
 	border-color: #af7817;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .prodottoDettaglio {
