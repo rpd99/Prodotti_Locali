@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javafx.scene.chart.PieChart.Data;
-
 public class OrdineDAO {
 
 	public List<Ordine> doRetrieveAll() {

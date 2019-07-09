@@ -38,9 +38,8 @@
 		<%}} %>
 		</div>
 		-->
-			
-		<div class="prodottoID">
 		<h2>Prodotti della categoria <b><%=request.getParameter("cat") %></b></h2>
+		<div class="prodottoID">
 		<%
 			if(products != null && products.size() > 0) {
 				

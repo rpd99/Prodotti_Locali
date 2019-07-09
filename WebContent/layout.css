@@ -73,12 +73,17 @@ img {
 	width: 100%;
 }
 
+.prodottoID {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
 .prodotto {
 	display: inline-block; 
 	width: 32%;
 	border-style: ridge;
 	border-color: #af7817;
-	padding-bottom: 10px;
 }
 
 .prodottoDettaglio {
