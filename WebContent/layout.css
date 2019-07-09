@@ -90,6 +90,13 @@ img {
 .prodottoDettaglioImg {
 	flex: 1;
   	display: flex;
+  	transition: transform .4s;
+}
+
+.prodottoDettaglioImg:hover {
+  -ms-transform: scale(1.07); /* IE 9 */
+  -webkit-transform: scale(1.07); /* Safari 3-8 */
+  transform: scale(1.07); 
 }
 
 .prodottoDettaglioInfo {
