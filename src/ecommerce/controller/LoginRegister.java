@@ -32,26 +32,31 @@ public class LoginRegister extends HttpServlet {
 			request.setAttribute("formError","Errore nome");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
+			return;
 		}
 		if(!Validator.isValidString(cognome)) {
 			request.setAttribute("formError","Errore cognome");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
+			return;
 		}
 		if(!Validator.isValidEmail(email)) {
 			request.setAttribute("formError","Errore email");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
+			return;
 		}
 		if(!Validator.isValidPassword(password) || !(password.equals(password2))) {
 			request.setAttribute("formError","Errore password");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
+			return;
 		}
 		if(request.getParameter("checkbox")==null){
 			request.setAttribute("formError","Accettare normativa password");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
+			return;
 		}
 		
 		Utente utente = new Utente();
@@ -65,6 +70,7 @@ public class LoginRegister extends HttpServlet {
 			request.setAttribute("formError", "Email già presente");
 			requestDispatcher = request.getRequestDispatcher("/registrazioneForm.jsp");
 			requestDispatcher.forward(request, response);
+			return;
 		}
 		
 		utenteDAO.doSave(utente);
