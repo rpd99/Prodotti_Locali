@@ -85,7 +85,7 @@ VALUES ('Tortelli', 'Da una ricetta tipica della tradizione leggermente rivisita
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
 VALUES ('Capicollo', 'Parte anteriore del lombo salata a mano, in budello naturale. Stagionatura 4/6 mesi. Peso da 2.5 a 3.5 kg ca. Ingredienti: sale e pepe nero spezzato.', 24.99, 2.5, 10, 'Salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('Filetto', 'Parte anteriore del lombo salata  a  mano, in budello naturale. Stagionatura: 3 / 4 mesi. Peso: da 1.2 a 4 kg ca. Ingredienti: sale e pepe nero spezzato.', 40, 3.5, 8, 'Salumi');
+VALUES ('Filetto', 'Parte anteriore del lombo salata a mano, in budello naturale. Stagionatura: 3 / 4 mesi. Peso: da 1.2 a 4 kg ca. Ingredienti: sale e pepe nero spezzato.', 40, 3.5, 8, 'Salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
 VALUES ('Pancetta', 'Parte della pancia del suino squadrata, rifilata e salata a mano. Stagionatura: 2/4 mesi. Peso da:  3 a 4.5 kg ca. Ingredienti: sale e pepe nero spezzato.', 22, 3.5, 32, 'Salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
