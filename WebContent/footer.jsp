@@ -20,14 +20,6 @@
         <div class="north-center">
           <h3>La consegna è gratuita per ordini superiori a 80&euro;</h3>
           <p>I tuoi acquisti su Sapore Campano sono sicuri ed affidabili, cosa aspetti?</p>
-          <ul>
-            <li><i class="fab fa-cc-visa"></i></li>
-            <li><i class="fab fa-cc-paypal"></i></li>
-            <li><i class="fab fa-cc-mastercard"></i></li>
-            <li><i class="fab fa-cc-amex"></i></li>
-            <li><i class="fab fa-cc-amazon-pay"></i></li>
-            <li><i class="fab fa-cc-apple-pay"></i></li>
-          </ul>
         </div>
         <div class="north-right">
           <ul>
@@ -55,9 +47,8 @@
         <div class="social">
           <p>Seguici su: </p>
           <ul>
-            <li><a href="https://it-it.facebook.com/" alt="fb"></a></li>
-            <li><a href="https://www.instagram.com/?hl=it" alt="ig"></a></li>
-            <li><a href="https://www.youtube.com/?gl=IT&hl=it" alt="yt"></i></a></li>
+            <li><a href="https://it-it.facebook.com/"> <img src="" alt="FB"> </a></li>
+            <li><a href="https://www.instagram.com/?hl=it"> <img src="" alt="IG"> </a></li>
           </ul>
         </div>
         <div class="informazioni">

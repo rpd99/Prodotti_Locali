@@ -85,9 +85,12 @@ a:hover {
   font-size: 15px;
 }
 
-.south i{
-  background-color:  #33383b;
-	color: #ffffff;
+.south a{
+	color: white;
+}
+
+.south ul{
+	padding-left: 0px;
 }
 
 .social {
