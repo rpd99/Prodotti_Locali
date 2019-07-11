@@ -28,13 +28,10 @@ public class ProdottoControl extends HttpServlet {
 		request.removeAttribute("categories");
 		ArrayList<Categoria> categories = (ArrayList<Categoria>) modelCategoria.doRetrieveAll(); 
 		request.setAttribute("categories", categories);
-		Categoria beanCat=null;
-		for(Categoria categoria: (ArrayList<Categoria>) categories){
-			if(categoria.getNome().equals(cat))
-				beanCat = categoria;
-		}
-		request.setAttribute("description", beanCat.getDescrizione());
 		
+		for(Categoria categoria: (ArrayList<Categoria>) categories)
+			if(categoria.getNome().equals(cat))
+				request.setAttribute("description", categoria.getDescrizione());
 		
 		request.removeAttribute("products");
 		if(cat.contentEquals("tutte"))
