@@ -6,9 +6,10 @@ function sortDivs(f) {
 	
 	arr.sort(f);
 	
-	arr.forEach(function (div, i) {
-		div.css("order", i);
-	});
+	var arrayLength = arr.length;
+	for(var i = 0; i < arrayLength; i++) {
+	    arr[i].css("order", i);
+	}
 }
 
 function sortByName() {
