@@ -39,7 +39,7 @@ $(document).ready(function(){
 	<div class="main">
 		<jsp:include page="header.jsp"/>
 		<div class="image">
-			<img src="./GetPicture?table=images&id=benessere" alt="no image">
+			<img src="benessere.png" alt="no image">
 		</div>
 		<h1>Vi offriamo prodotti sani, necessari e fondamentali per il benessere del nostro organismo</h1>
 		
