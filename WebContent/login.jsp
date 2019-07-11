@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style-login.css">
-    <script src="validateLogin.js"></script>
+    <script src="validateForm.js"></script>
     <title>Login</title>
   </head>
   <body>
