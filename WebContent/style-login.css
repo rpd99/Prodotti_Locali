@@ -104,7 +104,7 @@ i{
   border-radius: 10px;
 }
 a:link {
-  color: red;
+  color: white;
 }
 .privacy{
   padding: 15px;
@@ -121,4 +121,9 @@ a:link {
 .nomeCognome input{
 	width: 40%;
 	float: left;
+}
+
+.registra p {
+	color: white;
+	text-shadow: 1px 1px 5px black;
 }

@@ -13,7 +13,11 @@
       <img src="logo.png" alt="logo">
 	</div>
 	
-	<div id="errorMessage"></div>
+	<div id="errorMessage">
+	<% if(request.getAttribute("formError")!=null){
+    	%><h1 style="color:red; font-size: 16px"><%=request.getAttribute("formError")%></h1>
+    <%} %>
+	</div>
 	<div class="textbox">
 		<input type="text" name="username" placeholder="Username" id="username" >
 	</div>
@@ -26,7 +30,7 @@
   </form>
   <br>
   <div class="registra">
-    <p> Non sei ancora registrato?<a href="registrazioneForm.jsp">Clicca qui per registrarti</a></p>
+    <p> Non sei ancora registrato? <a href="registrazioneForm.jsp">Clicca qui per registrarti</a></p>
   </div>
 
   </div>

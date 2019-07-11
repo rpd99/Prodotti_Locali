@@ -28,7 +28,8 @@ public class Login extends HttpServlet {
 			request.getSession().setAttribute("utente", u);
 			
 			if (u == null) {
-				response.sendRedirect("./loginError.jsp");
+				request.setAttribute("formError", "Email o password non esistenti.");
+				this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			} else if (u.getIs_Admin()==1) {
 				response.sendRedirect("./adminFilter/gestioneSito.jsp");
 			} else {

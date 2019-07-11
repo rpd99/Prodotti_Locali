@@ -14,7 +14,7 @@
     </div>
     <div id="errorMessage">
     <% if(request.getAttribute("formError")!=null){
-    	%><h1 color="red"><%=request.getAttribute("formError")%></h1>
+    	%><h1 style="color:red"><%=request.getAttribute("formError")%></h1>
     <%} %>
     </div>
       <form  method="post" onSubmit="return validateRegistrazione()" action="LoginRegister" >
