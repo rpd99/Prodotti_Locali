@@ -84,9 +84,6 @@ function validateRegistrazione(){
 
   var errorBox = document.getElementById('errorMessage');
 
-  var alertDiv = '<div class="alert alert-danger alert-dismissibile" role="alert">';
-  var alertBtn = '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
- 
   
   var username = document.getElementById('username');
   var password = document.getElementById('password');
@@ -94,21 +91,21 @@ function validateRegistrazione(){
   var checkBox = document.getElementById('privacy1');
 
   if (!validaUser(username)) {
-    errorBox.innerHTML = alertDiv + alertBtn +'<strong>Attenzione!</strong> Errore nell\'inserire l\' email.' + "</div> ";
+    errorBox.innerHTML = '<strong>Attenzione!</strong> Errore nell\'inserire l\' email.' + "</div> ";
     username.focus();
     return false;
   }
   if(!isEquals(password,password2)){
-    errorBox.innerHTML = alertDiv + alertBtn +'<strong>Attenzione!</strong> Le password non coincidono' + "</div> ";
+    errorBox.innerHTML = '<strong>Attenzione!</strong> Le password non coincidono' + "</div> ";
     return false;
   }
   if(!validaPassword(password)){
-    errorBox.innerHTML = alertDiv + alertBtn +'<strong>Attenzione!</strong> Errore nell\'inserire la password.' + "</div> ";
+    errorBox.innerHTML = '<strong>Attenzione!</strong> Errore nell\'inserire la password.' + "</div> ";
     password.focus();
     return false;
   }
   if (!isChecked(checkBox)){
-        errorBox.innerHTML = alertDiv + alertBtn +'<strong>Attenzione!</strong> Bisogna accettare le condizioni sulla privacy' + "</div> ";
+        errorBox.innerHTML = '<strong>Attenzione!</strong> Bisogna accettare le condizioni sulla privacy' + "</div> ";
         return false;
   }
   return true;
