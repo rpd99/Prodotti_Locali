@@ -4,6 +4,7 @@
 <% 
 	Collection<?> categories = (Collection<?>)request.getAttribute("categories");	
 	Collection<?> products = (Collection<?>)request.getAttribute("products");
+	String description = request.getAttribute("description").toString();
 	
 	if(products == null || categories == null){
 		response.sendRedirect("./ProdottoControl?cat="+request.getParameter("cat"));
@@ -39,6 +40,7 @@
 		</div>
 		-->
 		<h2>Prodotti della categoria <b><%=request.getParameter("cat") %></b></h2>
+		<h3><%=description %></h3>
 		<div class="prodottoID">
 		<%
 			if(products != null && products.size() > 0) {

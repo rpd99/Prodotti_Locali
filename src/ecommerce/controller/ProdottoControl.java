@@ -1,6 +1,7 @@
 package ecommerce.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
 import ecommerce.model.ProdottoDAO;
 
@@ -21,16 +23,25 @@ public class ProdottoControl extends HttpServlet {
 	static ProdottoDAO modelProdotto = new ProdottoDAO();
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cat = request.getParameter("cat");
+		
 		request.removeAttribute("categories");
-		request.setAttribute("categories", modelCategoria.doRetrieveAll());
+		ArrayList<Categoria> categories = (ArrayList<Categoria>) modelCategoria.doRetrieveAll(); 
+		request.setAttribute("categories", categories);
+		Categoria beanCat=null;
+		for(Categoria categoria: (ArrayList<Categoria>) categories){
+			if(categoria.getNome().equals(cat))
+				beanCat = categoria;
+		}
+		request.setAttribute("description", beanCat.getDescrizione());
 		
 		
 		request.removeAttribute("products");
-		String cat = request.getParameter("cat");
 		if(cat.contentEquals("tutte"))
 			request.setAttribute("products", modelProdotto.doRetrieveAll());
-		else
+		else {
 			request.setAttribute("products", modelProdotto.doRetrieveByCategoria(cat));
+		}
 
 		RequestDispatcher dispatcher;
 		dispatcher = this.getServletContext().getRequestDispatcher("/categoria-prodotto.jsp");
