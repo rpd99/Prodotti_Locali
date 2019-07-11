@@ -13,7 +13,7 @@ CREATE TABLE utente (
 INSERT INTO utente (email, nome, cognome, password_utente,isAdmin) 
 VALUES ('a@gmail.com', 'Mario', 'Rossi', 'Mariorossi98', 0); 
 
-INSERT INTO utente (email,nome,cognome, password_utente,isAdmin) 
+INSERT INTO utente (email, nome, cognome, password_utente,isAdmin) 
 VALUES ('b@gmail.com', 'Luca', 'Gialli', 'Lucagialli98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
