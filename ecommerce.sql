@@ -11,44 +11,44 @@ CREATE TABLE utente (
 );
 
 INSERT INTO utente (email, nome, cognome, password_utente,isAdmin) 
-VALUES ('a@gmail.com', 'mario', 'rossi', 'Mariorossi98', 0); 
+VALUES ('a@gmail.com', 'Mario', 'Rossi', 'Mariorossi98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin) 
-VALUES ('b@gmail.com', 'luca', 'gialli', 'Lucagialli98', 0); 
+VALUES ('b@gmail.com', 'Luca', 'Gialli', 'Lucagialli98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
-VALUES ('c@gmail.com', 'giacomo', 'verdi', 'Giacomoverdi98', 0); 
+VALUES ('c@gmail.com', 'Giacomo', 'Verdi', 'Giacomoverdi98', 0); 
 
 INSERT INTO utente (email,nome,cognome, password_utente,isAdmin)
-VALUES ('admin@gmail.com', 'marco', 'rossi', 'Marcorossi98', 1); 
+VALUES ('admin@gmail.com', 'Marco', 'Rossi', 'Marcorossi98', 1); 
 
   CREATE TABLE categoria (
   nome VARCHAR(45) NOT NULL,
-  descrizione VARCHAR(256) NOT NULL,
+  descrizione VARCHAR(900) NOT NULL,
   img mediumblob,
   PRIMARY KEY (nome)
   );
   
 INSERT INTO categoria (nome, descrizione, img) 
-VALUES ('miele', 'miele', NULL);
+VALUES ('Miele', 'Il miele √® un alimento prodotto dalle api (ed in misura minore, da altri imenotteri). Viene prodotto a partire dal nettare o dalla melata. La melata, con un gusto molto dolce simile allo zucchero, √® prodotta da vari omotteri, fitomizi, i cui escrementi zuccherini sono la base alimentare per numerosi insetti. Il nettare √® bottinato sui fiori di moltissime piante. Il miele in parte √® usato come nutrimento dalle api e in parte √® trasformato in cera d api per costruire le celle esagonali', NULL);
 INSERT INTO categoria (nome, descrizione, img)  
-VALUES ('olio', 'olio', NULL);
+VALUES ('Olio', 'Scopri la fragranza vibrante dei pi√π pregiati extra-vergine locali, ottenuti da blend accuratamente combinati o da singole cultivar: estratte con metodi tradizionali entro poche ore dalla raccolta, le differenti variet√† di olio extra-vergine d‚Äôoliva porteranno sulla tavola gli infiniti profumi e sapori della loro terra d‚Äôorigine. Entra nei pi√π antichi frantoi e ordina i condimenti perfetti da abbinare alle tue pietanze: sar√† il produttore stesso a prepararli e spedirli direttamente a casa tua.', NULL);
 INSERT INTO categoria (nome, descrizione, img)  
-VALUES ('pasta', 'pasta', NULL);
+VALUES ('Pasta', 'La pasta o pasta alimentare √® un alimento a base di farina di diversa estrazione, tipico delle varie cucine regionali d Italia, divisa in piccole forme regolari destinate alla cottura in acqua bollente e sale o con calore umido e salato.', NULL);
 INSERT INTO categoria (nome, descrizione, img)  
-VALUES ('salumi', 'salumi', NULL);
+VALUES ('Salumi', 'Scopri i salumi pi√π pregiati, preparati ancora oggi proprio come si faceva una volta: facendo tesoro degli antichi saperi contadini, selezionando scrupolosamente la materia prima e lavorando i prodotti manualmente e con cura. Entra nei migliori laboratori e ordina le loro specialit√†: sar√† il produttore stesso a prepararle e spedirle direttamente a casa tua.', NULL);
 INSERT INTO categoria (nome, descrizione, img) 
-VALUES ('sottoli', 'sottoli', NULL);
+VALUES ('Conserve', 'Le conserve alimentari sono in grado di coniugare nel migliore dei modi la voglia di prodotti saporiti e di qualit√† con la necessit√† di praticit√† tipica dei nostri tempi. Le conserve alimentari, infatti, permettono di gustare determinati alimenti anche molto tempo dopo il momento in cui sono stati invasettati, e quindi al di fuori dalla loro stagione tipica. Non a caso, il loro stesso nome deriva dal latino ‚Äúcum serbare‚Äù, ovverosia ‚Äútenere con s√©‚Äù, cio√® ‚Äúmantenere inalterato‚Äù.', NULL);
 INSERT INTO categoria (nome, descrizione, img)   
-VALUES ('tartufo', 'tartufo', NULL);
+VALUES ('Tartufo', 'Tartufo √® il nome comune con il quale sono indicati i corpi fruttiferi (sporocarpi) di funghi che compiono il loro intero ciclo vitale sotto terra (ipogei) appartenenti al genere Tuber. Devono obbligatoriamente vivere in simbiosi con piante arboree per produrre il prezioso sporocarpo. Sono formati da una parete esterna detta peridio, il quale pu√≤ essere liscio o sculturato e di colore variabile dal chiaro allo scuro. La massa interna, detta gleba, di colore variabile dal bianco al nero, dal rosa al marrone √® percorsa da venature pi√π o meno ampie e ramificate che delimitano degli alveoli in cui sono immerse delle grosse cellule (gli aschi) contenenti le spore. Le caratteristiche morfologiche del peridio, della gleba, degli aschi e delle spore, sommati alla dimensione ed alle caratteristiche organolettiche, permettono la identificazione delle specie di tartufo.', NULL);
 INSERT INTO categoria (nome, descrizione, img)  
-VALUES ('torrone', 'torrone', NULL);
+VALUES ('Torrone', 'Il torrone √® un dolce italiano principalmente natalizio. √à composto da albume d uovo, miele e zucchero, farcito con mandorle, noci, arachidi o nocciole tostate; spesso ricoperto da due strati d ostia. Il suo nome deriva dal verbo latino torrƒìre che significa abbrustolire con riferimento alla tostatura delle nocciole che lo compongono.', NULL);
 INSERT INTO categoria (nome, descrizione, img) 
-VALUES ('vino', 'vino', NULL);
+VALUES ('Vino', 'Scopri i vitigni pi√π raffinati e le loro migliori annate sorseggiando i vini che hanno fatto e continuano ancora oggi a scrivere la storia dell enologia italiana. Scoprirai le peculiarit√† e l‚Äôidentit√† che legano ogni vino al suo territorio, alle tecniche di coltivazione e ai processi di invecchiamento. Entra nelle migliori aziende vinicole e ordina le loro esclusive bottiglie: sar√† il produttore stesso a confezionarle e spedirle direttamente a casa tua.', NULL);
   
   CREATE TABLE prodotto (
   codice INT NOT NULL AUTO_INCREMENT,
-  nome VARCHAR(45) NOT NULL,
+  nome VARCHAR(45) NOT NULL unique,
   descrizione VARCHAR(800) NOT NULL,
   prezzo FLOAT NOT NULL,
   peso FLOAT NULL,
@@ -62,82 +62,82 @@ VALUES ('vino', 'vino', NULL);
   
   
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ( 'acacia', 'Dal colore dorato chiaro, trasparente, e dal sapore delicato; Ë un dolcificate ideale da aggiungere a tutti i tipi di bevande calde, anche nel caffË.', 17.99, 0.7, 3, 'miele');
+VALUES ( 'Acacia', 'Dal colore dorato chiaro, trasparente, e dal sapore delicato; √® un dolcificate ideale da aggiungere a tutti i tipi di bevande calde, anche nel caff√®.', 17.99, 0.7, 3, 'Miele');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ( 'millefiori', 'Il Miele di Millefiori ha un colore ambrato e il suo sapore Ë delicatamente aromatico, gradevole e pieno. » indicato in generale nelle situazioni di affaticamento, anemia, convalescenza, come sedativo per la tosse ed Ë anche utile per chi fa attivit‡ sportiva.', 8.5, 0.4, 8, 'miele');
+VALUES ( 'Millefiori', 'Il Miele di Millefiori ha un colore ambrato e il suo sapore √® delicatamente aromatico, gradevole e pieno. √à indicato in generale nelle situazioni di affaticamento, anemia, convalescenza, come sedativo per la tosse ed √® anche utile per chi fa attivit√† sportiva.', 8.5, 0.4, 8, 'miele');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('tiglio', 'Il Miele di Tiglio ha un colore giallo chiaro, un sapore leggermente balsamico e un gusto dolce e delicato. » un consigliato antispasmodico, sedativo delle insonnie, diuretico e calmante della tosse.', 9.99, 0.4, 7, 'miele');
+VALUES ('Tiglio', 'Il Miele di Tiglio ha un colore giallo chiaro, un sapore leggermente balsamico e un gusto dolce e delicato. √à un consigliato antispasmodico, sedativo delle insonnie, diuretico e calmante della tosse.', 9.99, 0.4, 7, 'miele');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('castagno', 'Gli alveari della apicoltura di questo tipo di miele sono collocati in aree boschive, o nelle vicinanze di aziende agricole ad agricoltura biologica, lontano da intense emissioni inquinanti, come citt‡, strade, fabbriche, discariche.', 14, 0.4, 20, 'miele');
+VALUES ('Castagno', 'Gli alveari della apicoltura di questo tipo di miele sono collocati in aree boschive, o nelle vicinanze di aziende agricole ad agricoltura biologica, lontano da intense emissioni inquinanti, come citt√†, strade, fabbriche, discariche.', 14, 0.4, 20, 'miele');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('extravergine', 'il nostro olio Ë di categoria fruttato leggero, si presenta con un colore giallo dorato con sfumature verdi. Ha un sentore di carciofo sotto il quale Ë avvertibile una mandorla dolce. Leggermente amaro e poco piccante, i sentori di verde percepiti allíolfatto si evidenziano durante líassaggio.', 17.99, 1, 30, 'olio');
+VALUES ('Extravergine', 'Il nostro olio √® di categoria fruttato leggero, si presenta con un colore giallo dorato con sfumature verdi. Ha un sentore di carciofo sotto il quale √® avvertibile una mandorla dolce. Leggermente amaro e poco piccante, i sentori di verde percepiti all‚Äôolfatto si evidenziano durante l‚Äôassaggio.', 17.99, 1, 30, 'olio');
   
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('sfogliatelle', 'Sfogliatelle fatte a mano ripine di ricotta e spinaci', 11, 1, 10, 'pasta');
+VALUES ('Sfogliatelle', 'Sfogliatelle fatte a mano ripine di ricotta e spinaci', 11, 1, 10, 'pasta');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('fusilli', 'Fusilli fatti a mano secondo la antica ricetta avellinese', 8, 1, 32, 'pasta');
+VALUES ('Fusilli', 'Fusilli fatti a mano secondo la antica ricetta avellinese', 8, 1, 32, 'pasta');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('ziti', 'Ziti fatti a mano secondo la antica ricetta avellinese', 8, 1, 12, 'pasta');
+VALUES ('Tagliatelle', 'Pasta all uovo prodotta effettuando una meticolosa ricerca delle materie prime della pi√π elevata qualit√†, utilizzando soltanto semola di grano duro e uova fresche', 8, 1, 12, 'pasta');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('pasta mista', 'Pasta mista fatta a mano con differenti tipi di farina adatta per pasta con legumi', 10, 1, 8, 'pasta');
+VALUES ('Tortelli', 'Da una ricetta tipica della tradizione leggermente rivisitata, Sapore Campano ha selezionato per voi i tortelloni con ripieno di ricotta e spinaci di Pasta Mario. Cuoceteli in pentola e scolateli leggermente al dente, per finire la cotture in padella con abbondante burro, salvia e parmigiano. Cos√¨ buoni che sembrano fatti in casa!', 19.99, 1, 8, 'pasta');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('capicollo', 'Parte anteriore del lombo salata a mano, in budello naturale. Stagionatura 4/6 mesi. Peso da 2.5 a 3.5 kg ca. Ingredienti: sale e pepe nero spezzato.', 24.99, 2.5, 10, 'salumi');
+VALUES ('Capicollo', 'Parte anteriore del lombo salata a mano, in budello naturale. Stagionatura 4/6 mesi. Peso da 2.5 a 3.5 kg ca. Ingredienti: sale e pepe nero spezzato.', 24.99, 2.5, 10, 'salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('filetto', 'Parte anteriore del lombo salata† a† mano, in budello naturale. Stagionatura: 3 / 4 mesi. Peso: da 1.2 a 4 kg ca. Ingredienti: sale e pepe nero spezzato.', 40, 3.5, 8, 'salumi');
+VALUES ('Filetto', 'Parte anteriore del lombo salata¬† a¬† mano, in budello naturale. Stagionatura: 3 / 4 mesi. Peso: da 1.2 a 4 kg ca. Ingredienti: sale e pepe nero spezzato.', 40, 3.5, 8, 'salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('pancetta', 'Parte della pancia del suino squadrata, rifilata e salata a mano. Stagionatura: 2/4 mesi. Peso da:  3 a 4.5 kg ca. Ingredienti: sale e pepe nero spezzato.', 22, 3.5, 32, 'salumi');
+VALUES ('Pancetta', 'Parte della pancia del suino squadrata, rifilata e salata a mano. Stagionatura: 2/4 mesi. Peso da:  3 a 4.5 kg ca. Ingredienti: sale e pepe nero spezzato.', 22, 3.5, 32, 'salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('prosciutto', 'Coscia posteriore del suino rifilata, salata, massaggiata e sugnata a mano. Stagionatura: 16/20 mesi. Peso: da 10 a 14 kg c.a. Ingredienti: solo sale.', 56, 12, 15, 'salumi');
+VALUES ('Prosciutto', 'Coscia posteriore del suino rifilata, salata, massaggiata e sugnata a mano. Stagionatura: 16/20 mesi. Peso: da 10 a 14 kg c.a. Ingredienti: solo sale.', 56, 12, 15, 'salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('salsiccia', 'Insaccato di carni scelte di prosciutto e spalla, macinatura media, in budello naturale. Stagionatura 30/40 gg. Peso 110 gr ca. Ingredienti sale e pepe.', 14.99, 0.110, 23, 'salumi');
+VALUES ('Salsiccia', 'Insaccato di carni scelte di prosciutto e spalla, macinatura media, in budello naturale. Stagionatura 30/40 gg. Peso 110 gr ca. Ingredienti sale e pepe.', 14.99, 0.110, 23, 'salumi');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('soppressata', 'Insaccato di carni scelte di prosciutto e lombo, macinatura grossa, legata a mano, in budello naturale. Stagionatura: 50/60 giorni. Peso: 270gr circa. Ingredienti: sale e pepe.', 12, 0.3, 4, 'salumi');
+VALUES ('Soppressata', 'Insaccato di carni scelte di prosciutto e lombo, macinatura grossa, legata a mano, in budello naturale. Stagionatura: 50/60 giorni. Peso: 270gr circa. Ingredienti: sale e pepe.', 12, 0.3, 4, 'salumi');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('carciofi', 'Ingredienti: Peperoni ripieni, olio di semi di girasole, piante aromatiche, aceto di vino, sale, antiossidante E300-E330', 14.99, 0.5, 3, 'sottoli');
+VALUES ('Carciofi', '', 14.99, 0.5, 3, 'sottoli');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('friarielli', 'La ricetta dei cosidetti Friarielli prevede che broccoli di prima qualit‡ siano soffritti in olio extravergine di oliva insieme ad uno spicchio di aglio (per dare profumo) e del peperoncino, subito dopo essere stati scottati nell olio bollente, questi vengono conditi con un filo di olio extravergine a crudo e gustati da soli o accompagnati a delle salsicce, famosissimo Ë il piatto tipico campano Salsicce e Friarielli. Ingredienti: Broccoli 65%, olio extra vergine di oliva cultivar Ravece, aceto di vino, sale, peperoncino.', 9.99, 1, 30, 'sottoli');
+VALUES ('Friarielli', 'La ricetta dei cosidetti Friarielli prevede che broccoli di prima qualit√† siano soffritti in olio extravergine di oliva insieme ad uno spicchio di aglio (per dare profumo) e del peperoncino, subito dopo essere stati scottati nell olio bollente, questi vengono conditi con un filo di olio extravergine a crudo e gustati da soli o accompagnati a delle salsicce, famosissimo √® il piatto tipico campano Salsicce e Friarielli. Ingredienti: Broccoli 65%, olio extra vergine di oliva cultivar Ravece, aceto di vino, sale, peperoncino.', 9.99, 1, 30, 'Conserve');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('melanzane', 'Ingredienti: Melanzane, Olio extravergine díoliva, Aceto, Sale e Aromi naturali. Melanzane a filetto, una prelibata sinfonia di sapori della tradizione campana. Una volta aperto il vasetto, ricoprire di olio dopo ogni uso, e conservare possibilmente in frigorifero.', 5, 0.5, 9, 'sottoli');
+VALUES ('Melanzane', 'Ingredienti: Melanzane, Olio extravergine d‚Äôoliva, Aceto, Sale e Aromi naturali. Melanzane a filetto, una prelibata sinfonia di sapori della tradizione campana. Una volta aperto il vasetto, ricoprire di olio dopo ogni uso, e conservare possibilmente in frigorifero.', 5, 0.5, 9, 'Conserve');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('olive', 'Queste olive hanno straordinaria polposit‡ e pur restando croccanti, dolcissime e succulente, speciali negli antipasti e come snack, una vera goduria da spizzicare in ogni momento della giornata.', 6.99, 1, 10, 'sottoli');
+VALUES ('Olive', 'Queste olive hanno straordinaria polposit√† e pur restando croccanti, dolcissime e succulente, speciali negli antipasti e come snack, una vera goduria da spizzicare in ogni momento della giornata.', 6.99, 1, 10, 'Conserve');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('peperoni', 'Ingredienti: Peperoni ripieni, olio di semi di girasole, piante aromatiche, aceto di vino, sale, antiossidante E300-E330', 5, 0.5, 33, 'sottoli');
+VALUES ('Peperoni', 'Ingredienti: Peperoni ripieni, olio di semi di girasole, piante aromatiche, aceto di vino, sale, antiossidante E300-E330', 5, 0.5, 33, 'Conserve');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('tartufo bianco', 'Considerato il tartufo pi˘ pregiato sia per le sue caratteristiche organolettiche che per la scarsit‡ di esemplari che se ne reperiscono ogni anno. Ad oggi non Ë possibile coltivarlo. Ha un profumo intenso, lievemente formaggioso, e conferisce personalit‡ ai piatti anche quando usato in piccole quantit‡. Essendo una specialit‡ per intenditori, il Tartufo Bianco fresco Ë perfetto anche come idea regalo raffinata e originale. Le pezzature inviate sono miste.', 139.99, 1, 28, 'tartufo');
+VALUES ('Tartufo bianco', 'Considerato il tartufo pi√π pregiato sia per le sue caratteristiche organolettiche che per la scarsit√† di esemplari che se ne reperiscono ogni anno. Ad oggi non √® possibile coltivarlo. Ha un profumo intenso, lievemente formaggioso, e conferisce personalit√† ai piatti anche quando usato in piccole quantit√†. Essendo una specialit√† per intenditori, il Tartufo Bianco fresco √® perfetto anche come idea regalo raffinata e originale. Le pezzature inviate sono miste.', 139.99, 1, 28, 'Tartufo');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('tartufo estivo', 'Il tartufo estivo fresco Ë il prodotto ideale per chi vuole avvicinarsi al mondo del tartufo: aroma equilibrato, pi˘ economico del famoso tartufo nero pregiato e ingrediente ideale per dare un tocco in pi˘ alle tue ricette. In pi˘, il gusto di un portare a tavola un tartufo appena raccolto e la bellezza del gesto di grattare, spolverare e litigare per líultima lamella. Molti lo conoscono come scorzone, per la sua scorza ruvida e verrucosa. In realt‡, il tartufo estivo prende il suo nome dalla sua caratteristica pi˘ evidente, la stagionalit‡.', 119.99, 1, 4, 'tartufo');
+VALUES ('Tartufo estivo', 'Il tartufo estivo fresco √® il prodotto ideale per chi vuole avvicinarsi al mondo del tartufo: aroma equilibrato, pi√π economico del famoso tartufo nero pregiato e ingrediente ideale per dare un tocco in pi√π alle tue ricette. In pi√π, il gusto di un portare a tavola un tartufo appena raccolto e la bellezza del gesto di grattare, spolverare e litigare per l‚Äôultima lamella. Molti lo conoscono come scorzone, per la sua scorza ruvida e verrucosa. In realt√†, il tartufo estivo prende il suo nome dalla sua caratteristica pi√π evidente, la stagionalit√†.', 119.99, 1, 4, 'Tartufo');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('tartufo nero', 'Il Tartufo Nero Pregiato fresco, detto anche Tartufo Nero di Norcia, si raccoglie dal 15 novembre al 15 marzo. Il profumo intenso ed aromatico del Tartufo Nero Pregiato ed il sapore deciso ma equilibrato lo hanno reso il re della tavola anche perchÈ puÚ essere cotto senza che il suo aroma ne risenta. Prezioso e profumato, puÚ costituire una idea regalo originale ed utile per i buongustai.', 144.99, 1, 15, 'tartufo');
+VALUES ('Tartufo nero', 'Il Tartufo Nero Pregiato fresco, detto anche Tartufo Nero di Norcia, si raccoglie dal 15 novembre al 15 marzo. Il profumo intenso ed aromatico del Tartufo Nero Pregiato ed il sapore deciso ma equilibrato lo hanno reso il re della tavola anche perch√© pu√≤ essere cotto senza che il suo aroma ne risenta. Prezioso e profumato, pu√≤ costituire una idea regalo originale ed utile per i buongustai.', 144.99, 1, 15, 'Tartufo');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('tartufo uncinato', 'Il Tartufo Uncinato fresco, detto anche Scorzone Invernale, si raccoglie dal 1 Ottobre al 31 Dicembre. La selezione in vendita Ë di provenienza italiana, ha profumo e sapore delicati e ben delineati, con note di nocciola, porcino e grana. Perfetto per molteplici usi in cucina, sia cotto che crudo. Le pezzature inviate sono miste.', 129.99, 1, 5, 'tartufo');
+VALUES ('Tartufo uncinato', 'Il Tartufo Uncinato fresco, detto anche Scorzone Invernale, si raccoglie dal 1 Ottobre al 31 Dicembre. La selezione in vendita √® di provenienza italiana, ha profumo e sapore delicati e ben delineati, con note di nocciola, porcino e grana. Perfetto per molteplici usi in cucina, sia cotto che crudo. Le pezzature inviate sono miste.', 129.99, 1, 5, 'Tartufo');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('mandorlato', 'Torrone friabile alla mandorla. Ancora oggi prodotto secondo líantica ricetta che gli dona un gusto straordinario', 4.99, 0.14, 23, 'torrone');
+VALUES ('Mandorlato', 'Torrone friabile alla mandorla. Ancora oggi prodotto secondo l‚Äôantica ricetta che gli dona un gusto straordinario', 4.99, 0.14, 23, 'Torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('golosino', 'Torrone tenero al cioccolato e nocciole. Creato nel 1950, oggi Ë uno dei torroni morbidi pi˘ apprezzati dalla clientela', 4.99, 0.14, 3, 'torrone');
+VALUES ('Golosino', 'Torrone tenero al cioccolato e nocciole. Creato nel 1950, oggi √® uno dei torroni morbidi pi√π apprezzati dalla clientela', 4.99, 0.14, 3, 'Torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('montigo', 'Torrone tenero al rhum. Il miglior rhum giamaicano per rendere ancora pi˘ dolce il torrone morbido.', 4.99, 0.14, 30, 'torrone');
+VALUES ('Montigo', 'Torrone tenero al rhum. Il miglior rhum giamaicano per rendere ancora pi√π dolce il torrone morbido.', 4.99, 0.14, 30, 'Torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('morbidello', 'Torrone tenero alle mandorle ricoperto di puro cioccolato fondente al 60% di cacao. Gusto delicato ed uno strato di cioccolato sono le sue caratteristiche principali', 4.99, 0.14, 8, 'torrone');
+VALUES ('Morbidello', 'Torrone tenero alle mandorle ricoperto di puro cioccolato fondente al 60% di cacao. Gusto delicato ed uno strato di cioccolato sono le sue caratteristiche principali', 4.99, 0.14, 8, 'Torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('sorrento', 'Torrone tenero alle noci. Torrone di altissima qualit‡, ricco di noci e miele italiano', 4.99, 0.14, 3, 'torrone');
+VALUES ('Sorrento', 'Torrone tenero alle noci. Torrone di altissima qualit√†, ricco di noci e miele italiano', 4.99, 0.14, 3, 'Torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('torroncini attimi', 'Deliziosi bocconcini di torrone al pan di spagna dal sapore inconfondibile', 4.99, 0.25, 33, 'torrone');
+VALUES ('Torroncini attimi', 'Deliziosi bocconcini di torrone al pan di spagna dal sapore inconfondibile', 4.99, 0.5, 33, 'Torrone');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('torroncini misti', 'Torroncini alla mandorla, pan di spagna e croccantino', 4.99, 0.5, 7, 'torrone');
+VALUES ('Torroncini misti', 'Torroncini alla mandorla, pan di spagna e croccantino', 4.99, 0.5, 7, 'Torrone');
 
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('chianti', 'Spesso nel Chianti le colline pi˘ vocate alla coltivazione del Sangiovese sono caratterizzate da suoli ricchi di sassi, denominati alberesi e galestro, da qui il nome ISASSI.', 14.99, 0.75, 4, 'vino');
+VALUES ('Greco di tufo', 'Il Greco di Tufo √® una delle poche variet√† bianche ad avere un‚Äôalta propensione all‚Äôinvecchiamento.Questo antico e prestigioso vitigno √® stato portato nella provincia di Avellino dai Pelagi, dalla Tessaglia in Grecia, nel primo secolo avanti Cristo', 11.90, 0.75, 7, 'Vino');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) 
-VALUES ('falanghina', 'Giallo paglierino chiaro con riflessi verdognoli, al naso esprime un carattere fresco e fruttato, caratterizzato da spiccate note di agrumi, ananas e fiori bianchi. Al palato Ë piacevole e persistente, equilibrato da un piacevole retrogusto fruttato.', 19.99, 0.75, 10, 'vino');
+VALUES ('Falanghina', 'Giallo paglierino chiaro con riflessi verdognoli, al naso esprime un carattere fresco e fruttato, caratterizzato da spiccate note di agrumi, ananas e fiori bianchi. Al palato √® piacevole e persistente, equilibrato da un piacevole retrogusto fruttato.', 13.90, 0.75, 10, 'Vino');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('fiano', 'Giallo paglierino con leggeri riflessi dorati. Offre moltissimi toni olfattivi, tra cui profumi di fiori bianchi, mela e pera, oltre allíinconfondibile sentore di nocciola tostata. Allíassaggio conferma líolfattiva, con la nocciola che domina nuovamente, accompagnando verso una chiusura fresca e minerale.', 22, 0.75, 7, 'vino');
+VALUES ('Fiano', 'Giallo paglierino con leggeri riflessi dorati. Offre moltissimi toni olfattivi, tra cui profumi di fiori bianchi, mela e pera, oltre all‚Äôinconfondibile sentore di nocciola tostata. All‚Äôassaggio conferma l‚Äôolfattiva, con la nocciola che domina nuovamente, accompagnando verso una chiusura fresca e minerale.', 11.90, 0.75, 7, 'Vino');
 INSERT INTO prodotto ( nome, descrizione, prezzo, peso, pezzi_disponibili, categoria)  
-VALUES ('aglianico', 'Rosso rubino scuro, al naso esprime note di grande eleganza che riportano subito la mente ai grandi Aglianico del Vulture. Sentori di frutta rossa si affiancano a note di tabacco e vaniglia prima di incedere in una affascinante mineralit‡ vulcanica, addirittura impreziosita da un lontano ricordo agrumato. In bocca Ë secco, suadente, insospettabilmente fresco e di grande equilibrio. Un assaggio reattivo, vellutato, lunghissimo.', 14.99, 0.75, 3, 'vino');
+VALUES ('Aglianico', 'Rosso rubino scuro, al naso esprime note di grande eleganza che riportano subito la mente ai grandi Aglianico del Vulture. Sentori di frutta rossa si affiancano a note di tabacco e vaniglia prima di incedere in una affascinante mineralit√† vulcanica, addirittura impreziosita da un lontano ricordo agrumato. In bocca √® secco, suadente, insospettabilmente fresco e di grande equilibrio. Un assaggio reattivo, vellutato, lunghissimo.', 14.99, 0.75, 3, 'Vino');
 
 
   CREATE TABLE ordine (
