@@ -47,4 +47,5 @@
     <filter-name>AuthFilterUtente</filter-name>
     <url-pattern>/clienteFilter/*</url-pattern>
  </filter-mapping> 
+
 </web-app>
