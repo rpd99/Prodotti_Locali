@@ -20,29 +20,19 @@
 <link rel="stylesheet" type="text/css" href="layout.css" />
 <link rel="stylesheet" type="text/css" href="styleheader.css" />
 <link rel="stylesheet" type="text/css" href="footer.css" />
+<script src="sort.js"></script>
 </head>
 <body>
 	<div class="main">
 	<jsp:include page="header.jsp"/>
-	
-		<!--  
-		<div class="left">	
-			Categorie<br>
-		<%
-			if(categories != null && categories.size() > 0) {
-				
-				Iterator<?> it = categories.iterator();
-				while(it.hasNext()){
-					Categoria bean = (Categoria)it.next();
-		%>
-			<a href="categoria-prodotto.jsp?cat=<%=bean.getNome() %>"><%=bean.getNome() %></a><br>
-		<%}} %>
-		</div>
-		-->
+
 		<h2>Prodotti della categoria <b><%=request.getParameter("cat") %></b></h2>
 		<h4><%if(description != null) {%>
 				<%=description%>
 		<%}%></h4>
+		
+		Ordina per: <a onclick="sortByName()"> nome </a>, <a onclick="sortByPrice()"> prezzo </a>
+		
 		<div class="prodottoID">
 		<%
 			if(products != null && products.size() > 0) {
@@ -54,10 +44,11 @@
 			<div class="prodotto">
 				<a href="prodotto.jsp?cod=<%=bean.getCodice() %>">
 					<img src="./GetPicture?table=prodotto&id=<%=bean.getNome() %>">
-					<h3><%=bean.getNome() %>, <%=bean.getPrezzo() %>&euro;</h3>
+					<p class="nome"><%=bean.getNome()%></p>
+					<p class="prezzo"><%=bean.getPrezzo() %>&euro;</p>
 				</a>
 			</div>
-		<%}} %>
+		<%}}%>
 		</div>
 		
 	<jsp:include page="footer.jsp"/>
