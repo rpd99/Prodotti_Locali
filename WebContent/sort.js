@@ -1,14 +1,13 @@
-function sortDivs(f) {
+function sortDivs(compareFunc) {
 	var arr = [];
 	$('.prodotto').each(function() {
 		arr.push($(this));
 	});
 	
-	arr.sort(f);
+	arr.sort(compareFunc);
 	
 	var arrayLength = arr.length;
 	for(var i = 0; i < arrayLength; i++) {
-		console.log(arr[i].find('.nome').text());
 	    arr[i].css("order", i);
 	}
 }
