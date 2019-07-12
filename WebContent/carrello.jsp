@@ -44,7 +44,7 @@
 						%>
 							<tr>
 								<td><%=prod.getProdotto().getNome() %></td>
-								<td><%=prod.getQuantita() * prod.getProdotto().getPrezzo()%>&euro;</td>
+								<td><%=(float)(Math.ceil((prod.getQuantita() * prod.getProdotto().getPrezzo())*Math.pow(10,2))/Math.pow(10,2))%>&euro;</td>
 			 					<form action="CarrelloControl" method="post">
 			 						<td><input type="number" min=1 max=<%=prod.getProdotto().getPezzi_disponibili() %> name="quantita" value=<%=prod.getQuantita()%>></td>
 									<input type="hidden" name="action" value="updateCart">
