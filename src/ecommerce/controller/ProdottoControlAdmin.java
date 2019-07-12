@@ -2,6 +2,7 @@ package ecommerce.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,6 +30,7 @@ public class ProdottoControlAdmin extends HttpServlet {
 		String action = request.getParameter("action");
 		int flag=0;
 		RequestDispatcher dispatcher = null;
+		String cat = request.getParameter("cat");
 		
 		try {
 			if(action != null) {
@@ -67,6 +69,14 @@ public class ProdottoControlAdmin extends HttpServlet {
 						request.setAttribute("formError","Errore pezzi");
 						flag=2;
 					}
+					ArrayList<Prodotto> arrP = (ArrayList<Prodotto>) modelProdotto.doRetrieveByCategoria(cat);
+					for(Prodotto p : arrP) {
+						if(p.getNome().equals(nome)) {
+							request.setAttribute("formError","Esiste già un prodotto con questo nome");
+							flag=2;
+						}
+					}
+					
 					
 					if(flag!=2) {
 						float prezzo = Float.parseFloat(request.getParameter("prezzo"));
@@ -112,7 +122,7 @@ public class ProdottoControlAdmin extends HttpServlet {
 		
 		
 		request.removeAttribute("products");
-		String cat = request.getParameter("cat");
+		
 		if(cat.contentEquals("tutte"))
 			request.setAttribute("products", modelProdotto.doRetrieveAll());
 		else
