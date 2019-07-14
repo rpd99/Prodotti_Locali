@@ -47,14 +47,15 @@ public class MioProfilo extends HttpServlet {
 							if(Validator.isValidPassword(nuovaPassword1)) {
 								cliente.setPassword_utente(nuovaPassword1);
 								modelUtente.doUpdate(cliente);
+								request.setAttribute("formSuccess","Password aggiornata con successo");
 							} else { 
-								request.setAttribute("formError","errore formato password");
+								request.setAttribute("formError","Errore formato password");
 							}
 						} else {
-							request.setAttribute("formError","errore password diverse");		
+							request.setAttribute("formError","Le due password inserite sono diverse");		
 						}
 					} else {
-						request.setAttribute("formError","errore password vecchia");
+						request.setAttribute("formError","Password vecchia errata");
 					}
 					
 				} 

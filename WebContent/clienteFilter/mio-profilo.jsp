@@ -32,12 +32,15 @@
 	    	<% if(request.getAttribute("formError")!=null){
 	    		%><h1 style="color: red"><%=request.getAttribute("formError")%></h1>
 	    	<%} %>
+	    	 <% if(request.getAttribute("formSuccess")!=null){%>
+	   			 <h1 style="color: green"><%=request.getAttribute("formSuccess")%></h1>
+			<%} %>
 	    	</div>
     	
 			<h2>Benvenuto cliente <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h2>
 			<a href="Logout">Logout</a>
 			<% if(ordini.size() > 0) {%>
-				<h4>I tuoi ordini sono</h4>
+				<h4>I tuoi ordini sono:</h4>
 				<table>
 					<tr>
 						<th>Data spedizione</th> 
