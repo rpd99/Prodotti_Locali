@@ -43,7 +43,7 @@
 								tot += prod.getQuantita() * prod.getProdotto().getPrezzo();
 						%>
 							<tr>
-								<td><%=prod.getProdotto().getNome() %></td>
+								<td><a href="prodotto.jsp?cod=<%=prod.getProdotto().getCodice()%>"><%=prod.getProdotto().getNome()%></a></td>
 								<td><%=(float)(Math.ceil((prod.getQuantita() * prod.getProdotto().getPrezzo())*Math.pow(10,2))/Math.pow(10,2))%>&euro;</td>
 			 					<form action="CarrelloControl" method="post">
 			 						<td><input type="number" min=1 max=<%=prod.getProdotto().getPezzi_disponibili() %> name="quantita" value=<%=prod.getQuantita()%>></td>

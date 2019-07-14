@@ -34,7 +34,7 @@
 
         <div id="passwordMessage">
           <div class="alert alert-info" role="alert">
-            <strong>Attenzione!</strong> La password deve esssere lunga minima 8 caratteri e deve contenere almeno un carattere maiuscolo, minuscolo e un numero.
+            <strong>Attenzione!</strong> La password deve essere lunga minimo 8 caratteri e deve contenere almeno un carattere maiuscolo, minuscolo e un numero.
           </div>
       </div>
         <div class="textbox-registrazione">
