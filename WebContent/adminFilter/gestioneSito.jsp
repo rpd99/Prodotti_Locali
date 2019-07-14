@@ -27,6 +27,16 @@
 <body>
 	<div class="main">
 			<jsp:include page="../header.jsp"/>
+			
+			<div id="errorMessage">
+	    	<% if(request.getAttribute("formError")!=null){
+	    		%><h1 style="color: red"><%=request.getAttribute("formError")%></h1>
+	    	<%} %>
+	    	 <% if(request.getAttribute("formSuccess")!=null){%>
+	   			 <h1 style="color: green"><%=request.getAttribute("formSuccess")%></h1>
+			<%} %>
+	    	</div>
+			
 			<h1>Benvenuto admin <b><%= utente.getNome() %>, <%= utente.getCognome() %></b></h1>
 			<a href="Logout">Logout</a>
 			<h2>Inserisci una nuova categoria</h2>

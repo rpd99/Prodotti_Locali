@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class CategoriaDAO {
 		}
 	}
 
-	public void doSave(Categoria categoria) {
+	public void doSave(Categoria categoria) throws SQLIntegrityConstraintViolationException{
 		try (Connection con = DBConnectionPool.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("INSERT INTO categoria (nome, descrizione) VALUES(?,?)",
 					Statement.RETURN_GENERATED_KEYS);
@@ -37,7 +38,9 @@ public class CategoriaDAO {
 				throw new RuntimeException("INSERT error.");
 			}
 			con.commit();
-		} catch (SQLException e) {
+		} catch (SQLIntegrityConstraintViolationException e) {
+	        throw e;
+	    } catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}

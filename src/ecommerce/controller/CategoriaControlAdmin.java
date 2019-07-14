@@ -2,6 +2,7 @@ package ecommerce.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ecommerce.controller.ProdottoControlAdmin.state;
 import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
 import ecommerce.utils.PhotoControl;
@@ -22,6 +24,7 @@ public class CategoriaControlAdmin extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		int flag=0;
 		
 		try {
 			if(action != null) {
@@ -33,7 +36,13 @@ public class CategoriaControlAdmin extends HttpServlet {
 					bean.setNome(nome);
 					bean.setDescrizione(descrizione);
 					
-					modelCategoria.doSave(bean);
+					
+					try {
+						modelCategoria.doSave(bean);
+					} catch (SQLIntegrityConstraintViolationException e) {
+						request.setAttribute("formError","Esiste già una categoria con questo nome");
+						flag = 1;
+					}
 					
 					String urlPhoto = (String) request.getParameter("urlPhoto");
 					if (urlPhoto != null) {
@@ -43,6 +52,10 @@ public class CategoriaControlAdmin extends HttpServlet {
 							e.printStackTrace();
 						}
 					}
+					
+					if(flag == 0)
+						request.setAttribute("formSuccess","Categoria inserita con successo");
+					
 				} 
 			}
 		}  catch(NumberFormatException e) {
