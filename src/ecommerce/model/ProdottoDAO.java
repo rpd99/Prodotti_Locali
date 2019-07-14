@@ -3,7 +3,7 @@ package ecommerce.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.SQLException;import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,7 +103,7 @@ public class ProdottoDAO {
 		}
 	}
 
-	public void doSave(Prodotto prodotto) {
+	public void doSave(Prodotto prodotto) throws SQLIntegrityConstraintViolationException {
 		try (Connection con = DBConnectionPool.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("INSERT INTO prodotto (nome, descrizione, prezzo, peso, pezzi_disponibili, categoria) VALUES(?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
@@ -117,9 +117,11 @@ public class ProdottoDAO {
 				throw new RuntimeException("INSERT error.");
 			}
 			con.commit();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+		} catch (SQLIntegrityConstraintViolationException e) {
+	        throw e;
+	    } catch (SQLException e) {
+	    	throw new RuntimeException(e);
+	    }
 	}
 
 	public void doUpdate(Prodotto prodotto) {
