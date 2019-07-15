@@ -47,8 +47,8 @@
         <div class="social">
           <p>Seguici su: </p>
           <ul>
-            <li><a href="https://it-it.facebook.com/"> <img src="" alt="FB"> </a></li>
-            <li><a href="https://www.instagram.com/?hl=it"> <img src="" alt="IG"> </a></li>
+            <li><a href="https://it-it.facebook.com/"> FB </a></li>
+            <li><a href="https://www.instagram.com/?hl=it"> IG </a></li>
           </ul>
         </div>
         <div class="informazioni">
