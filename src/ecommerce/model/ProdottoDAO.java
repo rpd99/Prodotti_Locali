@@ -24,7 +24,7 @@ public class ProdottoDAO {
 				c.setPeso(rs.getDouble(5));
 				c.setPezzi_disponibili(rs.getInt(6));
 				c.setCategoria(rs.getString(7));
-				
+				DBConnectionPool.releaseConnection(con);
 				prodotti.add(c);
 			}
 			return prodotti;
@@ -49,6 +49,7 @@ public class ProdottoDAO {
 				c.setPezzi_disponibili(rs.getInt(6));
 				c.setCategoria(rs.getString(7));
 				
+				DBConnectionPool.releaseConnection(con);
 				prodotti.add(c);
 			}
 			return prodotti;
@@ -73,6 +74,7 @@ public class ProdottoDAO {
 				c.setPezzi_disponibili(rs.getInt(6));
 				c.setCategoria(rs.getString(7));
 			}
+			DBConnectionPool.releaseConnection(con);
 			return c;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -97,6 +99,7 @@ public class ProdottoDAO {
 				
 				prodotti.add(c);
 			}
+			DBConnectionPool.releaseConnection(con);
 			return prodotti;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -117,6 +120,7 @@ public class ProdottoDAO {
 				throw new RuntimeException("INSERT error.");
 			}
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLIntegrityConstraintViolationException e) {
 	        throw e;
 	    } catch (SQLException e) {
@@ -138,6 +142,7 @@ public class ProdottoDAO {
 				throw new RuntimeException("UPDATE error.");
 			}
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -151,6 +156,7 @@ public class ProdottoDAO {
 				throw new RuntimeException("DELETE error.");
 			}
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

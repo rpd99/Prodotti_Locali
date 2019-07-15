@@ -22,6 +22,7 @@ public class CategoriaDAO {
 				c.setDescrizione(rs.getString(2));
 				categorie.add(c);
 			}
+			DBConnectionPool.releaseConnection(con);
 			return categorie;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -37,7 +38,9 @@ public class CategoriaDAO {
 			if (ps.executeUpdate() != 1) {
 				throw new RuntimeException("INSERT error.");
 			}
+
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLIntegrityConstraintViolationException e) {
 	        throw e;
 	    } catch (SQLException e) {
@@ -53,7 +56,9 @@ public class CategoriaDAO {
 			if (ps.executeUpdate() != 1) {
 				throw new RuntimeException("UPDATE error.");
 			}
+			
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -67,6 +72,7 @@ public class CategoriaDAO {
 				throw new RuntimeException("DELETE error.");
 			}
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

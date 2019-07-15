@@ -25,6 +25,7 @@ public class UtenteDAO {
 				
 				utenti.add(c);
 			}
+			DBConnectionPool.releaseConnection(con);
 			return utenti;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -45,6 +46,7 @@ public class UtenteDAO {
 				c.setPassword_utente(rs.getString(4));
 				c.setIs_Admin(rs.getInt(5));
 			}
+			DBConnectionPool.releaseConnection(con);
 			return c;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -66,6 +68,7 @@ public class UtenteDAO {
 				c.setPassword_utente(rs.getString(4));
 				c.setIs_Admin(rs.getInt(5));
 			}
+			DBConnectionPool.releaseConnection(con);
 			return c;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -84,7 +87,9 @@ public class UtenteDAO {
 			if (ps.executeUpdate() != 1) {
 				throw new RuntimeException("INSERT error.");
 			}
+
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -102,7 +107,9 @@ public class UtenteDAO {
 			if (ps.executeUpdate() != 1) {
 				throw new RuntimeException("UPDATE error.");
 			}
+			
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -116,6 +123,7 @@ public class UtenteDAO {
 				throw new RuntimeException("DELETE error.");
 			}
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

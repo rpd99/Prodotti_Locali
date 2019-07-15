@@ -30,6 +30,7 @@ public class OrdineDAO {
 				
 				ordini.add(c);
 			}
+			DBConnectionPool.releaseConnection(con);
 			return ordini;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -54,6 +55,7 @@ public class OrdineDAO {
 				
 				ordini.add(c);
 			}
+			DBConnectionPool.releaseConnection(con);
 			return ordini;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -74,6 +76,7 @@ public class OrdineDAO {
 				throw new RuntimeException("INSERT error.");
 			}
 			con.commit();
+			DBConnectionPool.releaseConnection(con);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
