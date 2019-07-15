@@ -16,6 +16,7 @@ import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
 import ecommerce.model.Prodotto;
 import ecommerce.model.ProdottoDAO;
+import ecommerce.model.Utente;
 import ecommerce.utils.PhotoControl;
 import ecommerce.utils.Validator;
 
@@ -33,6 +34,12 @@ public class ProdottoControlAdmin extends HttpServlet {
 	static ProdottoDAO modelProdotto = new ProdottoDAO();
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Utente u = (Utente) request.getSession().getAttribute("utente");
+		if(u==null || u.getIs_Admin() != 1) {
+			response.sendRedirect("./login.jsp");
+			return;
+		}
+		
 		String action = request.getParameter("action");
 		state flag = state.NO_ACTION;
 		RequestDispatcher dispatcher = null;

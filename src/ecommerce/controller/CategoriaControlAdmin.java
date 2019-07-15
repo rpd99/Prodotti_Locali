@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import ecommerce.controller.ProdottoControlAdmin.state;
 import ecommerce.model.Categoria;
 import ecommerce.model.CategoriaDAO;
+import ecommerce.model.Utente;
 import ecommerce.utils.PhotoControl;
 
 @WebServlet("/CategoriaControlAdmin")
@@ -23,6 +24,12 @@ public class CategoriaControlAdmin extends HttpServlet {
 	static CategoriaDAO modelCategoria = new CategoriaDAO();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Utente u = (Utente) request.getSession().getAttribute("utente");
+		if(u==null || u.getIs_Admin() != 1) {
+			response.sendRedirect("./login.jsp");
+			return;
+		}
+		
 		String action = request.getParameter("action");
 		int flag=0;
 		

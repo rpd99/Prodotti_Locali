@@ -31,6 +31,10 @@ public class MioProfilo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utente cliente = (Utente) request.getSession().getAttribute("utente");
+		if(cliente==null || cliente.getIs_Admin() != 0) {
+			response.sendRedirect("./login.jsp");
+			return;
+		}
 		int flag=0;
 		
 		String action = request.getParameter("action");

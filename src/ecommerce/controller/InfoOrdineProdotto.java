@@ -27,7 +27,12 @@ public class InfoOrdineProdotto extends HttpServlet {
 	static OrdineDAO modelOrdine = new OrdineDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utente cliente = (Utente) request.getSession().getAttribute("utente");	
+		Utente u = (Utente) request.getSession().getAttribute("utente");
+		if(u==null || u.getIs_Admin() != 0) {
+			response.sendRedirect("./login.jsp");
+			return;
+		}
+		
 		int cod = Integer.parseInt(request.getParameter("cod"));
 		
 		request.setAttribute("ordiniProdotti",modelOrdineProdotto.doRetrieveByOrdine(cod));

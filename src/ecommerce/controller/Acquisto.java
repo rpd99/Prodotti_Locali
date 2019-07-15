@@ -36,6 +36,12 @@ public class Acquisto extends HttpServlet {
 	static OrdineProdottoDAO modelOrdineProdotto = new OrdineProdottoDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Utente u = (Utente) request.getSession().getAttribute("utente");
+		if(u==null || u.getIs_Admin() != 0) {
+			response.sendRedirect("./login.jsp");
+			return;
+		}
+		
 		Utente cliente = (Utente) request.getSession().getAttribute("utente");
 		Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
 		int flag=0;
